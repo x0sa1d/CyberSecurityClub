@@ -3666,7 +3666,8 @@ body {
 
 .member_socials {
   width: 100%;
-  margin-top: 8px;
+  margin-top: 2px;
+  padding: 0 10px;  
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -3757,7 +3758,20 @@ body {
   .past-eboard-org {
   margin: 0 0.5rem;
 }
-
+.past-eboard-table{
+  width: 50%;
+  margin-left: 27rem;
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.past-eboard-table_2{
+  width:42%;
+  margin-left: 27rem;
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
 @media only screen and (max-width: 768px) {
   .about-groups-container {
     width: 100% !important;
@@ -3768,6 +3782,14 @@ body {
   .about-groups-container .group_container .group_title {
     flex-direction: column;
   }
+    .past-eboard-table_2 {
+    width: 80%;
+    margin-left: 3rem;
+}
+  .past-eboard-table {
+    width: 90%;
+    margin-left: 3rem;
+}
 }
 .education-section {
   width: 100%;
