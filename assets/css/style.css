@@ -701,7 +701,7 @@ body {
 /** Sponsors Section **/
 .home_sponsors-grid {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   flex-flow: wrap;
@@ -711,7 +711,7 @@ body {
 
 .home_sponsor {
   width: 250px;
-  height: 300px;
+  height: 100px;
   display: grid;
   grid-template-rows: 250px 50px;
   color: var(--text-color);
@@ -720,7 +720,7 @@ body {
 
 .home_sponsor-image {
   width: 250px;
-  height: 250px;
+  height: 100px;
   object-fit: contain;
   padding: 1rem;
   background: #fff;
@@ -737,7 +737,36 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
 }
+/* Example CSS for marquee effect */
+.sponsors-marquee {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    height: 100px; /* Adjust as needed */
+}
 
+.sponsors-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 20s linear infinite;
+    align-items: center;
+}
+
+.sponsor-marquee-item img {
+    height: 80px;   /* Adjust as needed */
+    margin: 0 20px; /* Adjust spacing between items */
+    display:block;
+}
+
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
 /** Join Section **/
 .home_join-background {
   padding: 1rem 0;
