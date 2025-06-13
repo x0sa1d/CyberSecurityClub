@@ -271,16 +271,6 @@ body {
   flex-direction: column;
   align-items: flex-start;
 }
-@media (max-width: 576px) {
-  .footer-title-container {
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-}
-
 .footer-title {
   color: var(--text-color);
   font-size: 1.5rem;
@@ -355,6 +345,23 @@ body {
   }
   .footer-col-wrapper {
     margin: 0.25rem 0;
+  }
+}
+/* Ensure footer title and contact stack vertically on mobile */
+@media (max-width: 600px) {
+  .footer-title-container {
+    flex-direction: column !important;
+    align-items: left !important;
+    gap: 4px;
+  }
+  .footer-title {
+    text-align: left;
+    width: 100%;
+  }
+  .email {
+    width: 100%;
+    text-align: left;
+    display: block;
   }
 }
 /** Content **/
