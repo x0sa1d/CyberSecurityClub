@@ -4452,3 +4452,31 @@ body {
 .group-url-button:hover {
   opacity: 1;
 }
+
+.site-credit {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-top: 16px;
+  letter-spacing: 0.5px;
+}
+
+.site-credit a {
+  color: #0074d9; /* Bright blue */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-credit a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.site-credit .fa-github {
+  font-size: 1.1em;
+  vertical-align: middle;
+}
