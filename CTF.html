@@ -101,13 +101,40 @@
   </nav>
 
   <main class="page-content" aria-label="Content">
-    <div>
-      <section class="education-section">
-        <div class="heading-title">Weekly CTF</div>
-        <div class="heading-description">
-          Cyber Security club presents a unique Capture the Flag (CTF) challenge designed
-          to sharpen problem-solving skills and enhance security expertise.
+    <div class="heading-title">Capture The Flag</div>
+    <div class="heading-description">
+      Cyber Security club presents a unique Capture the Flag (CTF) challenge designed
+      to sharpen problem-solving skills and enhance security expertise.
+    </div>
+    <!-- CTF DASHBOARD -->
+        <title>CTF Scoreboard</title>
+    
+    <!-- External CSS & JS -->
+    <link rel="stylesheet" href="/assets/css/score.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="/assets/js/Score.js" defer></script>
+    <div class="container">
+        <h1>Weekly Scoreboard</h1>
+        <div id="chart" style="width:100%;height:400px;margin-bottom:40px;"></div>
+        <div class="scoreboard">
+            <h2>Top Players</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Team</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreboard-body"></tbody> <!-- Updated dynamically via JS -->
+            </table>
         </div>
+    </div>
+        <!-- CTF DASHBOARD -->
+        </div>
+    <!-- Education Section -->
+      <section class="education-section">
+
         <!-- Box 1  -->
         <div class="education-set-container">
           <div class="education-set">

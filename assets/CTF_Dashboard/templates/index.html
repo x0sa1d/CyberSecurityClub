@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CTF Challenge Portal</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff99;
+            font-family: "Courier New", monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff99;
+            box-shadow: 0px 0px 15px #00ff99;
+            border-radius: 8px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #00ff99;
+            background: black;
+            color: #00ff99;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #00ff99;
+            color: black;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: #00ff99;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Your CTF Profile</h1>
+    <div class="container">
+        <form action="/" method="post">
+            <label>ID Number:</label>
+            <input type="text" name="student_id" placeholder="10-digit ID" required><br><br>
+            
+            <label>Name:</label>
+            <input type="text" name="name" placeholder="Enter Your Name" required><br><br>
+            
+            <label>Batch:</label>
+            <input type="text" name="batch" placeholder="Batch Code" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
