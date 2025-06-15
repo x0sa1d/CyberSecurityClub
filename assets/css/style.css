@@ -3800,6 +3800,7 @@ body {
   align-items: center;
   position: relative;
   padding: 0px 32px;
+  margin-bottom: 50px;
 }
 @media (min-width: 576px) {
   .education-section {
