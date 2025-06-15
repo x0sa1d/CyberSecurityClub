@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Scoreboard</title>
+    
+    <!-- External CSS & JS -->
+    <link rel="stylesheet" href="/assets/css/score.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="/assets/js/Score.js" defer></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Scoreboard</h1>
+        <div id="chart" style="width:100%;height:400px;margin-bottom:40px;"></div>
+        <div class="scoreboard">
+            <h2>Top Teams</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Team</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreboard-body"></tbody> <!-- Updated dynamically via JS -->
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
