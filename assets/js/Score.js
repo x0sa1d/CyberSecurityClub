@@ -146,7 +146,10 @@ function updateGraph() {
         margin: { t: 60, l: 60, r: 30, b: 80 }
     };
 
-    Plotly.react("chart", traces, layout, {responsive: true});
+    Plotly.react("chart", traces, layout, {
+        responsive: true,
+        displayModeBar: false // <--- This hides the modebar/buttons
+    });
 
     // Legend hover highlight (as before)
     const chartDiv = document.getElementById('chart');
