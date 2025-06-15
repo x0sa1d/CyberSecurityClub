@@ -4,19 +4,43 @@ function getNearest5MinuteMark(date = new Date()) {
 }
 
 let contestStartTime = getNearest5MinuteMark();
-let scoreHistory = {}; // Do NOT clear this on refresh
+
+// Load scoreHistory from localStorage if available
+let scoreHistory = {};
+const savedHistory = localStorage.getItem('scoreHistory');
+if (savedHistory) {
+    scoreHistory = JSON.parse(savedHistory);
+}
+
+// Do NOT clear this on refresh
 
 function updateScoreboard() {
     fetch("https://script.google.com/macros/s/AKfycbwUYtpm7zkTLOqCZtwHy_F8n_4acG6Lc4RAbLYxCf68s3XN2ZzLImYmntKjubTi_Yq7/exec")
         .then(response => response.json())
         .then(data => {
+            // Sort teams by score descending
+            data.sort((a, b) => b.Score - a.Score);
+
+            // --- Update the leaderboard table ---
+            const tableBody = document.getElementById("scoreboard-body");
+            if (tableBody) {
+                tableBody.innerHTML = ""; // Clear old rows
+                data.forEach((team, idx) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${idx + 1}</td>
+                        <td>${team.Player}</td>
+                        <td>${team.Score}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+
             data.forEach(team => {
                 if (!scoreHistory[team.Player]) {
-                    // Always start at contest start time, score 0
                     scoreHistory[team.Player] = [
                         { time: contestStartTime, score: 0 }
                     ];
-                    // If their score is already above zero, add their current score as a new point
                     if (team.Score > 0) {
                         scoreHistory[team.Player].push({
                             time: new Date(),
@@ -32,6 +56,10 @@ function updateScoreboard() {
                     });
                 }
             });
+
+            // Save updated history to localStorage
+            localStorage.setItem('scoreHistory', JSON.stringify(scoreHistory));
+
             updateGraph();
         })
         .catch(console.error);
