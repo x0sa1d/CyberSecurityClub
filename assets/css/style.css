@@ -4411,7 +4411,15 @@ body {
 .bronze {
   color: #b08d57;
 }
-
+.Server {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0px 32px;
+}
 .alumni-section {
   text-align: center;
 }

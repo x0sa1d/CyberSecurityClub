@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CTF Challenge Portal</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff99;
+            font-family: "Courier New", monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff99;
+            box-shadow: 0px 0px 15px #00ff99;
+            border-radius: 8px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #00ff99;
+            background: black;
+            color: #00ff99;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #00ff99;
+            color: black;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #00ff99;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Your Student ID</h1>
+    <div class="container">
+        <form action="/" method="post">
+            <input type="text" name="student_id" placeholder="Enter 10-digit ID" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if student_info %}
+            <h2>Welcome, {{ student_info.name }}</h2>
+            <p>Batch: {{ student_info.batch }}</p>
+            <h3>Your Challenges:</h3>
+            <ul>
+                <li>Challenge 1: SQL Injection</li>
+                <li>Challenge 2: XSS Attack Prevention</li>
+                <li>Challenge 3: Reverse Engineering</li>
+            </ul>
+            <a href="/submit">Submit Challenge Score</a> |
+            <a href="/scoreboard">View Scoreboard</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>
