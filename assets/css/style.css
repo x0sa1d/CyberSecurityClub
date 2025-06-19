@@ -3,23 +3,7 @@ html {
 }
 
 html {
-  --background-color: #0d0d0f;
-  --background-image: url(/assets/images/BG_Black.webp);
-  --border-color: rgba(255, 255, 255, 0.1);
-  --text-color: #ffffff;
-  --light-text-color: #ccc;
-  --link-color: #0000FF;
-  --card-color: #26262b;
-  --card-color-light: #2d2d33;
-  --header-color: rgba(18, 16, 19, 0.35);
-  --header-color-mobile: rgba(18, 16, 19, 0.95);
-  --header-image-url: url(/assets/images/csc_white.png);
-}
-html:not(.light) .heading-description{
-  color: #fff;
-}
-html.light {
-  --background-color: #f1f1f1;
+    --background-color: #f1f1f1;
   --background-image: url(/assets/images/Untitled-1.webp);
   --border-color: rgba(0, 0, 0, 0.1);
   --text-color: #000000;
@@ -33,6 +17,23 @@ html.light {
   --gradient-1: #e6e6e6;
   --gradient-2: #cbcbcb;
   --gradient-3: #b2b2b2;
+}
+html:not(.light) .heading-description{
+  color: #0008ff;
+}
+html.light {
+  --background-color: #0d0d0f;
+  --background-image: url(/assets/images/BG_Black.webp);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-color: #ffffff;
+  --light-text-color: #ccc;
+  --link-color: #0000FF;
+  --card-color: #26262b;
+  --card-color-light: #2d2d33;
+  --header-color: rgba(18, 16, 19, 0.35);
+  --header-color-mobile: rgba(18, 16, 19, 0.95);
+  --header-image-url: url(/assets/images/csc_white.png);
+
 }
 
 *,
@@ -397,7 +398,7 @@ body {
   font-style: normal;
   font-weight: 600;
   text-align: center;
-  color: #0000FF;
+  color: #ffffff;
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 1.3rem;
