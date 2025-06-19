@@ -4,7 +4,7 @@ html {
 
 html {
   --background-color: #0d0d0f;
-  --background-image: url(/assets/images/bg-dark.svg);
+  --background-image: url(/assets/images/BG_Black.webp);
   --border-color: rgba(255, 255, 255, 0.1);
   --text-color: #ffffff;
   --light-text-color: #ccc;
@@ -15,10 +15,12 @@ html {
   --header-color-mobile: rgba(18, 16, 19, 0.95);
   --header-image-url: url(/assets/images/csc_white.png);
 }
-
+html:not(.light) .heading-description{
+  color: #fff;
+}
 html.light {
   --background-color: #f1f1f1;
-  --background-image: url(/assets/images/bg-light.svg);
+  --background-image: url(/assets/images/Untitled-1.webp);
   --border-color: rgba(0, 0, 0, 0.1);
   --text-color: #000000;
   --light-text-color: #525252;
@@ -79,7 +81,10 @@ body {
   overflow-wrap: break-word;
   color: var(--text-color);
   background-image: var(--background-image);
-  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; 
   max-width: 100%;
   height: 100%;
   min-height: 100%;
@@ -231,13 +236,15 @@ body {
 }
 /** Footer **/
 .site-footer {
-  background: var(--background-color);
   height: auto;
   width: 100%;
   padding: 1rem;
-  border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
+  background-color: var(--header-color);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s ease-in-out
 }
 
 .footer-wrapper {
@@ -371,8 +378,8 @@ body {
   text-align: center;
   color: var(--text-color);
   margin-top: 60px;
-  font-size: 4rem;
-  line-height: 4rem;
+  font-size: 5rem;
+  line-height: 5rem;
 }
 .heading-subtitle {
   font-style: normal;
@@ -380,10 +387,11 @@ body {
   text-align: center;
   color: var(--text-color);
   margin-top: 6px;
-  font-size: 3rem;
+  font-size: 4rem;
   line-height: 4rem;
 }
 
+/* White text in dark mode */
 
 .heading-description {
   font-style: normal;
@@ -601,7 +609,6 @@ body {
   text-align: center;
   width: 10rem;
   padding: 0.75rem 0;
-  background-color: var(--card-color);
   border: 1px solid var(--border-color);
   border-radius: 6px;
   color: var(--text-color);
@@ -610,6 +617,10 @@ body {
   transition: all 0.15s ease-in-out;
   font-size: 1rem;
   line-height: 1.25rem;
+  background-color: var(--header-color);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s ease-in-out
 }
 .home_about-button:hover {
   opacity: 1;
@@ -650,7 +661,6 @@ body {
 }
 
 .home_event {
-  background-color: var(--card-color);
   width: 100%;
   cursor: pointer;
   border-radius: 8px;
@@ -662,12 +672,17 @@ body {
   grid-template-columns: 1fr 40px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
   transition: all 0.1s ease;
+  background-color: var(--header-color);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s ease-in-out
 }
 .home_event:hover {
   opacity: 1;
-  border: 1px solid var(--link-color);
+  border: 2px solid #2323FF;
   background-color: var(--card-color-light);
 }
+
 @media (min-width: 1178px) {
   .home_event {
     width: 49%;
@@ -3603,7 +3618,6 @@ body {
 }
 
 .member_container {
-  background: var(--card-color);
   position: relative;
   width: 250px;
   height: 350px;
@@ -3612,6 +3626,14 @@ body {
   grid-template-rows: 1fr 120px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+    background-color: var(--header-color);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s ease-in-out
+}
+.member_container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .member_avatar-container {
