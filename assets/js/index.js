@@ -37,13 +37,25 @@ setInterval(function () {
 }, 5000);
 
 //Dark Light Toggle
-toggleButton = document.querySelector("#toggle-mode")
+themeIcon = document.querySelector("#theme-icon")
+themeIconElement = document.querySelector("#theme-icon-element")
+
 function isLight() {
   return localStorage.getItem("light-mode");
 }
+
 function toggleRootClass() {
   document.documentElement.classList.toggle('light');
 }
+
+function updateThemeIcon() {
+  if (document.documentElement.classList.contains('light')) {
+    themeIconElement.className = "fas fa-moon";
+  } else {
+    themeIconElement.className = "fas fa-sun";
+  }
+}
+
 function toggleLocalStorageItem() {
   if (isLight()) {
     localStorage.removeItem("light-mode");
@@ -51,14 +63,21 @@ function toggleLocalStorageItem() {
     localStorage.setItem("light-mode", "set");
   }
 }
-if (isLight()) {
-  toggleRootClass();
-  toggleButton.checked = true;
-}
-toggleButton.addEventListener("click", () => {
+
+function toggleTheme() {
   toggleLocalStorageItem();
   toggleRootClass();
-});
+  updateThemeIcon();
+}
+
+// Initialize theme
+if (isLight()) {
+  toggleRootClass();
+}
+updateThemeIcon();
+
+// Event listener for theme icon
+themeIcon.addEventListener("click", toggleTheme);
 
 
 // window.addEventListener('scroll', function() {

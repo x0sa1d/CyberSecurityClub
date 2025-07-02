@@ -176,9 +176,28 @@ body {
   margin-left: auto;
 }
 
-/* Adjust toggle button for navbar */
-.navbar-controls .toggle {
-  margin-top: 0;
+/* Theme Icon */
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px;
+}
+
+.theme-icon:hover {
+  transform: scale(1.2);
+}
+
+.theme-icon i {
+  font-size: 20px;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.theme-icon:hover i {
+  color: #0000ff;
 }
 
 .navbar-burger {
@@ -227,6 +246,10 @@ body {
   /* Mobile navbar controls positioning */
   .navbar-controls {
     gap: 10px;
+  }
+  
+  .theme-icon i {
+    font-size: 18px;
   }
 }
 .navbar-active {
