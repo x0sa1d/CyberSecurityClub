@@ -296,18 +296,21 @@ body {
   width: 100%;
   max-width: 48rem;
   margin: 0 auto;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 1.5rem;
 }
 
 .footer-info-container {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: left;
+  text-align: center;
 }
 @media (max-width: 576px) {
   .footer-info-container {
@@ -321,13 +324,21 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
 }
 .footer-title {
   color: var(--text-color);
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer-title h1 {
+  margin: 0;
+  line-height: 1.2;
 }
 
 .footer-description-container {
@@ -345,19 +356,73 @@ body {
 
 .email:link {
   color: var(--text-color);
-  text-decoration: underline;
-  text-decoration-color: var(--link-color);
-  opacity: 0.7;
-  transition: 0.1s ease-in-out;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 0;
+  width: auto;
 }
 
 .email:hover {
-  color: var(--link-color);
+  color: var(--text-color);
   opacity: 1;
+  transform: translateY(-2px);
 }
 
 .email:visited {
+  color: var(--text-color);
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.mail:hover {
+  background: var(--card-color-light);
+  border-color: var(--link-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.15);
+}
+
+.mail i {
   color: var(--link-color);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.mail span {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Light mode - make contact text blue */
+html:not(.light) .mail span {
+  color: var(--link-color);
+}
+
+/* Desktop adjustments - smaller contact box */
+@media (min-width: 769px) {
+  .mail {
+    padding: 8px 14px;
+  }
+  
+  .mail i {
+    font-size: 14px;
+  }
+  
+  .mail span {
+    font-size: 13px;
+  }
 }
 
 .footer-social-container {
@@ -391,29 +456,112 @@ body {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .footer-wrapper {
-    flex-direction: column;
+/* Cool Social Media Tooltips for Index Page */
+.home-social-link {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  opacity: 0.8;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--card-color);
+  overflow: visible;
+}
+
+.home-social-link:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--link-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
+  background: var(--card-color-light);
+}
+
+.home-social-link i {
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.home-social-link:hover i {
+  color: var(--link-color);
+  transform: scale(1.1);
+}
+
+/* Desktop adjustments - smaller social icons */
+@media (min-width: 769px) {
+  .home-social-link {
+    width: 44px;
+    height: 44px;
+    padding: 10px;
   }
-  .footer-col-wrapper {
-    margin: 0.25rem 0;
+  
+  .home-social-link i {
+    font-size: 20px;
   }
 }
-/* Ensure footer title and contact stack vertically on mobile */
-@media (max-width: 600px) {
-  .footer-title-container {
-    flex-direction: column !important;
-    align-items: left !important;
-    gap: 4px;
+
+/* Tooltip */
+.home-social-link::before {
+  content: "CSC.UU";
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--link-color);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.home-social-link::after {
+  content: "";
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--link-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.home-social-link:hover::before,
+.home-social-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Mobile adjustments for home social links */
+@media (max-width: 768px) {
+  .home-social-link {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
   }
-  .footer-title {
-    text-align: left;
-    width: 100%;
+  
+  .home-social-link i {
+    font-size: 20px;
   }
-  .email {
-    width: 100%;
-    text-align: left;
-    display: block;
+  
+  .home-social-link::before {
+    font-size: 11px;
+    padding: 6px 10px;
   }
 }
 /** Content **/
