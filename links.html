@@ -105,23 +105,23 @@
   <main class="page-content" aria-label="Content">
     <div>
       <!-- Header Section -->
-      <section class="intro-section">
-        <div class="heading-title">Free Cybersecurity Resources</div>
+      <section class="intro-section section-animated">
+        <div class="heading-title heading-animated">Free Resources</div>
         <div class="heading-description">Comprehensive collection of free tools, courses, and learning materials</div>
       </section>
 
       <!-- Resources Section -->
-      <section class="page-section">
+      <section class="page-section section-animated">
         <div class="container">
 
           <!-- Hands-on Practice -->
-          <div class="resource-category">
+          <div class="resource-category card-animated">
             <h2 class="category-title">
               <i class="fas fa-laptop-code"></i>
               Hands-on Practice & Labs
             </h2>
             <div class="resource-grid">
-              <div class="resource-card">
+              <div class="resource-card grid-item-animated">
                 <h3>Interactive Learning Platforms</h3>
                 <p>The most popular gamified cybersecurity platforms</p>
                 <div class="multi-links">
@@ -150,7 +150,7 @@
               </div>
               <div class="resource-card">
                 <h3>Binary Exploitation</h3>
-                <p>pwnable.kr - Most popular binary exploitation challenges</p>
+                <p>Most popular binary exploitation challenges</p>
                 <div class="multi-links">
                   <a href="http://pwnable.kr/" target="_blank" class="resource-link-mini">pwnable.kr</a>
                 </div>
@@ -159,7 +159,7 @@
           </div>
 
           <!-- CTF Platforms -->
-          <div class="resource-category">
+          <div class="resource-category card-animated">
             <h2 class="category-title">
               <i class="fas fa-flag"></i>
               CTF Platforms & Challenges
@@ -210,7 +210,7 @@
           </div>
 
           <!-- CTF Tools & Resources -->
-          <div class="resource-category">
+          <div class="resource-category card-animated">
             <h2 class="category-title">
               <i class="fas fa-hammer"></i>
               Essential CTF Tools
@@ -581,9 +581,11 @@
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       transition: all 0.3s ease;
       cursor: default;
+      text-align: center;
     }
     .resource-grid {
       display: grid;
@@ -593,14 +595,40 @@
     }
 
     .resource-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: var(--card-color);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 1px solid var(--border-color);
+      cursor: pointer;
       position: relative;
       overflow: hidden;
+      border: 2px solid transparent;
+      animation: fadeInScale 0.6s ease-out;
+      width: 100%;
+      min-height: 280px;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Dark mode acrylic effect */
+    html.light .resource-card {
+      background: rgba(38, 38, 43, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .resource-card::before {
@@ -610,45 +638,68 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 0, 255, 0.1), transparent);
-      transition: left 0.6s ease;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transition: left 0.6s;
     }
 
     .resource-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(0, 0, 255, 0.2);
-      border-color: rgba(0, 0, 255, 0.3);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 255, 0.2);
+      border-color: var(--link-color);
     }
 
     .resource-card:hover::before {
       left: 100%;
     }
 
+    /* Enhanced acrylic effect on hover for dark mode */
+    html.light .resource-card:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 255, 0.3);
+    }
+
+    /* Enhanced acrylic effect on hover for dark mode */
+    html.light .resource-card:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 255, 0.3);
+    }
+
     .resource-card h3 {
       color: var(--text-color);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 700;
       transition: all 0.3s ease;
       cursor: default;
+      text-align: center;
+      width: 100%;
+      display: block;
     }
 
     .resource-card:hover h3 {
-      color: #0066FF;
-      text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
-      transform: translateX(5px);
+      color: var(--link-color);
+      transform: scale(1.05);
     }
 
     .resource-card p {
       color: var(--text-secondary);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       line-height: 1.5;
       transition: all 0.3s ease;
+      text-align: center;
+      flex-grow: 1;
     }
 
     .resource-card:hover p {
-      color: #0088FF;
-      transform: translateX(3px);
-      text-shadow: 0 0 5px rgba(0, 136, 255, 0.3);
+      color: var(--link-color);
+    }
+
+    .multi-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+      justify-content: center;
+      align-items: center;
+      min-height: 60px;
     }
 
     .resource-link {
@@ -657,14 +708,15 @@
       gap: 0.5rem;
       background: linear-gradient(135deg, #0000FF, #0066FF);
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 15px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
+      border: 2px solid transparent;
     }
 
     .resource-link::before {
@@ -682,8 +734,9 @@
       background: linear-gradient(135deg, #0066FF, #0000FF);
       color: white;
       text-decoration: none;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 0, 255, 0.4);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 255, 0.4);
+      border-color: #3399FF;
     }
 
     .resource-link:hover::before {
@@ -692,13 +745,6 @@
 
     .resource-link i {
       font-size: 0.9rem;
-    }
-
-    .multi-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
     }
 
     .resource-link-mini {
@@ -748,13 +794,138 @@
       padding: 2rem;
     }
 
+    /* Intro Section Styles */
+    .intro-section {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 0px 32px;
+    }
+
+    @media (min-width: 576px) {
+      .intro-section {
+        padding: 0px 64px;
+      }
+    }
+
+    .heading-title {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-top: 60px;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .heading-description {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 50px auto 50px auto;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Mobile Responsive Styles */
     @media (max-width: 768px) {
+      .intro-section {
+        padding: 0px 16px;
+      }
+
+      .heading-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-top: 40px;
+        margin-bottom: 0.8rem;
+      }
+
+      .heading-description {
+        font-size: 1rem;
+        margin: 30px auto 40px auto;
+        line-height: 1.5;
+      }
+
       .resource-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .resource-card {
+        padding: 1.5rem;
+        min-height: 220px;
+        max-width: 100%;
+      }
+
+      .resource-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .resource-card p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .category-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .multi-links {
+        gap: 0.4rem;
+        min-height: 50px;
+      }
+
+      .resource-link-mini {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
       }
 
       .container {
         padding: 1rem;
+      }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 480px) {
+      .intro-section {
+        padding: 0px 8px;
+      }
+
+      .heading-title {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-top: 30px;
+      }
+
+      .heading-description {
+        font-size: 0.9rem;
+        margin: 20px auto 30px auto;
+      }
+
+      .resource-card {
+        padding: 1.2rem;
+        margin: 0;
+      }
+
+      .category-title {
+        font-size: 1.3rem;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .multi-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .resource-link-mini {
+        text-align: center;
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
