@@ -137,8 +137,36 @@ body {
 
 .header-image {
   height: 48px;
-  content: var(--header-image-url);
+  width: 120px;
+  background-image: var(--header-image-url);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
   z-index: 105;
+}
+
+/* Ensure logo changes properly for dark/light mode */
+:root {
+  --header-image-url: url(/assets/images/csc_blue.png);
+}
+
+html.light {
+  --header-image-url: url(/assets/images/csc_white.png);
+}
+
+/* Additional logo styling to ensure proper theme switching */
+.header-image {
+  background-image: var(--header-image-url);
+}
+
+/* Force logo update on theme change */
+html:not(.light) .header-image {
+  background-image: url(/assets/images/csc_blue.png);
+}
+
+html.light .header-image {
+  background-image: url(/assets/images/csc_white.png);
 }
 
 .navbar-slash {
@@ -436,24 +464,88 @@ html:not(.light) .mail span {
 }
 
 .social-link {
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  border: 1px solid var(--border-color);
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-color);
-  opacity: 0.7;
+  color: var(--link-color);
+  opacity: 0.8;
   text-decoration: none;
-  transition: 0.1s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--card-color);
+  overflow: visible;
 }
-.social-link svg {
-  width: 20px;
-  height: 20px;
-}
+
 .social-link:hover {
   opacity: 1;
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--link-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
+  background: var(--card-color-light);
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+  fill: var(--link-color);
+}
+
+.social-link:hover svg {
+  fill: var(--link-color);
+  transform: scale(1.1);
+}
+
+.social-link i {
+  font-size: 24px;
+  transition: all 0.3s ease;
+  color: var(--link-color);
+}
+
+.social-link:hover i {
+  color: var(--link-color);
+  transform: scale(1.1);
+}
+
+/* Desktop adjustments - smaller social icons */
+@media (min-width: 769px) {
+  .social-link {
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+  
+  .social-link i {
+    font-size: 20px;
+  }
+  
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile adjustments for social links */
+@media (max-width: 768px) {
+  .social-link {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+  }
+  
+  .social-link i {
+    font-size: 20px;
+  }
+  
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Cool Social Media Tooltips for Index Page */
@@ -467,7 +559,7 @@ html:not(.light) .mail span {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-color);
+  color: var(--link-color);
   opacity: 0.8;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -486,6 +578,7 @@ html:not(.light) .mail span {
 .home-social-link i {
   font-size: 24px;
   transition: all 0.3s ease;
+  color: var(--link-color);
 }
 
 .home-social-link:hover i {
@@ -506,47 +599,6 @@ html:not(.light) .mail span {
   }
 }
 
-/* Tooltip */
-.home-social-link::before {
-  content: "CSC.UU";
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--link-color);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1000;
-}
-
-.home-social-link::after {
-  content: "";
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--link-color);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1000;
-}
-
-.home-social-link:hover::before,
-.home-social-link:hover::after {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(-2px);
-}
-
 /* Mobile adjustments for home social links */
 @media (max-width: 768px) {
   .home-social-link {
@@ -557,11 +609,6 @@ html:not(.light) .mail span {
   
   .home-social-link i {
     font-size: 20px;
-  }
-  
-  .home-social-link::before {
-    font-size: 11px;
-    padding: 6px 10px;
   }
 }
 /** Content **/
@@ -3977,6 +4024,7 @@ html:not(.light) .mail span {
   .about-past-eboard-container
   .about-past-eboard
   .past-eboard-orgs-container
+
   .past-eboard-org {
   margin: 0 0.5rem;
 }
