@@ -3,6 +3,7 @@ function getNearest5MinuteMark(date = new Date()) {
     return new Date(Math.floor(date.getTime() / ms) * ms);
 }
 
+// Contest start time set to nearest 5-minute mark
 let contestStartTime = getNearest5MinuteMark();
 // Load scoreHistory from localStorage if available
 let scoreHistory = {};
@@ -136,13 +137,13 @@ function updateGraph() {
     let yMax = allTimeMaxScore > 0 ? allTimeMaxScore + 100 : 1000;
 
     // Detect dark mode
-    const isDark = document.documentElement.classList.contains('dark');
+    const isDark = !document.documentElement.classList.contains('light');
 
     let layout = {
         paper_bgcolor: isDark ? "#101624" : "#fff",
         plot_bgcolor: isDark ? "#17203a" : "#fff",
-        font: { family: "Poppins, Verdana, Arial, sans-serif", color: isDark ? "#e3e8f7" : "#333" },
-        title: { text: "Top Teams", font: { size: 20, color: isDark ? "#7ab8ff" : "#111" } },
+        font: { family: "Poppins, Verdana, Arial, sans-serif", color: isDark ? "#000000" : "#ffffff" },
+        title: { text: "Top Teams", font: { size: 20, color: isDark ? "#000000" : "#ffffff" } },
         xaxis: {
             title: "Score Update Step",
             type: "linear",
@@ -159,7 +160,7 @@ function updateGraph() {
         legend: {
             orientation: "h",
             y: -0.2,
-            font: { size: 12, color: isDark ? "#7ab8ff" : "#333" }
+            font: { size: 12, color: isDark ? "#000000" : "#ffffff" }
         },
         margin: { t: 60, l: 60, r: 30, b: 80 }
     };

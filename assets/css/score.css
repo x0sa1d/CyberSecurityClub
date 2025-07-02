@@ -1,34 +1,35 @@
-/* Clean White Theme */
-        .Dashboard {
-            --bg-main: #f9f9f9;
-            --bg-panel: #fff;
-            --text-main: #333;
-            --text-heading: #111;
-            --table-header-bg: #eee;
-            --table-header-text: #333;
-            --table-border: #555;
-            --table-row-bg: #fff;
-            --table-row-border: #ddd;
-            --shadow: 0 0 10px #eee;
-            --accent: #2563eb; /* blue accent */
-        }
+/* Default Light Theme Variables */
+:root {
+    --bg-main: #f9f9f9;
+    --bg-panel: #fff;
+    --text-main: #ffffff;
+    --text-heading: #ffffff;
+    --table-header-bg: #eee;
+    --table-header-text: #ffffff;
+    --table-border: #555;
+    --table-row-bg: #fff;
+    --table-row-border: #ddd;
+    --shadow: 0 0 10px #eee;
+    --accent: #2563eb; /* blue accent */
+}
 
-        html.dark {
-            --bg-main: #101624;
-            --bg-panel: #17203a;
-            --text-main: #e3e8f7;
-            --text-heading: #7ab8ff;
-            --table-header-bg: #1e293b;
-            --table-header-text: #7ab8ff;
-            --table-border: #2563eb;
-            --table-row-bg: #17203a;
-            --table-row-border: #2563eb;
-            --shadow: 0 0 10px #2563eb33;
-            --accent: #2563eb;
-        }
+/* Dark Theme Variables */
+html:not(.light) {
+    --bg-main: #101624;
+    --bg-panel: #17203a;
+    --text-main: #000000;
+    --text-heading: #000000;
+    --table-header-bg: #1e293b;
+    --table-header-text: #000000;
+    --table-border: #2563eb;
+    --table-row-bg: #17203a;
+    --table-row-border: #2563eb;
+    --shadow: 0 0 10px #2563eb33;
+    --accent: #2563eb;
+}
 
         .Dashboard {
-            background-color: var(--bg-main);
+            background-color: transparent;
             color: var(--text-main);
             font-family: "Poppins", sans-serif;
             text-align: center;
@@ -52,9 +53,9 @@
         .scoreboard {
             width: 100%;
             padding: 15px;
-            background-color: var(--bg-panel);
+            background-color: transparent;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(37, 99, 235, 0.15);
+            box-shadow: none;
         }
 
         .scoreboard h2 {
@@ -68,6 +69,7 @@
             width: 100%;
             border-collapse: collapse;
             text-align: center;
+            background-color: transparent;
         }
 
         th, td {
@@ -76,13 +78,13 @@
         }
 
         th {
-            background: var(--table-header-bg);
-            color: var(--table-header-text);
+            background: transparent;
+            color: var(--text-heading);
             border-bottom: 2px solid var(--table-border);
         }
 
         td {
-            background: var(--table-row-bg);
+            background: transparent;
             border-top: 1px solid var(--table-row-border);
             color: var(--text-main);
         }
