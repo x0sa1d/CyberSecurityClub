@@ -688,7 +688,7 @@ html.light .home-social-link:hover {
   font-style: normal;
   font-weight: 600;
   text-align: center;
-  color: #ffffff;
+  color: var(--text-color-muted);
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 1.3rem;
@@ -3960,7 +3960,7 @@ html.light .group_container:hover {
 
 .member_avatar-container {
   position: relative;
-  border-radius:  16px 16px 0 0;
+  border-radius:     16px 16px 0 0;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -4262,9 +4262,9 @@ html.light .group_container:hover {
   flex-direction: column;
 }
 
-/* Acrylic/Glass effect for event cards in dark mode */
+/* Dark mode acrylic effect */
 html.light .event_container {
-  background: var(--header-color);
+  background: rgba(38, 38, 43, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -4289,7 +4289,7 @@ html.light .event_container:hover {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: linear-gradient(135deg, var(--link-color), #4169E1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 6px 15px;
   border-radius: 20px;
@@ -4394,7 +4394,7 @@ html.light .event_container:hover {
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: linear-gradient(135deg, var(--link-color), #4169E1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-radius: 50%;
   text-decoration: none;
@@ -4510,18 +4510,6 @@ html.light .event_container:hover {
 
 .site-credit a:hover i {
   transform: scale(1.1);
-}
-
-/* Mobile adjustments for developer credit */
-@media (max-width: 768px) {
-  .site-credit {
-    font-size: 13px;
-    margin-top: 20px;
-  }
-  
-  .site-credit i {
-    font-size: 14px;
-  }
 }
 
 /* ===== SPONSORS PAGE STYLING ===== */
@@ -4642,7 +4630,7 @@ html.light .event_container:hover {
 /* Dark mode acrylic effect */
 html.light .sponsor {
   background: rgba(38, 38, 43, 0.7);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
@@ -4654,7 +4642,7 @@ html.light .sponsor {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
   transition: left 0.6s;
 }
 
@@ -4664,12 +4652,13 @@ html.light .sponsor {
 
 .sponsor:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 255, 0.2);
   border-color: var(--link-color);
 }
 
+/* Enhanced acrylic effect on hover for dark mode */
 html.light .sponsor:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 255, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 255, 0.3);
 }
 
 /* Sponsor Image */
@@ -4765,7 +4754,7 @@ html.light .sponsor:hover {
 
 .become-a-sponsor:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 255, 0.4);
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
@@ -4859,4 +4848,484 @@ html.light .sponsor:hover {
   .sponsor-image {
     height: 120px;
   }
+}
+/* ===== MEMBERSHIP PAGE STYLING ===== */
+.membership-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.membership-container {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.membership-card {
+  background: var(--card-color);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Dark mode acrylic effect */
+html.light .membership-card {
+  background: rgba(38, 38, 43, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.membership-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.6s;
+}
+
+.membership-card:hover::before {
+  left: 100%;
+}
+
+.membership-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--link-color);
+  box-shadow: 0 15px 30px rgba(0, 0, 255, 0.2);
+}
+
+html.light .membership-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 255, 0.3);
+}
+
+/* Special styling for important membership types */
+.membership-card.founding-member {
+  border: 2px solid #ffd700;
+  background: linear-gradient(135deg, var(--card-color) 0%, rgba(255, 215, 0, 0.1) 100%);
+}
+
+html.light .membership-card.founding-member {
+  background: linear-gradient(135deg, rgba(38, 38, 43, 0.8) 0%, rgba(255, 215, 0, 0.1) 100%);
+}
+
+.membership-card.lifetime-member {
+  border: 2px solid #c0c0c0;
+  background: linear-gradient(135deg, var(--card-color) 0%, rgba(192, 192, 192, 0.1) 100%);
+}
+
+html.light .membership-card.lifetime-member {
+  background: linear-gradient(135deg, rgba(38, 38, 43, 0.8) 0%, rgba(192, 192, 192, 0.1) 100%);
+}
+
+.membership-card.voting-rights {
+  border: 2px solid #00ff88;
+  background: linear-gradient(135deg, var(--card-color) 0%, rgba(0, 255, 136, 0.1) 100%);
+}
+
+html.light .membership-card.voting-rights {
+  background: linear-gradient(135deg, rgba(38, 38, 43, 0.8) 0%, rgba(0, 255, 136, 0.1) 100%);
+}
+
+.membership-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.membership-number {
+  background: var(--link-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.membership-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.membership-title i {
+  color: var(--link-color);
+  font-size: 1.2rem;
+}
+
+.membership-content {
+  color: var(--light-text-color);
+  line-height: 1.7;
+}
+
+.membership-content p {
+  margin-bottom: 1rem;
+}
+
+.membership-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.membership-content li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+.membership-subsection {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 255, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid var(--link-color);
+}
+
+html.light .membership-subsection {
+  background: rgba(0, 0, 255, 0.1);
+}
+
+.membership-subsection h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.membership-subsection h4 i {
+  color: var(--link-color);
+}
+
+.membership-subsection ul {
+  margin-top: 0.5rem;
+}
+
+.membership-subsection p {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--light-text-color);
+}
+
+/* Call to Action */
+.membership-cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem;
+  background: linear-gradient(135deg, var(--link-color) 0%, #4169E1 100%);
+  border-radius: 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.membership-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.05) 10px,
+    rgba(255, 255, 255, 0.05) 20px
+  );
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% { transform: translateX(-50px) translateY(-50px); }
+  100% { transform: translateX(50px) translateY(50px); }
+}
+
+.membership-cta h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.membership-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.join-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.join-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Staggered animations */
+.membership-card:nth-child(1) { animation-delay: 0s; }
+.membership-card:nth-child(2) { animation-delay: 0.1s; }
+.membership-card:nth-child(3) { animation-delay: 0.2s; }
+.membership-card:nth-child(4) { animation-delay: 0.3s; }
+.membership-card:nth-child(5) { animation-delay: 0.4s; }
+.membership-card:nth-child(6) { animation-delay: 0.5s; }
+.membership-card:nth-child(7) { animation-delay: 0.6s; }
+.membership-card:nth-child(8) { animation-delay: 0.7s; }
+.membership-card:nth-child(9) { animation-delay: 0.8s; }
+.membership-card:nth-child(10) { animation-delay: 0.9s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .membership-section {
+    padding: 1rem;
+  }
+  
+  .membership-card {
+    padding: 1.5rem;
+  }
+  
+  .membership-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .membership-title {
+    font-size: 1.3rem;
+  }
+  
+  .membership-cta {
+    padding: 2rem 1rem;
+  }
+  
+  .membership-cta h3 {
+    font-size: 1.5rem;
+  }
+  
+  .membership-cta p {
+    font-size: 1rem;
+  }
+  
+  .join-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .membership-number {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    min-width: 50px;
+  }
+  
+  .membership-title {
+    font-size: 1.2rem;
+  }
+  
+  .membership-title i {
+    font-size: 1rem;
+  }
+  
+  .membership-subsection {
+    padding: 0.8rem;
+  }
+}
+
+/* ======================================
+   GALLERY SECTION STYLES
+   ====================================== */
+
+.gallery-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-container {
+  margin-top: 3rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-photo {
+  display: block;
+  text-decoration: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-photo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-photo_image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-photo:hover .gallery-photo_image {
+  transform: scale(1.05);
+}
+
+.gallery-photo_caption-container {
+  padding: 1.5rem;
+  background: var(--background-color);
+  border-top: 3px solid var(--link-color);
+}
+
+.gallery-photo_caption-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Dark mode acrylic effect for gallery photos - matching footer theme */
+html.light .gallery-photo_caption-container {
+  background: var(--header-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--link-color);
+}
+
+/* Enhanced acrylic effect on hover in dark mode - matching footer theme */
+html.light .gallery-photo:hover .gallery-photo_caption-container {
+  background: rgba(18, 16, 19, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 255, 0.4);
+  border-top: 3px solid var(--link-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.25);
+}
+
+/* Animation delays for staggered effect */
+.gallery-photo:nth-child(1) { animation-delay: 0.1s; }
+.gallery-photo:nth-child(2) { animation-delay: 0.2s; }
+.gallery-photo:nth-child(3) { animation-delay: 0.3s; }
+.gallery-photo:nth-child(4) { animation-delay: 0.4s; }
+.gallery-photo:nth-child(5) { animation-delay: 0.5s; }
+.gallery-photo:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 2rem 1rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .gallery-photo_image {
+    height: 200px;
+  }
+  
+  .gallery-photo_caption-container {
+    padding: 1rem;
+  }
+  
+  .gallery-photo_caption-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .gallery-grid {
+    gap: 1rem;
+  }
+  
+  .gallery-photo_image {
+    height: 180px;
+  }
+  
+  .gallery-photo_caption-container {
+    padding: 0.8rem;
+  }
+  
+  .gallery-photo_caption-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ensure images load properly */
+.gallery-photo_image {
+  background-color: var(--text-color-muted);
+  transition: all 0.3s ease;
+}
+
+.gallery-photo_image:hover {
+  filter: brightness(1.05);
+}
+
+/* Focus states for accessibility */
+.gallery-photo:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.gallery-photo:focus .gallery-photo_image {
+  transform: scale(1.02);
 }
