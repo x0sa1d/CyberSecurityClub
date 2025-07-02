@@ -183,21 +183,24 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 8px;
+  padding: 4px 8px;
+  margin-left: 1rem;
 }
 
 .theme-icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .theme-icon i {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--text-color);
+  opacity: 0.7;
   transition: all 0.3s ease;
 }
 
 .theme-icon:hover i {
   color: #0000ff;
+  opacity: 1;
 }
 
 .navbar-burger {
