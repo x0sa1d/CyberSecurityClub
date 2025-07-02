@@ -1215,6 +1215,14 @@ html.light .home-social-link:hover {
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
+/* Specific rule to fix typing animation when combined with heading-animated */
+.type-animate.heading-animated {
+  animation: typing 3.5s steps(40, end) 0.8s both, blink-caret 0.75s step-end infinite 0.8s !important;
+  opacity: 1 !important;
+  transform: none !important;
+  width: 0;
+}
+
 @keyframes typing {
   from {
     width: 0;
