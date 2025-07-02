@@ -601,12 +601,29 @@ html.light .social-link:hover {
   overflow: visible;
 }
 
+/* Acrylic/Glass effect for home social media icons in dark mode */
+html.light .home-social-link {
+  background: var(--header-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
 .home-social-link:hover {
   opacity: 1;
   transform: translateY(-4px) scale(1.05);
   border-color: var(--link-color);
   box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
   background: var(--card-color-light);
+}
+
+/* Enhanced acrylic effect on hover for home social media icons in dark mode */
+html.light .home-social-link:hover {
+  background: rgba(18, 16, 19, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(0, 0, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.3);
 }
 
 .home-social-link i {
@@ -3811,6 +3828,30 @@ html.light .social-link:hover {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+/* Acrylic/Glass effect for group containers in dark mode */
+html.light .group_container {
+  background: var(--header-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.group_container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.15);
+}
+
+/* Enhanced acrylic effect on hover for group containers in dark mode */
+html.light .group_container:hover {
+  background: rgba(18, 16, 19, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(0, 0, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.25);
 }
 .group_container .group_title {
   display: flex;
