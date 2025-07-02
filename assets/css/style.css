@@ -3898,6 +3898,7 @@ html.light .group_container:hover {
   line-height: 2rem;
 }
 
+
 .members-section {
   width: 100%;
   max-width: 100%;
@@ -4484,9 +4485,8 @@ html.light .event_container:hover {
 }
 
 .site-credit a {
-  color: var(--link-color);
+  color: var(--light-text-color);
   text-decoration: none;
-  font-weight: 500;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -4495,8 +4495,9 @@ html.light .event_container:hover {
 }
 
 .site-credit a:hover {
-  color: var(--text-color);
+  color: var(--link-color);
   transform: translateY(-1px);
+  font-weight: 800;
 }
 
 .site-credit i {
