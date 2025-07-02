@@ -4299,7 +4299,7 @@ html.light .event_container {
 
 .event_container:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 255, 0.2);
   border-color: var(--link-color);
 }
 
@@ -4309,7 +4309,7 @@ html.light .event_container:hover {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid rgba(0, 0, 255, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 255, 0.25);
+  box-shadow: 0 15px 30px rgba(0, 0, 255, 0.25);
 }
 
 .event_badge {
@@ -4651,7 +4651,6 @@ html.light .event_container:hover {
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 /* Dark mode acrylic effect */
@@ -4659,7 +4658,6 @@ html.light .sponsor {
   background: rgba(38, 38, 43, 0.7);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .sponsor::before {
@@ -4759,7 +4757,7 @@ html.light .sponsor:hover {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -4781,7 +4779,7 @@ html.light .sponsor:hover {
 
 .become-a-sponsor:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 255, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
@@ -5229,7 +5227,7 @@ html.light .membership-subsection {
 
 .gallery-photo:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 255, 0.2);
 }
 
 .gallery-photo_image {
@@ -5355,4 +5353,42 @@ html.light .gallery-photo:hover .gallery-photo_caption-container {
 
 .gallery-photo:focus .gallery-photo_image {
   transform: scale(1.02);
+}
+
+/* Expandable Past Executive Committee Styles */
+.expandable-header {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.expandable-header:hover {
+  background-color: var(--card-color);
+  transform: translateY(-2px);
+}
+
+.expand-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color: #0000FF;
+}
+
+.past-eboard-content {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.past-eboard-content.show {
+  display: block !important;
+}
+
+/* Make the year text more prominent when clickable */
+.expandable-header span {
+  font-weight: 600;
 }
