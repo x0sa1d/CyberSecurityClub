@@ -236,5 +236,5 @@ SOFTWARE.
 
 ---
 
-**Developed with ❤️ by [pran0x](https://github.com/pran0x) for Cyber Security Club - Uttara University**
+**Developed by [pran0x](https://github.com/pran0x) for Cyber Security Club - Uttara University**
 
