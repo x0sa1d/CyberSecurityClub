@@ -3954,7 +3954,7 @@ html.light .group_container:hover {
   text-align: center;
   color: var(--text-color);
   margin-top: 30px;
-  font-size: 2.5rem;
+  font-size:  2.5rem;
   line-height: 2.5rem;
 }
 
@@ -4784,8 +4784,9 @@ html.light .sponsor:hover {
 
 /* Become a Sponsor Button */
 .become-a-sponsor {
-  display: inline-block;
-  margin: 2rem auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -5430,4 +5431,15 @@ html.light .gallery-photo:hover .gallery-photo_caption-container {
 /* Make the year text more prominent when clickable */
 .expandable-header span {
   font-weight: 600;
+}
+
+/* New CSS classes to replace inline styles */
+.active-nav-link {
+  color: #0000FF !important;
+  opacity: 1 !important;
+}
+
+.events-section-title {
+  font-weight: 800 !important;
+  text-align: center !important;
 }
