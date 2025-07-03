@@ -104,6 +104,7 @@ body {
   display: flex;
   align-items: center;
   background-color: var(--header-color);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: all 0.15s ease-in-out;
@@ -282,6 +283,7 @@ html.light .header-image {
     right: 0;
     height: 100vh;
     background-color: var(--header-color-mobile);
+    -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border-left: 1px solid var(--border-color);
     display: flex;
@@ -342,6 +344,7 @@ html.light .header-image {
   display: flex;
   align-items: center;
   background-color: var(--header-color);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: all 0.15s ease-in-out
@@ -445,8 +448,8 @@ html.light .header-image {
 /* Acrylic/Glass effect for contact email in dark mode */
 html.light .mail {
   background: var(--header-color);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -459,8 +462,8 @@ html.light .mail {
 /* Enhanced acrylic effect on hover for contact email in dark mode */
 html.light .mail:hover {
   background: rgba(18, 16, 19, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 255, 0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 255, 0.25);
 }
@@ -528,8 +531,8 @@ html:not(.light) .mail span {
 /* Acrylic/Glass effect for social media icons in dark mode */
 html.light .social-link {
   background: var(--header-color);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -544,8 +547,8 @@ html.light .social-link {
 /* Enhanced acrylic effect on hover for social media icons in dark mode */
 html.light .social-link:hover {
   background: rgba(18, 16, 19, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 2px solid rgba(0, 0, 255, 0.4);
   box-shadow: 0 8px 25px rgba(0, 0, 255, 0.3);
 }
@@ -666,8 +669,8 @@ html.light .social-link:hover {
 /* Acrylic/Glass effect for home social media icons in dark mode */
 html.light .home-social-link {
   background: var(--header-color);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -682,8 +685,8 @@ html.light .home-social-link {
 /* Enhanced acrylic effect on hover for home social media icons in dark mode */
 html.light .home-social-link:hover {
   background: rgba(18, 16, 19, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 2px solid rgba(0, 0, 255, 0.4);
   box-shadow: 0 8px 25px rgba(0, 0, 255, 0.3);
 }
@@ -859,6 +862,7 @@ html.light .home-social-link:hover {
     rgba(255, 255, 255, 0.12) 28.69%,
     rgba(255, 255, 255, 0) 100%
   );
+  -webkit-backdrop-filter: blur(140px);
   backdrop-filter: blur(140px);
   border-radius: 16px;
   display: flex;
@@ -977,6 +981,7 @@ html.light .home-social-link:hover {
   font-size: 1rem;
   line-height: 1.25rem;
   background-color: var(--header-color);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: all 0.15s ease-in-out
@@ -1032,6 +1037,7 @@ html.light .home-social-link:hover {
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
   transition: all 0.1s ease;
   background-color: var(--header-color);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: all 0.15s ease-in-out
@@ -3905,8 +3911,8 @@ html.light .home-social-link:hover {
 /* Acrylic/Glass effect for group containers in dark mode */
 html.light .group_container {
   background: var(--header-color);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -3918,8 +3924,8 @@ html.light .group_container {
 /* Enhanced acrylic effect on hover for group containers in dark mode */
 html.light .group_container:hover {
   background: rgba(18, 16, 19, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 2px solid rgba(0, 0, 255, 0.4);
   box-shadow: 0 8px 24px rgba(0, 0, 255, 0.25);
 }
@@ -4019,6 +4025,7 @@ html.light .group_container:hover {
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
     background-color: var(--header-color);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: all 0.15s ease-in-out
@@ -4335,8 +4342,8 @@ html.light .group_container:hover {
 /* Dark mode acrylic effect */
 html.light .event_container {
   background: rgba(38, 38, 43, 0.7);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -4349,8 +4356,8 @@ html.light .event_container {
 /* Enhanced acrylic effect on hover for dark mode */
 html.light .event_container:hover {
   background: rgba(18, 16, 19, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 2px solid rgba(0, 0, 255, 0.4);
   box-shadow: 0 15px 30px rgba(0, 0, 255, 0.25);
 }
@@ -4415,6 +4422,7 @@ html.light .event_container:hover {
   border-radius: 15px;
   font-size: 0.75rem;
   font-weight: 500;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -4695,6 +4703,7 @@ html.light .event_container:hover {
 /* Dark mode acrylic effect */
 html.light .sponsor {
   background: rgba(38, 38, 43, 0.7);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -4943,6 +4952,7 @@ html.light .sponsor:hover {
 /* Dark mode acrylic effect */
 html.light .membership-card {
   background: rgba(38, 38, 43, 0.7);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -5299,8 +5309,8 @@ html.light .membership-subsection {
 /* Dark mode acrylic effect for gallery photos - matching footer theme */
 html.light .gallery-photo_caption-container {
   background: var(--header-color);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 3px solid var(--link-color);
 }
@@ -5308,8 +5318,8 @@ html.light .gallery-photo_caption-container {
 /* Enhanced acrylic effect on hover in dark mode - matching footer theme */
 html.light .gallery-photo:hover .gallery-photo_caption-container {
   background: rgba(18, 16, 19, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 255, 0.4);
   border-top: 3px solid var(--link-color);
   box-shadow: 0 4px 12px rgba(0, 0, 255, 0.25);
@@ -5398,6 +5408,7 @@ html.light .gallery-photo:hover .gallery-photo_caption-container {
 /* Expandable Past Executive Committee Styles */
 .expandable-header {
   cursor: pointer;
+  -webkit-user-select: none;
   user-select: none;
   display: flex;
   align-items: center;
