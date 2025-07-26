@@ -168,7 +168,7 @@ The website can be deployed on:
 
 ## 📞 Contact Information
 
-- **Email**: cybersecurityclub@uttarauniversity.edu.bd
+- **Email**: cybersecurity@club.uttara.ac.bd
 - **Facebook**: [facebook.com/csc.uu.bd](https://facebook.com/csc.uu.bd)
 - **LinkedIn**: [linkedin.com/in/cscuu](https://www.linkedin.com/in/cscuu)
 - **Discord**: [discord.gg/N83SjBHjzG](https://discord.gg/N83SjBHjzG)
