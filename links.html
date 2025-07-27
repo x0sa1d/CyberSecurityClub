@@ -89,10 +89,6 @@
       </ul>
 
       <div class="navbar-controls">
-        <!-- Theme Switcher Icon -->
-        <div class="theme-icon" id="theme-icon">
-          <i class="fas fa-sun" id="theme-icon-element"></i>
-        </div>
         <div class="navbar-burger">
           <div class="line-1"></div>
           <div class="line-2"></div>
@@ -624,13 +620,6 @@
       }
     }
 
-    /* Dark mode acrylic effect */
-    html.light .resource-card {
-      background: rgba(38, 38, 43, 0.7);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     .resource-card::before {
       content: '';
       position: absolute;
@@ -650,11 +639,6 @@
 
     .resource-card:hover::before {
       left: 100%;
-    }
-
-    /* Enhanced acrylic effect on hover for dark mode */
-    html.light .resource-card:hover {
-      box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
     }
 
     .resource-card h3 {

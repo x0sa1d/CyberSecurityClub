@@ -136,31 +136,28 @@ function updateGraph() {
 
     let yMax = allTimeMaxScore > 0 ? allTimeMaxScore + 100 : 1000;
 
-    // Detect dark mode
-    const isDark = !document.documentElement.classList.contains('light');
-
     let layout = {
-        paper_bgcolor: isDark ? "#101624" : "#fff",
-        plot_bgcolor: isDark ? "#17203a" : "#fff",
-        font: { family: "Poppins, Verdana, Arial, sans-serif", color: isDark ? "#000000" : "#ffffff" },
-        title: { text: "Top Teams", font: { size: 20, color: isDark ? "#000000" : "#ffffff" } },
+        paper_bgcolor: "#fff",
+        plot_bgcolor: "#fff",
+        font: { family: "Poppins, Verdana, Arial, sans-serif", color: "#000000" },
+        title: { text: "Top Teams", font: { size: 20, color: "#000000" } },
         xaxis: {
             title: "Score Update Step",
             type: "linear",
-            gridcolor: isDark ? "#2563eb33" : "#eee",
+            gridcolor: "#eee",
             zeroline: false,
             range: [0, Math.max(10, maxStep)]
         },
         yaxis: {
             title: "Score",
-            gridcolor: isDark ? "#2563eb33" : "#eee",
+            gridcolor: "#eee",
             zeroline: false,
             range: [0, yMax]
         },
         legend: {
             orientation: "h",
             y: -0.2,
-            font: { size: 12, color: isDark ? "#000000" : "#ffffff" }
+            font: { size: 12, color: "#000000" }
         },
         margin: { t: 60, l: 60, r: 30, b: 80 }
     };
@@ -188,14 +185,9 @@ function updateGraph() {
     }
 }
 
-// Listen for dark mode toggle and update the graph immediately
+// Script loaded successfully
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleButton = document.querySelector("#toggle-mode");
-    if (toggleButton) {
-        toggleButton.addEventListener("change", () => {
-            updateGraph();
-        });
-    }
+    // Initialize scoring functionality if needed
 });
 
 // Auto-refresh scoreboard & graph every 5 seconds

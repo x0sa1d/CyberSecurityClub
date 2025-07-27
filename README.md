@@ -5,7 +5,6 @@ A modern, responsive website for the Cyber Security Club at Uttara University, f
 ## 🌟 Features
 
 - **Responsive Design**: Optimized for all devices and screen sizes
-- **Dark/Light Theme**: Toggle between light and dark modes
 - **Interactive Navigation**: Smooth scrolling and animated navigation
 - **Dynamic Content**: Slideshow, event galleries, and member showcases
 - **SEO Optimized**: Structured data and meta tags for better search visibility
@@ -53,12 +52,6 @@ CyberSec_UU/
 - **Google Fonts**: JetBrains Mono font family
 
 ## 🎨 Design Features
-
-### Theme System
-- Automatic dark/light theme detection
-- Manual theme toggle functionality
-- CSS variables for consistent theming
-- Smooth transitions between themes
 
 ### Navigation
 - Responsive hamburger menu for mobile
