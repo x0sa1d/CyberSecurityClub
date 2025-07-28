@@ -13,11 +13,6 @@ html {
   --gradient-2: #cbcbcb;
   --gradient-3: #b2b2b2;
 }
-
-.heading-description{
-  color: #0008ff;
-}
-
 *,
 *::before,
 *::after {
@@ -630,7 +625,7 @@ body {
   font-style: normal;
   font-weight: 600;
   text-align: center;
-  color: var(--light-text-color);
+  color: #0008ff;
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 1.3rem;
@@ -775,19 +770,12 @@ body {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
-
-.home_about-description {
-  font-weight: 400;
-  color: var(--light-text-color);
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .home_about-button-container {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin-top: 1.75rem;
+  margin-top: 1.55rem;
+  margin-bottom: 1.55rem;
 }
 
 .home_about-button {
@@ -809,7 +797,11 @@ body {
   transition: all 0.15s ease-in-out
 }
 .home_about-button:hover {
+  color:var(--link-color);
+  font-weight: 800;
   opacity: 1;
+  border: 1px solid var(--link-color);
+
 }
 
 /** Events Section **/
@@ -868,8 +860,13 @@ body {
   opacity: 1;
   border: 2px solid #2323FF;
   background-color: var(--card-color-light);
+.home_event-title{
+  color: #0000FF;
 }
-
+.home_event-link-icon {
+  color: var(--link-color);
+}
+}
 @media (min-width: 1178px) {
   .home_event {
     width: 49%;
