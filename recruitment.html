@@ -554,7 +554,7 @@
           skills: formData.get('skills'),
           agreement: formData.get('agreement') ? 'Yes' : 'No'
         };
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxa0ENvAL2qtAMJtVXmqNyVcgSgGG_VkTDoieY0Rp8rMP9J9Xnzs4DkzbueyOniodrPHQ/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyS3i2RqYvh58Ak1-sV2nckUAgYd4ndXGF1DRW9UR0FOaE4XGDX2eGtTqf49ZpVv2-D-Q/exec';
         const response = await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -656,7 +656,7 @@
       const email = emailInput.value.toLowerCase();
       
       // Check if email contains @uttarauniversity
-      const uttaraEmailPattern = /@uttarauniversity/;
+      // const uttaraEmailPattern = /@uttarauniversity/;
       
       if (email && !uttaraEmailPattern.test(email)) {
         emailError.style.display = 'block';
