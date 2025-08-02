@@ -45,6 +45,26 @@
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
+  <style>
+    /* Add styles for submit message */
+    .success {
+      background-color: rgba(76, 175, 80, 0.2);
+      border: 1px solid #4caf50;
+      color: #4caf50;
+    }
+    
+    .error {
+      background-color: rgba(244, 67, 54, 0.2);
+      border: 1px solid #f44336;
+      color: #f44336;
+    }
+    
+    .loading {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 1px solid #2196f3;
+      color: #2196f3;
+    }
+  </style>
 </head>
 
 <body>
@@ -265,7 +285,7 @@
         <div class="section-title">Application Form</div>
         
         <div class="form-container">
-          <form class="recruitment-form" action="#" method="POST">
+          <form class="recruitment-form" id="recruitmentForm" onsubmit="submitToGoogleSheets(event)">
 
             <div class="form-row">
               <div class="form-group">
@@ -335,7 +355,7 @@
                 <label for="email">Varsity Mail *</label>
                 <input type="email" id="email" name="email" required placeholder="yourname@uttarauniversity.edu.bd" onblur="validateUttaraEmail()" oninput="validateUttaraEmail()">
                 <div id="emailError" style="color: #e74c3c; font-size: 0.9em; margin-top: 5px; display: none;">
-                  Please use your Uttara University email address!
+                  Please use your Uttara University email address (must contain @uttarauniversity)!
                 </div>
               </div>
             </div>
@@ -435,6 +455,7 @@
             <div class="form-actions">
               <button type="submit" class="submit-btn">Submit Application</button>
               <button type="reset" class="reset-btn">Reset Form</button>
+              <div id="submitMessage" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
             </div>
           </form>
         </div>
@@ -488,6 +509,90 @@
   <script src="/assets/js/recruitment.js"></script>
   
   <script>
+    // Google Sheets Integration
+    async function submitToGoogleSheets(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.querySelector('.submit-btn');
+      const submitMessage = document.getElementById('submitMessage');
+      const form = document.getElementById('recruitmentForm');
+      
+      // Disable submit button and show loading
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      submitMessage.style.display = 'block';
+      submitMessage.className = 'loading';
+      submitMessage.textContent = 'Submitting your application...';
+      
+      try {
+        // Collect form data
+        const formData = new FormData(form);
+        
+        // Get selected interests
+        const interests = [];
+        const interestCheckboxes = document.querySelectorAll('input[name="interests[]"]:checked');
+        interestCheckboxes.forEach(checkbox => {
+          interests.push(checkbox.value);
+        });
+        
+        // Prepare data object for Google Sheets
+        const data = {
+          timestamp: new Date().toISOString(),
+          firstName: formData.get('firstName'),
+          lastName: formData.get('lastName'),
+          studentId: formData.get('studentId'),
+          batch: formData.get('batch') === 'Other' ? formData.get('batchOther') : formData.get('batch'),
+          section: formData.get('section') === 'Other' ? formData.get('sectionOther') : formData.get('section'),
+          department: formData.get('department') === 'Other' ? formData.get('departmentOther') : formData.get('department'),
+          phone: formData.get('phone'),
+          email: formData.get('email'),
+          experience: formData.get('experience'),
+          interests: interests.join(', '),
+          motivation: formData.get('motivation'),
+          role: formData.get('role'),
+          availability: formData.get('availability'),
+          skills: formData.get('skills'),
+          agreement: formData.get('agreement') ? 'Yes' : 'No'
+        };
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxa0ENvAL2qtAMJtVXmqNyVcgSgGG_VkTDoieY0Rp8rMP9J9Xnzs4DkzbueyOniodrPHQ/exec';
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        // Since mode is 'no-cors', we can't check the actual response
+        // We'll assume success if no error is thrown
+        submitMessage.className = 'success';
+        submitMessage.textContent = 'Application submitted successfully! We will contact you soon.';
+        
+        // Reset form after successful submission
+        form.reset();
+        
+        // Hide any "Other" input fields
+        document.getElementById('batchOther').style.display = 'none';
+        document.getElementById('sectionOther').style.display = 'none';
+        document.getElementById('departmentOther').style.display = 'none';
+        
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        submitMessage.className = 'error';
+        submitMessage.textContent = 'Error submitting application. Please try again.';
+      } finally {
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          submitMessage.style.display = 'none';
+        }, 5000);
+      }
+    }
+
     function toggleSectionOther() {
       const sectionSelect = document.getElementById('section');
       const sectionOtherInput = document.getElementById('sectionOther');
@@ -550,12 +655,12 @@
       const emailError = document.getElementById('emailError');
       const email = emailInput.value.toLowerCase();
       
-      // Check if email ends with @uttarauniversity.edu.bd
-      const uttaraEmailPattern = /@uttarauniversity\.edu\.bd$/;
+      // Check if email contains @uttarauniversity
+      const uttaraEmailPattern = /@uttarauniversity/;
       
       if (email && !uttaraEmailPattern.test(email)) {
         emailError.style.display = 'block';
-        emailInput.setCustomValidity('Please use your Uttara University email address (@uttarauniversity.edu.bd)');
+        emailInput.setCustomValidity('Please use your Uttara University email address');
         return false;
       } else {
         emailError.style.display = 'none';
