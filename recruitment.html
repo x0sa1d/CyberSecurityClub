@@ -567,8 +567,7 @@
         // Since mode is 'no-cors', we can't check the actual response
         // We'll assume success if no error is thrown
         submitMessage.className = 'success';
-        submitMessage.textContent = 'Application submitted successfully! We will contact you soon.';
-        
+        submitMessage.textContent = 'Check your Mail Box for confirmation.';
         // Reset form after successful submission
         form.reset();
         
@@ -583,8 +582,8 @@
         submitMessage.textContent = 'Error submitting application. Please try again.';
       } finally {
         // Re-enable submit button
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Application';
+        submitBtn.disabled = true;
+      submitBtn.textContent = 'Application Submitted!';
         
         // Hide message after 5 seconds
         setTimeout(() => {
