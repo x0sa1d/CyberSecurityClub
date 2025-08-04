@@ -212,3 +212,22 @@ function handleSwipe() {
 // window.addEventListener('scroll', function() {
 //   document.body.style.backgroundPositionY = -window.pageYOffset/8 + "px";
 // });
+
+// Sticky Secondary Navbar
+$(document).ready(function() {
+  const secondaryHeader = $('.secondary-header');
+  let isSticky = false;
+  
+  $(window).scroll(function() {
+    const scroll = $(window).scrollTop();
+    const headerHeight = $('.header').outerHeight() || 0;
+    
+    if (scroll >= headerHeight && !isSticky) {
+      secondaryHeader.addClass('sticky-active');
+      isSticky = true;
+    } else if (scroll < headerHeight && isSticky) {
+      secondaryHeader.removeClass('sticky-active');
+      isSticky = false;
+    }
+  });
+});
