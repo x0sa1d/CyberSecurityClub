@@ -97,12 +97,12 @@ img {
 .header {
   position: sticky;
   width: 100%;
-  min-height: 64px;
+  min-height: 80px;
   z-index: 100;
   top: 0;
   display: flex;
   align-items: center;
-  background-color: var(--header-color);
+  background: var(--header-color);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
@@ -137,8 +137,8 @@ img {
 }
 
 .header-image {
-  height: 48px;
-  width: 120px;
+  height: 100px;
+  width: 220px;
   background-image: var(--header-image-url);
   background-size: contain;
   background-repeat: no-repeat;
@@ -179,7 +179,7 @@ img {
   color: var(--text-color);
   opacity: 0.7;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1 rem;
   font-weight: 600;
   padding: 8px 8px;
   border-radius: 6px;
@@ -296,58 +296,187 @@ img {
 .site-footer {
   height: auto;
   width: 100%;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  background-color: var(--header-color);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid transparent;
-  transition: all 0.15s ease-in-out
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0000FF 0%, #667eea 50%, #764ba2 100%);
 }
 
 .footer-wrapper {
   width: 100%;
-  max-width: 48rem;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
-.footer-info-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-@media (max-width: 576px) {
-  .footer-info-container {
-    flex-direction: column;
+@media (max-width: 768px) {
+  .footer-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     text-align: center;
   }
 }
 
-.footer-title-container {
-  width: 100%;
-  height: 100%;
+/* Footer Logo Section */
+.footer-logo-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
+  align-items: flex-start;
 }
+
+.footer-logo {
+  width: 300px;
+  height: 100px;
+  background-image: url(/assets/images/csc_white.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  transition: all 0.3s ease;
+}
+
+.footer-description {
+  color: #b3c1d4;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Quick Links Section */
+.footer-links-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-links-column h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-list li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links-list a {
+  color: #b3c1d4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links-list a:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.footer-links-list a i {
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+/* Footer Contact & Social Section */
+.footer-contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+/* .university-logo {
+  width: 200px;
+  height: 50px;
+  background-image: url('https://www.uttara.ac.bd/wp-content/themes/utheme/images/UULogo.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  flex-shrink: 0;
+} */
+
+@media (max-width: 768px) {
+  .footer-logo-section,
+  .footer-contact-section {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-links-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-logos-container {
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-logo {
+    background-position: center;
+    width: 180px;
+    height: 70px;
+  }
+  
+  .university-logo {
+    width: 180px;
+    height: 70px;
+  }
+  
+  .university-logo::before {
+    display: none;
+  }
+}
+
+.footer-title-container {
+  margin-bottom: 1.5rem;
+}
+
 .footer-title {
-  color: var(--text-color);
-  font-size: 1.5rem;
+  color: #ffffff;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 0;
-  text-align: center;
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer-title {
+    text-align: center;
+  }
 }
 
 .footer-title h1 {
@@ -369,7 +498,7 @@ img {
 }
 
 .email:link {
-  color: var(--text-color);
+  color: #ffffff;
   text-decoration: none;
   opacity: 0.9;
   transition: all 0.3s ease;
@@ -379,42 +508,43 @@ img {
 }
 
 .email:hover {
-  color: var(--text-color);
+  color: #0000FF;
   opacity: 1;
   transform: translateY(-2px);
 }
 
 .email:visited {
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .mail {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
-  background: var(--card-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
   transition: all 0.3s ease;
   width: fit-content;
-  margin: 0 auto;
+  margin: 0;
+  backdrop-filter: blur(10px);
 }
 
 .mail:hover {
-  background: var(--card-color-light);
-  border-color: var(--link-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.15);
+  background: rgba(0, 0, 255, 0.2);
+  border-color: #0000FF;
+  box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
 }
 
 .mail i {
-  color: var(--link-color);
+  color: #ffffff;
   font-size: 16px;
   flex-shrink: 0;
 }
 
 .mail span {
-  color: var(--link-color);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
 }
@@ -436,38 +566,56 @@ img {
 
 .footer-social-container {
   width: 100%;
-  height: 100%;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .footer-social-container {
+    justify-content: center;
+  }
+}
+
+.university-logo-container {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .university-logo-container {
+    justify-content: center;
+  }
 }
 
 .social-link {
   position: relative;
-  width: 50px;
-  height: 50px;
-  padding: 12px;
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--link-color);
+  color: #ffffff;
   opacity: 0.8;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: var(--card-color);
+  background: rgba(255, 255, 255, 0.1);
   overflow: visible;
 }
 
 .social-link:hover {
   opacity: 1;
-  transform: translateY(-4px) scale(1.05);
-  border-color: var(--link-color);
-  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
-  background: var(--card-color-light);
+  transform: translateY(-3px) scale(1.1);
+  border-color: #0000FF;
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.4);
+  background: rgba(0, 0, 255, 0.2);
 }
 
 .social-link svg {
@@ -483,13 +631,13 @@ img {
 }
 
 .social-link i {
-  font-size: 24px;
+  font-size: 20px;
   transition: all 0.3s ease;
-  color: var(--link-color);
+  color: #ffffff;
 }
 
 .social-link:hover i {
-  color: var(--link-color);
+  color: #ffffff;
   transform: scale(1.1);
 }
 
@@ -529,17 +677,24 @@ img {
   }
 }
 
+/* Footer Bottom Section */
+.footer-bottom {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
 /* Developer Credit Section */
 .site-credit {
-  margin-top: 24px;
-  text-align: center;
   font-size: 14px;
-  color: var(--light-text-color);
+  color: #b3c1d4;
   transition: all 0.3s ease;
 }
 
 .site-credit a {
-  color: var(--light-text-color);
+  color: #b3c1d4;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-flex;
@@ -548,7 +703,7 @@ img {
   vertical-align: baseline;
 }
 .site-credit a:hover {
-  color: var(--link-color);
+  color: #ffffff;
   transform: translateY(-1px);
   font-weight: 800;
 }
