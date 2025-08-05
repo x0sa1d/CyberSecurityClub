@@ -9,7 +9,7 @@ html {
   --card-color-light: #e2e2e7;
   --header-color: rgba(211, 210, 211, 0.35);
   --header-color-mobile: rgba(211, 210, 211, 0.95);
-  --header-image-url: url(/assets/images/csc_blue.png);
+  --header-image-url: url(../images/csc_blue.png);
   --gradient-2: #cbcbcb;
   --gradient-3: #b2b2b2;
   
@@ -148,7 +148,7 @@ img {
 }
 
 :root {
-  --header-image-url: url(/assets/images/csc_blue.png);
+  --header-image-url: url(../images/csc_blue.png);
 }
 
 /* Logo styling */
