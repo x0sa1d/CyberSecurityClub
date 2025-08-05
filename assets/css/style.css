@@ -289,7 +289,8 @@ img {
   list-style: none;
 }
 
-.navbar-links a {
+.navbar-links a,
+.nav-link {
   display: flex;
   align-items: center;
   color: #ffffff;
@@ -303,6 +304,54 @@ img {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+}
+
+/* Apply secondary navbar styling to all nav links */
+.navbar-links a::before,
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.3s ease;
+}
+
+.navbar-links a:hover::before,
+.nav-link:hover::before {
+  left: 100%;
+}
+
+.navbar-links a .navbar-slash,
+.nav-link .navbar-slash {
+  color: #58a6ff;
+  margin-right: 6px;
+  font-weight: 700;
+  text-shadow: 0 0 4px rgba(88, 166, 255, 0.3);
+}
+
+/* Active Page Indicator for all nav links */
+.navbar-links a.active-nav-link,
+.nav-link.active-nav-link {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  border-left: 3px solid #58a6ff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(88, 166, 255, 0.3);
+}
+
+.navbar-links a.active-nav-link .navbar-slash,
+.nav-link.active-nav-link .navbar-slash {
+  color: #ffffff !important;
+  text-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
+}
+
+.navbar-links a.active-nav-link::before,
+.nav-link.active-nav-link::before {
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.2), transparent);
 }
 
 /* News Ticker */
@@ -427,6 +476,7 @@ img {
 }
 
 .navbar-links a:hover,
+.nav-link:hover,
 .secondary-navbar-links a:hover {
   opacity: 1;
   color: #ffffff;
@@ -637,6 +687,7 @@ img {
   }
   
   .navbar-links a,
+  .nav-link,
   .secondary-navbar-links a {
     font-size: 0.85rem;
     padding: 6px 8px;
