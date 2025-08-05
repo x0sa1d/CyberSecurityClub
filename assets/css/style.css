@@ -5651,6 +5651,26 @@ img {
   margin: 0;
   width: 18px;
   height: 18px;
+  accent-color: #0000FF;
+  cursor: pointer;
+  border: 2px solid #0000FF;
+  border-radius: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background-color: #0000FF;
+  border-color: #0000FF;
+}
+
+.checkbox-label input[type="checkbox"]:hover {
+  border-color: #0000CC;
+}
+
+.checkbox-label input[type="checkbox"]:focus {
+  outline: none;
+  border-color: #0000FF;
 }
 
 .form-group.agreement {
