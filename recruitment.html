@@ -335,7 +335,7 @@
                 <label for="email">Varsity Mail *</label>
                 <input type="email" id="email" name="email" required placeholder="yourname@uttarauniversity.edu.bd" onblur="validateUttaraEmail()" oninput="validateUttaraEmail()">
                 <div id="emailError" style="color: #e74c3c; font-size: 0.9em; margin-top: 5px; display: none;">
-                  Please use your Uttara University email address (must contain @uttarauniversity)!
+                  Please use your Uttara University email address!
                 </div>
               </div>
             </div>
@@ -582,7 +582,7 @@
           skills: formData.get('skills'),
           agreement: formData.get('agreement') ? 'Yes' : 'No'
         };
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLXL61yVRl62c-uG8Hk1JdHUsnUx1qTPF4c17loV0KyjbppeV70geabJxFpxg8yazPkw/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw44gWoUP0t2wOD8g1e3uzBdzvK3-Qn1YFJdWIsRHrSZ45HkEvlcwbHrVYDRqs10F8a6g/exec';
         const response = await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
