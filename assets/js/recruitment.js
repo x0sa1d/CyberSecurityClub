@@ -20,13 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Show success message
-                showSubmissionMessage();
-                
-                // Here you would typically send the form data to a server
-                // For now, we'll just simulate a successful submission
                 console.log('Form submitted successfully!');
-                
                 // Reset form after successful submission
                 setTimeout(() => {
                     recruitmentForm.reset();
