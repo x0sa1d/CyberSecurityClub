@@ -54,37 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    function showSubmissionMessage() {
-        // Create or get the message element
-        let messageElement = document.getElementById('submissionMessage');
-        if (!messageElement) {
-            messageElement = document.createElement('div');
-            messageElement.id = 'submissionMessage';
-            messageElement.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #4caf50;
-                color: white;
-                padding: 15px 20px;
-                border-radius: 5px;
-                z-index: 1000;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                transition: all 0.3s ease;
-            `;
-            document.body.appendChild(messageElement);
-        }
-        
-        messageElement.textContent = 'Application submitted successfully!';
-        messageElement.style.display = 'block';
-        
-        // Hide after 3 seconds
-        setTimeout(() => {
-            messageElement.style.display = 'none';
-        }, 3000);
-    }
-    
+
     function resetFieldColors() {
         const formFields = recruitmentForm.querySelectorAll('input, select, textarea');
         formFields.forEach(field => {
