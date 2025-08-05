@@ -9,6 +9,18 @@ $(window).scroll(function () {
   }
 });
 
+// Ensure page loads from top
+$(window).on('beforeunload', function() {
+  $(window).scrollTop(0);
+});
+
+// Additional scroll to top on page load
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    window.scrollTo(0, 0);
+  }, 0);
+});
+
 (() => {
   $(".navbar-burger").click(() => {
     $(".navbar-links").toggleClass("navbar-active");
@@ -32,6 +44,9 @@ let slideCount = 0;
 const slideDuration = 5000; // 5 seconds
 
 $(document).ready(function() {
+  // Ensure page starts from top on reload
+  $(window).scrollTop(0);
+  
   initializeSlideshow();
 });
 
