@@ -34,6 +34,31 @@ window.addEventListener('load', function() {
       }
     });
   });
+
+  // Navigation link opacity effect
+  $(".navbar-links a, .nav-link").click(function(e) {
+    // Remove active class from all nav links
+    $(".navbar-links a, .nav-link").removeClass("active-nav-link").css("opacity", "0.4");
+    
+    // Add active class to clicked link and set full opacity
+    $(this).addClass("active-nav-link").css("opacity", "1");
+  });
+
+  // Set active link on page load based on current page
+  $(document).ready(function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    $(".navbar-links a, .nav-link").each(function() {
+      const linkHref = $(this).attr('href');
+      if (linkHref === currentPage || 
+          (currentPage === '' && linkHref === 'index.html') ||
+          (currentPage === 'index.html' && linkHref === '/')) {
+        $(this).addClass("active-nav-link").css("opacity", "1");
+      } else {
+        $(this).css("opacity", "0.4");
+      }
+    });
+  });
 })();
 
 // Enhanced Slideshow with Navigation and Controls
@@ -78,18 +103,7 @@ function initializeSlideshow() {
 }
 
 function addSlideshowControls() {
-  const $slideshowContainer = $(".slideshow");
-  
-  // Add navigation dots
-  let dotsHTML = '<div class="slideshow-dots">';
-  for (let i = 0; i < slideCount; i++) {
-    dotsHTML += `<div class="slideshow-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>`;
-  }
-  dotsHTML += '</div>';
-  $slideshowContainer.append(dotsHTML);
-  
-  // Add progress bar
-  $slideshowContainer.append('<div class="slideshow-progress"></div>');
+  // No controls needed - clean slideshow
 }
 
 function nextSlide() {
@@ -98,9 +112,6 @@ function nextSlide() {
   $slides.eq(currentSlide).fadeOut(800);
   currentSlide = (currentSlide + 1) % slideCount;
   $slides.eq(currentSlide).fadeIn(800);
-  
-  updateDots();
-  resetProgress();
 }
 
 function prevSlide() {
@@ -109,9 +120,6 @@ function prevSlide() {
   $slides.eq(currentSlide).fadeOut(800);
   currentSlide = (currentSlide - 1 + slideCount) % slideCount;
   $slides.eq(currentSlide).fadeIn(800);
-  
-  updateDots();
-  resetProgress();
 }
 
 function goToSlide(index) {
@@ -122,55 +130,21 @@ function goToSlide(index) {
   $slides.eq(currentSlide).fadeOut(600);
   currentSlide = index;
   $slides.eq(currentSlide).fadeIn(600);
-  
-  updateDots();
-  resetProgress();
-}
-
-function updateDots() {
-  $(".slideshow-dot").removeClass("active");
-  $(".slideshow-dot").eq(currentSlide).addClass("active");
 }
 
 function startSlideshow() {
   slideInterval = setInterval(nextSlide, slideDuration);
   isPlaying = true;
-  startProgress();
 }
 
 function pauseSlideshow() {
   clearInterval(slideInterval);
-  clearInterval(progressInterval);
   isPlaying = false;
 }
 
 function resumeSlideshow() {
   if (!isPlaying) {
     startSlideshow();
-  }
-}
-
-// Progress bar functionality
-let progressInterval;
-let progressWidth = 0;
-
-function startProgress() {
-  progressWidth = 0;
-  progressInterval = setInterval(function() {
-    progressWidth += (100 / (slideDuration / 100));
-    if (progressWidth >= 100) {
-      progressWidth = 0;
-    }
-    $(".slideshow-progress").css("width", progressWidth + "%");
-  }, 100);
-}
-
-function resetProgress() {
-  clearInterval(progressInterval);
-  progressWidth = 0;
-  $(".slideshow-progress").css("width", "0%");
-  if (isPlaying) {
-    startProgress();
   }
 }
 
