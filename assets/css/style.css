@@ -83,7 +83,7 @@ img {
 .header {
   position: sticky;
   width: 100%;
-  min-height: 80px;
+  min-height: 150px;
   z-index: 100;
   top: 0;
   display: flex;
@@ -149,12 +149,13 @@ img {
 /* Nav Bars - Original Dual Navigation */
 .navbar-links {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
   flex: 1;
   max-width: none;
   z-index: 20;
+  flex-wrap: wrap;
 }
 
 .navbar-links li {
@@ -168,62 +169,42 @@ img {
   color: #ffffff;
   opacity: 0.9;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 0;
   transition: all 0.15s ease-in-out;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
 }
 
-/* Apply secondary navbar styling to all nav links */
-.navbar-links a::before,
-.nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.3s ease;
-}
-
-.navbar-links a:hover::before,
-.nav-link:hover::before {
-  left: 100%;
+/* Hover effects for navigation links */
+.navbar-links a:hover,
+.nav-link:hover {
+  opacity: 1;
+  color: #ffffff;
 }
 
 .navbar-links a .navbar-slash,
 .nav-link .navbar-slash {
-  color: #58a6ff;
+  color: #ffffff;
   margin-right: 6px;
-  font-weight: 700;
-  text-shadow: 0 0 4px rgba(88, 166, 255, 0.3);
+  font-weight: 400;
 }
 
 /* Active Page Indicator for all nav links */
 .navbar-links a.active-nav-link,
 .nav-link.active-nav-link {
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: #ffffff !important;
-  opacity: 1 !important;
-  border-left: 3px solid #58a6ff;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(88, 166, 255, 0.3);
+  color: #ffffff;
+  opacity: 1;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .navbar-links a.active-nav-link .navbar-slash,
 .nav-link.active-nav-link .navbar-slash {
-  color: #ffffff !important;
-  text-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
-}
-
-.navbar-links a.active-nav-link::before,
-.nav-link.active-nav-link::before {
-  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.2), transparent);
+  color: #ffffff;
 }
 
 /* News Ticker */
@@ -269,247 +250,23 @@ img {
   }
 }
 
-/* Secondary Header */
-.secondary-header {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #ffffff;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  min-height: 50px;
-  border-bottom: 1px solid transparent;
-  transition: all 0.15s ease-in-out;
-  width: 100%;
-}
-
-.secondary-header.sticky-active {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.secondary-header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 50px;
-}
-
-.secondary-navbar-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  z-index: 20;
-}
-
-.secondary-navbar-links li {
-  list-style: none;
-}
-
-.secondary-navbar-links a {
-  display: flex;
-  align-items: center;
+/* Simple styling for CTF link */
+.ctf-link {
+  font-weight: 500;
   color: #ffffff;
   opacity: 0.9;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.15s ease-in-out;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
+  font-size: 1.1rem;
+  padding: 12px 16px;
 }
 
-.secondary-navbar-controls {
-  display: none;
-}
-
-.secondary-navbar-burger {
-  display: none;
-}
-
-.navbar-links a:hover,
-.nav-link:hover,
-.secondary-navbar-links a:hover {
+.ctf-link:hover {
   opacity: 1;
+}
+
+.ctf-link .navbar-slash {
   color: #ffffff;
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Secondary navbar link effects */
-.secondary-navbar-links a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.3s ease;
-}
-
-.secondary-navbar-links a:hover::before {
-  left: 100%;
-}
-
-.secondary-navbar-links a .navbar-slash {
-  color: #58a6ff;
   margin-right: 6px;
-  font-weight: 700;
-  text-shadow: 0 0 4px rgba(88, 166, 255, 0.3);
-}
-
-/* Active Page Indicator for secondary links */
-.secondary-navbar-links a.active-nav-link {
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: #ffffff !important;
-  opacity: 1 !important;
-  border-left: 3px solid #58a6ff;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(88, 166, 255, 0.3);
-}
-
-.secondary-navbar-links a.active-nav-link .navbar-slash {
-  color: #ffffff !important;
-  text-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
-}
-
-.secondary-navbar-links a.active-nav-link::before {
-  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.2), transparent);
-}
-
-/* Bold styling for CTF and Join Us links */
-.ctf-link,
-.join-us-link {
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  opacity: 1 !important;
-}
-
-/* Attractive Join Us Button Styling */
-.attractive-join-btn {
-  background: rgba(255, 255, 255, 0.08) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 8px !important;
-  padding: 8px 16px !important;
-  margin-left: 10px !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  font-size: 0.9rem !important;
-  transition: all 0.2s ease !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-.attractive-join-btn:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: rgba(255, 255, 255, 0.25) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-}
-
-.attractive-join-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.attractive-join-btn:hover::before {
-  left: 100%;
-}
-
-.attractive-join-btn .navbar-slash {
-  color: #ffffff !important;
-  text-shadow: 0 0 8px rgba(15, 52, 96, 0.8) !important;
-}
-
-/* Attractive CTF Button Styling */
-.attractive-ctf-btn {
-  background: rgba(255, 255, 255, 0.06) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 8px !important;
-  padding: 8px 14px !important;
-  margin-right: 10px !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  font-size: 0.9rem !important;
-  transition: all 0.2s ease !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-.attractive-ctf-btn:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-}
-
-.attractive-ctf-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  transition: left 0.4s ease;
-}
-
-.attractive-ctf-btn:hover::before {
-  left: 100%;
-}
-
-.attractive-ctf-btn .navbar-slash {
-  color: #ffffff !important;
-  text-shadow: 0 0 8px rgba(26, 26, 46, 0.8) !important;
-}
-
-@keyframes gradientShiftReverse {
-  0% {
-    background-position: 100% 50%;
-  }
-  50% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  font-weight: 400;
 }
 
 /* Navbar Controls Container */
@@ -536,13 +293,8 @@ img {
 
 /* Medium screens - tighter spacing */
 
-.navbar-active,
-.navbar-active .secondary-navbar-links {
+.navbar-active {
   transform: translateX(0);
-}
-
-.navbar-active .secondary-navbar-links {
-  transform: translateX(0) translateY(-50%);
 }
 
 .navbar-burger-active .line-1 {
