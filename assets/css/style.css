@@ -83,7 +83,7 @@ img {
 .header {
   position: sticky;
   width: 100%;
-  min-height: 150px;
+  height: 150px;
   z-index: 100;
   top: 0;
   display: flex;
@@ -126,6 +126,7 @@ img {
 .header-image {
   height: 200px;
   width: 300px;
+  margin-left: 10px;
   background-image: var(--header-image-url);
   background-size: contain;
   background-repeat: no-repeat;
@@ -156,7 +157,7 @@ img {
   max-width: none;
   z-index: 20;
   flex-wrap: nowrap;
-  margin-top: 140px;
+  margin-top: 70px;
 }
 
 .navbar-links li {
@@ -704,7 +705,7 @@ img {
   font-weight: 800;
   text-align: center;
   color: var(--text-color);
-  margin-top: 60px;
+  margin-top: 110px;
   font-size: 5rem;
   line-height: 5rem;
 }
@@ -3828,15 +3829,12 @@ img {
   background: transparent; 
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  /* border: 1px solid rgba(15, 52, 96, 0.3); */
   transition: all 0.15s ease-in-out;
 }
 
 .member_container:hover {
   transform: translateY(-5px);
   box-shadow: 0px 8px 24px rgba(15, 52, 96, 0.4);
-  border: 1px solid rgba(15, 52, 96, 0.3);
-  border-color: rgba(15, 52, 96, 0.6);
 }
 
 .member_avatar-container {
@@ -4064,8 +4062,8 @@ img {
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(2, minmax(350px, 1fr));
+  gap: 50px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -4073,19 +4071,17 @@ img {
 .event_container {
   position: relative;
   background: var(--card-color);
-  border: 2px solid var(--border-color);
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: fit-content;
-  display: flex;
+  display:flexbox;
   flex-direction: column;
 }
 
 .event_container:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 15px 30px rgba(0, 0, 255, 0.2);
-  border-color: var(--link-color);
 }
 
 .event_badge {
@@ -5423,8 +5419,8 @@ img {
     
       display: inline-flex;
       align-items: center;
-      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-      /* background: linear-gradient(135deg, #667eea, #764ba2); */
+      /* background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); */
+      background: linear-gradient(135deg, #667eea, #764ba2);
       text-decoration: none;
       color: white;
       padding: 0.25rem 0.5rem;
@@ -5453,7 +5449,7 @@ img {
     }
 
     .color-gred:hover {
-      background: linear-gradient(135deg, #0f3460, #1a1a2e, #16213e);
+      background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
       text-decoration: none;
       transform: translateY(-1px) scale(1.05);

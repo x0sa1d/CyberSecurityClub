@@ -2,7 +2,7 @@
 $(window).scroll(function () {
   var scroll = $(window).scrollTop();
 
-  if (scroll >= 80) {
+  if (scroll >= 60) {
     $(".header").addClass("border-bottom");
   } else {
     $(".header").removeClass("border-bottom");
