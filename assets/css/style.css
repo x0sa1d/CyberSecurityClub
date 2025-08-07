@@ -83,7 +83,7 @@ img {
 .header {
   position: sticky;
   width: 100%;
-  height: 150px;
+  height: 120px;
   z-index: 100;
   top: 0;
   display: flex;
@@ -125,7 +125,7 @@ img {
 
 .header-image {
   height: 200px;
-  width: 250px;
+  width: 200px;
   margin-left: 10px;
   /* margin-top: 15px; */
   background-image: var(--header-image-url);
@@ -158,7 +158,7 @@ img {
   max-width: none;
   z-index: 20;
   flex-wrap: nowrap;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .navbar-links li {
@@ -218,49 +218,6 @@ img {
   color: #ffffff !important;
 }
 
-/* News Ticker */
-.news-ticker-container {
-  width: 990px;
-  overflow: hidden;
-  height: 35px;
-  position: relative;
-  margin: 0 auto;
-}
-
-.news-ticker {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.news-ticker-content {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  animation: scroll-right-to-left 25s linear infinite;
-}
-
-.news-item {
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  letter-spacing: 0.5px;
-}
-
-@keyframes scroll-right-to-left {
-  0% {
-    transform: translateX(100%) translateY(-50%);
-  }
-  100% {
-    transform: translateX(-100%) translateY(-50%);
-  }
-}
-
 /* Simple styling for CTF link */
 .ctf-link {
   font-weight: 500;
@@ -284,7 +241,7 @@ img {
 .navbar-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 15px; 
   flex-shrink: 0;
 }
 
@@ -381,7 +338,7 @@ img {
   color: #b3c1d4;
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 /* Quick Links Section */
@@ -445,9 +402,9 @@ img {
   margin-bottom: 1rem;
 }
 
-/* .university-logo {
-  width: 200px;
-  height: 50px;
+.university-logo {
+  width: 100px;
+  height: 100px;
   background-image: url('https://www.uttara.ac.bd/wp-content/themes/utheme/images/UULogo.webp');
   background-size: contain;
   background-repeat: no-repeat;
@@ -455,7 +412,7 @@ img {
   transition: all 0.3s ease;
   opacity: 0.8;
   flex-shrink: 0;
-} */
+}
 
 .footer-title-container {
   margin-bottom: 1.5rem;
@@ -536,7 +493,7 @@ img {
 
 .footer-social-container {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -545,7 +502,6 @@ img {
 
 .university-logo-container {
   width: 100%;
-  margin-top: 15px;
   display: flex;
   justify-content: flex-end;
 }
@@ -623,7 +579,6 @@ img {
 /* Footer Bottom Section */
 .footer-bottom {
   grid-column: 1 / -1;
-  margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
@@ -706,7 +661,7 @@ img {
   font-weight: 800;
   text-align: center;
   color: var(--text-color);
-  margin-top: 110px;
+  margin-top: 140px;
   font-size: 5rem;
   line-height: 5rem;
 }
