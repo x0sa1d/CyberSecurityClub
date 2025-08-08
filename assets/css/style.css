@@ -9,7 +9,7 @@ html {
   --card-color-light: #e2e2e7;
   --header-color: rgba(211, 210, 211, 0.35);
   --header-color-mobile: rgba(211, 210, 211, 0.95);
-  --header-image-url: url(../images/csc_blue.png);
+  --header-image-url: url(../images/csc_white.png);
   --gradient-2: #cbcbcb;
   --gradient-3: #b2b2b2;
   
@@ -97,12 +97,12 @@ img {
 .header {
   position: sticky;
   width: 100%;
-  min-height: 64px;
+  min-height: 100px;
   z-index: 100;
   top: 0;
   display: flex;
   align-items: center;
-  background-color: var(--header-color);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
@@ -137,8 +137,8 @@ img {
 }
 
 .header-image {
-  height: 48px;
-  width: 120px;
+  height: 100px;
+  width: 200px;
   background-image: var(--header-image-url);
   background-size: contain;
   background-repeat: no-repeat;
@@ -146,24 +146,18 @@ img {
   display: block;
   z-index: 105;
 }
-
-:root {
-  --header-image-url: url(../images/csc_blue.png);
-}
-
-/* Logo styling */
 .header-image {
   background-image: var(--header-image-url);
 }
 
 .navbar-slash {
-  color: #0000FF;
+  color: #ffffff;
 }
 /* Nav Bars */
 .navbar-links {
   display: flex;
-  justify-content: right;
-  align-items: right;
+  justify-content: center;
+  align-items: left;
   gap: 2px;
   flex: 1;
   max-width: none;
@@ -176,7 +170,7 @@ img {
 .navbar-links a {
   display: flex;
   align-items: center;
-  color: var(--text-color);
+  color: var(--background-color);
   opacity: 0.7;
   text-decoration: none;
   font-size: 0.95rem;
@@ -189,8 +183,16 @@ img {
 .navbar-links a:hover {
   opacity: 1;
   transform: translateY(-1px);
+  color: white;
 }
-
+/* Active Page Indicator for all nav links */
+.navbar-links a.active-nav-link,
+.nav-link.active-nav-link {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  font-weight: 600;
+  text-decoration: none;
+}
 /* Navbar Controls Container */
 .navbar-controls {
   display: flex;
@@ -207,7 +209,7 @@ img {
 .navbar-burger div {
   width: 25px;
   height: 2px;
-  background-color: var(--text-color);
+  background-color: var(--background-color);
   opacity: 0.7;
   margin: 5px;
   transition: all 0.3s ease;
@@ -237,10 +239,11 @@ img {
   }
   .navbar-links {
     position: absolute;
+    margin-right: auto;
     top: 0;
     right: 0;
     height: 100vh;
-    background-color: var(--header-color-mobile);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border-left: 1px solid var(--border-color);
@@ -248,9 +251,9 @@ img {
     flex-direction: column;
     justify-content: start;
     gap: 20px;
-    padding-top: 64px;
+    padding-top: 100px;
     z-index: 15;
-    width: 60%; /* Increased for better mobile UX */
+    width: 100%; /* Increased for better mobile UX */
     max-width: 320px; /* Maximum width limit */
     min-width: 280px; /* Minimum width for readability */
     transform: translateX(100%);
@@ -299,7 +302,7 @@ img {
   padding: 1rem;
   display: flex;
   align-items: center;
-  background-color: var(--header-color);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
@@ -343,7 +346,7 @@ img {
   gap: 12px;
 }
 .footer-title {
-  color: var(--text-color);
+  color: var(--background-color);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0;
@@ -359,7 +362,7 @@ img {
   width: 100%;
   height: 100%;
   font-size: 1rem;
-  color: var(--text-color);
+  color: var(--background-color);
   opacity: 0.75;
 }
 @media (max-width: 576px) {
@@ -393,8 +396,8 @@ img {
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: var(--card-color);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: 1px solid var(--card-color);
   border-radius: 8px;
   transition: all 0.3s ease;
   width: fit-content;
@@ -402,19 +405,14 @@ img {
 }
 
 .mail:hover {
-  background: var(--card-color-light);
+  opacity: 1;
+  transform: translateY(-4px) scale(1.05);
   border-color: var(--link-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 }
-
-.mail i {
-  color: var(--link-color);
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
 .mail span {
-  color: var(--link-color);
+  color: var(--card-color);
   font-size: 14px;
   font-weight: 500;
 }
@@ -449,16 +447,16 @@ img {
   width: 50px;
   height: 50px;
   padding: 12px;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--card-color);
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--link-color);
+  /* color: var(--background-color); */
   opacity: 0.8;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: var(--card-color);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   overflow: visible;
 }
 
@@ -467,29 +465,29 @@ img {
   transform: translateY(-4px) scale(1.05);
   border-color: var(--link-color);
   box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
-  background: var(--card-color-light);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 }
 
 .social-link svg {
   width: 24px;
   height: 24px;
   transition: all 0.3s ease;
-  fill: var(--link-color);
+  fill: var(--card-color);
 }
 
 .social-link:hover svg {
-  fill: var(--link-color);
+  fill: var(--card-color);
   transform: scale(1.1);
 }
 
 .social-link i {
   font-size: 24px;
   transition: all 0.3s ease;
-  color: var(--link-color);
+  color: var(--card-color);
 }
 
 .social-link:hover i {
-  color: var(--link-color);
+  color: var(--card-color);
   transform: scale(1.1);
 }
 
@@ -534,10 +532,10 @@ img {
   margin-top: 24px;
   text-align: center;
   font-size: 14px;
-  color: var(--light-text-color);
+  color: var(--background-color);
   transition: all 0.3s ease;
 }
-
+/* 
 .site-credit a {
   color: var(--light-text-color);
   text-decoration: none;
@@ -562,7 +560,7 @@ img {
 
 .site-credit a:hover i {
   transform: scale(1.1);
-}
+} */
 
 /* Cool Social Media Tooltips for Index Page */
 .home-social-link {
@@ -1490,6 +1488,7 @@ img {
   position: relative;
   padding: 0px 32px;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 @media (min-width: 576px) {
   .education-section {
@@ -3165,7 +3164,7 @@ img {
       padding: 0.25rem 0.5rem;
       border-radius: 6px;
       font-weight: 500;
-      font-size: 2rem;
+      font-size: 5rem;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
