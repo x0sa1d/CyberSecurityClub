@@ -4,7 +4,7 @@ html {
   --border-color: rgba(0, 0, 0, 0.1);
   --text-color: #000000;
   --light-text-color: #525252;
-  --link-color: #0000FF;
+  --link-color: #0000ff;
   --card-color: #f3f3f4;
   --card-color-light: #e2e2e7;
   --header-color: rgba(211, 210, 211, 0.35);
@@ -705,7 +705,7 @@ img {
   font-style: normal;
   font-weight: 600;
   text-align: center;
-  color: #0008ff;
+  color: var(--link-color);
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 1.3rem;

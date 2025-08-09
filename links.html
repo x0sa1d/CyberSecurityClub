@@ -743,7 +743,7 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      border: 2px solid transparent;
+      box-shadow: 0 4px 10px rgba(102, 126, 234, 0.2);
       min-height: 240px;
       display: flex;
       flex-direction: column;
@@ -764,7 +764,7 @@
     .resource-card:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 12px 25px rgba(102, 126, 234, 0.3);
-      border-color: #667eea;
+
     }
 
     .resource-card:hover::before {
@@ -924,6 +924,7 @@
         transform: none;
         box-shadow: none;
         border-color: transparent;
+        border: 2px solid #5e7bff;
       }
 
       .resource-card:hover h3 {
