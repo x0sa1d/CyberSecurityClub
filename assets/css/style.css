@@ -2841,18 +2841,27 @@ img {
   margin: 0 auto;
 }
 
-.requirement-box,
-.preferred-box {
-  background: var(--card-color);
+.requirement-box{
   padding: 30px;
   border-radius: 15px;
   border-left: 5px solid var(--link-color);
+  background: rgba(96, 106, 196, 0.1);
+  transition: all 0.3s ease;
 }
-
+.requirement-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 255, 0.1);
+}
 .preferred-box {
-  border-left-color: #FFA500;
+  border-left: 5px solid #FFA500;
+  background: rgba(255, 165, 0, 0.1);
+  padding: 30px;
+  border-radius: 15px;
 }
-
+.preferred-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.1);
+}
 
 .requirement-box h3,
 .preferred-box h3 {
@@ -3153,6 +3162,7 @@ img {
   .requirements-content {
     grid-template-columns: 1fr;
   }
+  
 }
 /* home button */
    .color-gred {
