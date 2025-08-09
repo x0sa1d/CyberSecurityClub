@@ -384,7 +384,7 @@ img {
 .email:hover {
   color: var(--text-color);
   opacity: 1;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .email:visited {
@@ -406,7 +406,7 @@ img {
 
 .mail:hover {
   opacity: 1;
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-1px) scale(1.05);
   border-color: var(--link-color);
   box-shadow: 0 8px 25px rgba(0, 0, 255, 0.2);
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -706,7 +706,7 @@ img {
   font-weight: 600;
   text-align: center;
   color: var(--link-color);
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
   font-size: 1.3rem;
   line-height: 2rem;
@@ -720,7 +720,7 @@ img {
   .heading-description {
     font-size: 1.2rem;
     line-height: 1.8rem;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
   }
 }
@@ -928,6 +928,7 @@ img {
   opacity: 1;
   border: 2px solid #2323FF;
   background-color: var(--card-color-light);
+  transform: translateY(-1px) scale(1.05);
 .home_event-title{
   color: #0000FF;
 }
