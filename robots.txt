@@ -1,5 +1,13 @@
 User-agent: *
-Allow: /
+
+Disallow: /.git/HEAD   
+Disallow: /.git/config  
+Disallow: /.git/index    
+Disallow: /.git/logs/           
+Disallow: /.gitattributes/       
+Disallow: /.gitignore/
+Disallow: /.git/
+Disallow: /sitemap.xml/
 
 # Priority pages for crawling
 Allow: /index.html
