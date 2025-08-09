@@ -7,7 +7,6 @@ Disallow: /.git/logs/
 Disallow: /.gitattributes/       
 Disallow: /.gitignore/
 Disallow: /.git/
-Disallow: /sitemap.xml/
 
 # Priority pages for crawling
 Allow: /index.html
