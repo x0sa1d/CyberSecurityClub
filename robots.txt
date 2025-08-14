@@ -1,0 +1,31 @@
+User-agent: *
+
+Disallow: /.git/HEAD   
+Disallow: /.git/config  
+Disallow: /.git/index    
+Disallow: /.git/logs/           
+Disallow: /.gitattributes/       
+Disallow: /.gitignore/
+Disallow: /.git/
+
+# Priority pages for crawling
+Allow: /index.html
+Allow: /about.html
+Allow: /events.html
+Allow: /CTF.html
+Allow: /gallery.html
+Allow: /recruitment.html
+Allow: /links.html
+Allow: /sponsors.html
+Allow: /advisor.html
+Allow: /groups.html
+Allow: /MemberShip.html
+
+# Allow all assets
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://cybersecurity.club.uttara.ac.bd/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
