@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Writeups - Cybersecurity Club</title>
+    <link rel="stylesheet" href="/assets/css/ctf.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🚩 CTF Writeups</div>
+                <nav class="nav">
+                    <a href="./CTFWriteups.html">Write-ups</a>
+                    <a href="./CTFMonthly.html" class="active">Monthly CTFs</a>
+                    <a href="./CTFWeekly.html">Weekly CTFs</a>
+                    <a href="./CTF.html">CTF Dashboard</a>
+                    <a href="#">Announcements</a>
+                    <a href="./index.html">Home</a>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <!-- <a href="#" class="add-post-btn" onclick="toggleAddForm()">✍️ Add Writeup</a> -->
+            </div>
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="/CTFWriteups.html" class="active">Write-ups</a>
+                <a href="#">Monthly CTFs</a>
+                <a href="#">Weekly CTFs</a>
+                <a href="./CTF.html">CTF Dashboard</a>
+                <a href="#">Announcements</a>
+            </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <div class="container">
+            <h1>CTF Writeups</h1>
+            <p>learn from others, and build the cybersecurity community together.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Add Post Form -->
+        <!-- <div class="add-post-form" id="addPostForm">
+            <h2 style="margin-bottom: 25px; color: #3b82f6;">📝 Add New Writeup</h2>
+            <form onsubmit="addWriteup(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" name="title" required placeholder="e.g., SQL Injection in Login Portal">
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty *</label>
+                        <select id="difficulty" name="difficulty" required>
+                            <option value="">Select difficulty</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" name="description" required placeholder="Brief description of the challenge and your approach..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="author">Author Name *</label>
+                        <input type="text" id="author" name="author" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="readTime">Read Time (minutes)</label>
+                        <input type="number" id="readTime" name="readTime" placeholder="5" min="1">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="web">Web Security</option>
+                            <option value="crypto">Cryptography</option>
+                            <option value="binary">Binary Exploitation</option>
+                            <option value="forensics">Forensics</option>
+                            <option value="osint">OSINT</option>
+                            <option value="reverse">Reverse Engineering</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mediumUrl">Medium Post URL</label>
+                        <input type="url" id="mediumUrl" name="mediumUrl" placeholder="https://medium.com/@yourpost">
+                    </div>
+                    <div class="form-group">
+                        <label for="avatarUrl">Avatar Image URL (GitHub/Medium)</label>
+                        <input type="url" id="avatarUrl" name="avatarUrl" placeholder="https://github.com/username.png">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tags">Tags (comma separated)</label>
+                    <input type="text" id="tags" name="tags" placeholder="sql, injection, webapp, beginner">
+                </div>
+                
+                <div>
+                    <button type="submit" class="submit-btn">📤 Publish Writeup</button>
+                    <button type="button" class="cancel-btn" onclick="toggleAddForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+         -->
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterWriteups('all')">All Posts</button>
+            <button class="filter-btn" onclick="filterWriteups('beginner')">Beginner</button>
+            <button class="filter-btn" onclick="filterWriteups('intermediate')">Intermediate</button>
+            <button class="filter-btn" onclick="filterWriteups('advanced')">Advanced</button>
+        </div>
+        
+        <!-- Writeups Grid -->
+        <div class="writeups-grid" id="writeupsgrid">
+            <!-- Sample writeups will be populated by JavaScript -->
+        </div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <h3>No writeups found</h3>
+            <p>Try adjusting your filters or add the first writeup in this category!</p>
+        </div>
+    </div>
+    
+    <script>
+        let writeups = [
+            {
+                id: 1,
+                title: "CTF Night 0x1",
+                description: "step-by-step writeups for challenges from CTF Night 0x1",
+                author: "S4M",
+                difficulty: "beginner",
+                category: "Monthly",
+                tags: ["Linux", "Web", "Networking", "Crypto", "OSINT"],
+                date: "2025-08-10",
+                readTime: 120,
+                mediumUrl: "https://github.com/Cyber-Security-Club-Uttara-University/CTF_Night_0x1_Writeups",
+                avatarUrl: "https://avatars.githubusercontent.com/u/73462438?v=4",
+            },
+            {
+                // id: 2,
+                // title: "RSA Cryptanalysis - Weak Prime Generation",
+                // description: "Mathematical analysis of RSA vulnerability due to poor prime generation. Includes Python implementation and attack vectors.",
+                // author: "CSC{Hidden_Inspector}",
+                // difficulty: "intermediate",
+                // category: "crypto",
+                // tags: ["rsa", "cryptography", "python", "mathematics"],
+                // date: "2025-08-08",
+                // readTime: 12,
+                // mediumUrl: "https://medium.com/@pran0x/rsa-cryptanalysis"
+            },
+            {
+            //Add Post
+            },
+            {
+            //Add Post
+            },
+            {
+            //Add Post
+            }
+        ];
+        
+        let currentFilter = 'all';
+        
+        function renderWriteups(filteredWriteups = writeups) {
+            const grid = document.getElementById('writeupsgrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredWriteups.length === 0) {
+                grid.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            
+            // Filter out empty or comment-only objects
+            const validWriteups = filteredWriteups.filter(w => w && w.title && w.author);
+            grid.innerHTML = validWriteups.map(writeup => {
+                const avatarUrl = writeup.avatarUrl || writeup.customUrl;
+                const avatarContent = avatarUrl 
+                    ? `<img src="${avatarUrl}" alt="${writeup.author}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`
+                    : writeup.author.split(' ').map(n => n[0]).join('');
+                
+                return `
+                    <div class="writeup-card" onclick="openWriteup('${writeup.mediumUrl || '#'}')">
+                        <div class="card-header">
+                            <div class="card-meta">
+                                <span class="difficulty-badge difficulty-${writeup.difficulty}">
+                                    ${writeup.difficulty.charAt(0).toUpperCase() + writeup.difficulty.slice(1)}
+                                </span>
+                                <span class="date">${formatDate(writeup.date)}</span>
+                            </div>
+                            <h3 class="card-title">${writeup.title}</h3>
+                            <p class="card-description">${writeup.description}</p>
+                            <div class="card-tags">
+                                ${writeup.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author">
+                                <div class="author-avatar">${avatarContent}</div>
+                                <div class="author-name">${writeup.author}</div>
+                            </div>
+                            <div class="read-time">${writeup.readTime || 5} min read</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+        }
+        
+        function filterWriteups(category) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            currentFilter = category;
+            
+            let filtered = writeups;
+            if (category !== 'all') {
+                if (category === 'beginner') {
+                    filtered = writeups.filter(w => w.difficulty === 'beginner');
+                } else {
+                    filtered = writeups.filter(w => w.category === category);
+                }
+            }
+            
+            renderWriteups(filtered);
+        }
+        // DATABASE CONECTION NEED
+        // function toggleAddForm() {
+        //     const form = document.getElementById('addPostForm');
+        //     form.classList.toggle('active');
+            
+        //     if (form.classList.contains('active')) {
+        //         document.getElementById('title').focus();
+        //     }
+        // }
+        
+        // function addWriteup(event) {
+        //     event.preventDefault();
+            
+        //     const formData = new FormData(event.target);
+        //     const newWriteup = {
+        //         id: writeups.length + 1,
+        //         title: formData.get('title'),
+        //         description: formData.get('description'),
+        //         author: formData.get('author'),
+        //         difficulty: formData.get('difficulty'),
+        //         category: formData.get('category'),
+        //         tags: formData.get('tags').split(',').map(t => t.trim()).filter(t => t),
+        //         date: new Date().toISOString().split('T')[0],
+        //         readTime: parseInt(formData.get('readTime')) || 5,
+        //         mediumUrl: formData.get('mediumUrl') || '',
+        //         avatarUrl: formData.get('avatarUrl') || ''
+        //     };
+            
+        //     writeups.unshift(newWriteup);
+            
+        //     // Reset form and hide it
+        //     event.target.reset();
+        //     toggleAddForm();
+            
+        //     // Re-render with current filter
+        //     filterWriteups(currentFilter);
+            
+        //     // Success notification
+        //     alert('🎉 Writeup added successfully!');
+        // }
+        
+        function openWriteup(url) {
+            if (url && url !== '#') {
+                window.open(url, '_blank');
+            } else {
+                alert('Medium post URL not available for this writeup.');
+            }
+        }
+        
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+        
+        // Close mobile menu when window is resized to desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const mobileNav = document.getElementById('mobileNav');
+                mobileNav.classList.remove('active');
+            }
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderWriteups();
+        });
+    </script>
+</body>
+</html>

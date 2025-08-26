@@ -29,3 +29,9 @@ Sitemap: https://cybersecurity.club.uttara.ac.bd/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1
+
+#/etc/nginx/sites-available/
+# location ~ /\.git {
+#    deny all;
+#    return 403;
+#}
