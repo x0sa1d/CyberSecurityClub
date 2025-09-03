@@ -174,6 +174,85 @@
       border: 1px solid #2196f3;
       color: #2196f3;
     }
+    
+    /* Form enhancements */
+    .optional-indicator {
+      font-size: 0.85em;
+      color: #666;
+      font-weight: normal;
+      font-style: italic;
+    }
+    
+    .form-help-text {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.875em;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    /* Enhanced select styling */
+    select[aria-describedby] {
+      margin-bottom: 6px;
+    }
+    
+    /* Option descriptions for better UX */
+    select option {
+      padding: 8px;
+    }
+    
+    /* Hidden form group */
+    .form-group-hidden {
+      display: none;
+    }
+    
+    /* Email verification notice */
+    .email-verification-notice {
+      color: #2196f3 !important;
+      font-weight: 500;
+    }
+    
+    .email-verification-notice i {
+      margin-right: 6px;
+    }
+    
+    /* Email field layout */
+    .email-field-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .email-input-section {
+      flex: 1;
+    }
+    
+    .email-notice-section {
+      flex: 0 0 auto;
+      max-width: 250px;
+      margin-top: 8px;
+    }
+    
+    /* Word count display */
+    .word-count-display {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.875em;
+      color: #666;
+      text-align: right;
+    }
+    
+    .word-count-exceeded {
+      color: #f44336 !important;
+      font-weight: 600;
+    }
+    
+    /* Disabled options styling */
+    select option:disabled {
+      color: #999 !important;
+      font-style: italic;
+      background-color: #f5f5f5 !important;
+    }
   </style>
 </head>
 
@@ -408,18 +487,18 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="firstName" name="firstName" required maxlength="20">
               </div>
               <div class="form-group">
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" required>
+                <input type="text" id="lastName" name="lastName" required maxlength="20">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="studentId">Student ID *</label>
-                <input type="tel" id="studentId" name="studentId" required>
+                <input type="tel" id="studentId" name="studentId" required maxlength="12">
               </div>
               <div class="form-group">
                 <label for="batch">Batch *</label>
@@ -464,17 +543,22 @@
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" name="phone" required value="+880" maxlength="10" oninput="validatePhoneNumber(this)">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Varsity Mail *</label>
-                <input type="email" id="email" name="email" required placeholder="yourname@uttarauniversity.edu.bd" onblur="validateUttaraEmail()" oninput="validateUttaraEmail()">
+                <input type="email" id="email" name="email" required placeholder="yourname@uttarauniversity.edu.bd" onblur="validateUttaraEmail()" oninput="validateUttaraEmail()" onfocus="showEmailNotice()" onblur="hideEmailNotice()">
                 <div id="emailError" style="color: #e74c3c; font-size: 0.9em; margin-top: 5px; display: none;">
                   Please use your Uttara University email address!
                 </div>
+              </div>
+              <div class="form-group form-group-hidden" id="emailNoticeGroup">
+                <small class="form-help-text email-verification-notice">
+                  <i class="fas fa-info-circle"></i> A verification email will be sent to this address. Without email verification, you cannot become a member.
+                </small>
               </div>
             </div>
 
@@ -536,17 +620,41 @@
 
             <div class="form-group">
               <label for="motivation">Why do you want to join CSC? *</label>
-              <textarea id="motivation" name="motivation" rows="4" required placeholder="Tell us about your motivation, goals, and what you hope to achieve by joining the Cyber Security Club..."></textarea>
+              <textarea id="motivation" name="motivation" rows="4" required placeholder="Tell us about your motivation, goals, and what you hope to achieve by joining the Cyber Security Club..." maxlength="500" oninput="updateWordCount('motivation', 'motivationCount', 100)"></textarea>
+              <small class="word-count-display">
+                <span id="motivationCount">0</span>/100 words
+              </small>
             </div>
             <div class="form-group">
               <label for="role">Which Role are you interested in? *</label>
-              <select id="role" name="role" required>
+              <select id="role" name="role" required onchange="toggleSpecializedRole()">
                 <option value="">Select Role</option>
                 <option value="general">General Member (03.01)</option>
                 <option value="active">Active Member (03.02)</option>
                 <option value="executive">Executive Member (03.03)</option>
               </select>
             </div>
+
+            <div class="form-group form-group-hidden" id="specializedRoleGroup">
+              <label for="roleOfInterest">
+                Specialized Role of Interest
+                <span class="optional-indicator">(Required for Executive Members)</span>
+              </label>
+              <select id="roleOfInterest" name="roleOfInterest" aria-describedby="roleOfInterestHelp">
+                <option value="">Choose a specialized role</option>
+                <option value="general-secretary" disabled>General Secretary - Overall club coordination & leadership (Not Available)</option>
+                <option value="organizing-secretary" disabled>Organizing Secretary - Event planning & coordination (Not Available)</option>
+                <option value="treasurer" disabled>Treasurer - Financial management & budgeting (Not Available)</option>
+                <option value="office-secretary">Office Secretary - Administrative & organizational tasks</option>
+                <option value="media-secretary">Media Secretary - Social media & communications</option>
+                <option value="technical-secretary">Technical Secretary - Web development & technical projects</option>
+                <option value="research-secretary">Research Secretary - Documentation & content creation</option>
+              </select>
+              <small id="roleOfInterestHelp" class="form-help-text">
+                Executive members must select a specialized secretary role to take on additional responsibilities within the club.
+              </small>
+            </div>
+
             <div class="form-group">
               <label for="availability">Availability for Club Activities *</label>
               <select id="availability" name="availability" required>
@@ -559,7 +667,10 @@
 
             <div class="form-group">
               <label for="skills">Technical Skills (Programming languages, tools, etc.)</label>
-              <textarea id="skills" name="skills" rows="3" placeholder="List any programming languages, cybersecurity tools, Designing Skills or relevant technical skills you have..."></textarea>
+              <textarea id="skills" name="skills" rows="3" placeholder="List any programming languages, cybersecurity tools, Designing Skills or relevant technical skills you have..." maxlength="500" oninput="updateWordCount('skills', 'skillsCount', 100)"></textarea>
+              <small class="word-count-display">
+                <span id="skillsCount">0</span>/100 words
+              </small>
             </div>
 
             <div class="form-group agreement">
@@ -571,9 +682,9 @@
             </div>
 
             <div class="form-actions">
-              <!-- <button type="submit" class="submit-btn">Submit Application</button>
-              <button type="reset" class="reset-btn">Reset Form</button> -->
-              <div class="submit-btn" style="text-align: center;">Summer 25 recruitment will be start soon...</div>
+              <button type="submit" class="submit-btn">Submit Application</button>
+              <button type="reset" class="reset-btn">Reset Form</button>
+              <!-- <div class="submit-btn" style="text-align: center;">Fall 25 recruitment will be start soon...</div> -->
               <div id="submitMessage" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
             </div>
           </form>
@@ -667,6 +778,7 @@
           interests: interests.join(', '),
           motivation: formData.get('motivation'),
           role: formData.get('role'),
+          roleOfInterest: formData.get('roleOfInterest'),
           availability: formData.get('availability'),
           skills: formData.get('skills'),
           agreement: formData.get('agreement') ? 'Yes' : 'No'
@@ -706,6 +818,76 @@
         setTimeout(() => {
           submitMessage.style.display = 'none';
         }, 5000);
+      }
+    }
+
+    function validatePhoneNumber(input) {
+      let value = input.value;
+      
+      // Ensure it always starts with +880
+      if (!value.startsWith('+880')) {
+        input.value = '+880';
+        return;
+      }
+      
+      // Remove any non-digit characters except the + sign
+      value = '+880' + value.slice(4).replace(/\D/g, '');
+      
+      // Limit to 15 characters total (+880 + 11 digits)
+      if (value.length > 15) {
+        value = value.slice(0, 15);
+      }
+      
+      input.value = value;
+    }
+
+    function updateWordCount(textareaId, counterId, maxWords) {
+      const textarea = document.getElementById(textareaId);
+      const counter = document.getElementById(counterId);
+      const text = textarea.value.trim();
+      
+      // Count words (split by whitespace and filter empty strings)
+      const words = text ? text.split(/\s+/).filter(word => word.length > 0) : [];
+      const wordCount = words.length;
+      
+      // Update counter display
+      counter.textContent = wordCount;
+      
+      // Add warning class if exceeding limit
+      const countDisplay = counter.parentElement;
+      if (wordCount > maxWords) {
+        countDisplay.classList.add('word-count-exceeded');
+        // Optionally prevent further input
+        const wordsToKeep = words.slice(0, maxWords);
+        textarea.value = wordsToKeep.join(' ');
+        counter.textContent = maxWords;
+      } else {
+        countDisplay.classList.remove('word-count-exceeded');
+      }
+    }
+
+    function showEmailNotice() {
+      const emailNoticeGroup = document.getElementById('emailNoticeGroup');
+      emailNoticeGroup.classList.remove('form-group-hidden');
+    }
+
+    function hideEmailNotice() {
+      const emailNoticeGroup = document.getElementById('emailNoticeGroup');
+      emailNoticeGroup.classList.add('form-group-hidden');
+    }
+
+    function toggleSpecializedRole() {
+      const roleSelect = document.getElementById('role');
+      const specializedRoleGroup = document.getElementById('specializedRoleGroup');
+      const roleOfInterestSelect = document.getElementById('roleOfInterest');
+      
+      if (roleSelect.value === 'executive') {
+        specializedRoleGroup.classList.remove('form-group-hidden');
+        roleOfInterestSelect.required = true;
+      } else {
+        specializedRoleGroup.classList.add('form-group-hidden');
+        roleOfInterestSelect.required = false;
+        roleOfInterestSelect.value = ''; // Clear selection when hidden
       }
     }
 
