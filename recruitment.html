@@ -253,6 +253,31 @@
       font-style: italic;
       background-color: #f5f5f5 !important;
     }
+    
+    /* Time field styling */
+    #registrationTime {
+      background-color: #f8f9fa !important;
+      color: #495057 !important;
+      font-weight: 500 !important;
+      text-align: center !important;
+      border: 2px solid #007bff !important;
+      border-radius: 8px !important;
+      font-size: 1.1em !important;
+      padding: 12px !important;
+      box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1) !important;
+    }
+    
+    .form-group[style*="width: 100%"] {
+      margin-bottom: 25px;
+    }
+    
+    .form-group[style*="width: 100%"] label {
+      font-weight: 600;
+      color: #007bff;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      display: block;
+    }
   </style>
 </head>
 
@@ -484,6 +509,9 @@
         <div class="form-container">
           <form class="recruitment-form" id="recruitmentForm" onsubmit="submitToGoogleSheets(event)">
 
+            <!-- Hidden Registration Time Field -->
+            <input type="hidden" id="registrationTime" name="registrationTime">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -543,7 +571,7 @@
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required value="+880" maxlength="10" oninput="validatePhoneNumber(this)">
+                <input type="tel" id="phone" name="phone" required value="+880" maxlength="14" oninput="validatePhoneNumber(this)">
               </div>
             </div>
 
@@ -737,6 +765,100 @@
   <script src="/assets/js/recruitment.js"></script>
   
   <script>
+    // Bangladesh Time Functions - Moved to HTML for immediate availability
+    function initializeBangladeshTime() {
+      updateBangladeshTime();
+      // Update time every second
+      setInterval(updateBangladeshTime, 1000);
+    }
+
+    function updateBangladeshTime() {
+      const registrationTimeField = document.getElementById('registrationTime');
+      if (registrationTimeField) {
+        const bangladeshTime = getBangladeshTime();
+        registrationTimeField.value = bangladeshTime;
+      }
+    }
+
+    function getBangladeshTime() {
+      // Create a new Date object for current time
+      const now = new Date();
+      
+      // Format the date and time for Bangladesh timezone (date + hours:minutes only)
+      const options = {
+        timeZone: 'Asia/Dhaka',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      };
+      
+      try {
+        // Use Intl.DateTimeFormat for better timezone handling
+        return new Intl.DateTimeFormat('en-US', options).format(now);
+      } catch (error) {
+        // Fallback formatting if Intl is not supported
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        const bangladeshOffset = 6; // GMT+6
+        const bangladeshTime = new Date(utc + (bangladeshOffset * 3600000));
+        
+        const year = bangladeshTime.getFullYear();
+        const month = String(bangladeshTime.getMonth() + 1).padStart(2, '0');
+        const day = String(bangladeshTime.getDate()).padStart(2, '0');
+        let hours = bangladeshTime.getHours();
+        const minutes = String(bangladeshTime.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 should be 12
+        hours = String(hours).padStart(2, '0');
+        
+        return `${month}/${day}/${year}, ${hours}:${minutes} ${ampm}`;
+      }
+    }
+
+    // Function to get current Bangladesh timestamp for form submission (date + hours:minutes)
+    function getCurrentBangladeshTimestamp() {
+      const now = new Date();
+      const options = {
+        timeZone: 'Asia/Dhaka',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      };
+      
+      try {
+        return new Intl.DateTimeFormat('en-US', options).format(now);
+      } catch (error) {
+        // Fallback
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        const bangladeshTime = new Date(utc + (6 * 3600000));
+        
+        const year = bangladeshTime.getFullYear();
+        const month = String(bangladeshTime.getMonth() + 1).padStart(2, '0');
+        const day = String(bangladeshTime.getDate()).padStart(2, '0');
+        let hours = bangladeshTime.getHours();
+        const minutes = String(bangladeshTime.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        hours = String(hours).padStart(2, '0');
+        
+        return `${month}/${day}/${year}, ${hours}:${minutes} ${ampm}`;
+      }
+    }
+
+    // Initialize time when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeBangladeshTime();
+    });
+
     // Google Sheets Integration
     async function submitToGoogleSheets(event) {
       event.preventDefault();
@@ -765,7 +887,7 @@
         
         // Prepare data object for Google Sheets
         const data = {
-          timestamp: new Date().toISOString(),
+          timestamp: getCurrentBangladeshTimestamp(),
           firstName: formData.get('firstName'),
           lastName: formData.get('lastName'),
           studentId: formData.get('studentId'),
@@ -783,7 +905,7 @@
           skills: formData.get('skills'),
           agreement: formData.get('agreement') ? 'Yes' : 'No'
         };
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw44gWoUP0t2wOD8g1e3uzBdzvK3-Qn1YFJdWIsRHrSZ45HkEvlcwbHrVYDRqs10F8a6g/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyy0gZ5AWsXLBEmpQ04QQVdKcF3_8dVZAoU-UXG61lu5LLe3836oERzjTI_h-o_Hr_a/exec';
         const response = await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
