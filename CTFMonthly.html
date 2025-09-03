@@ -2,42 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTF Writeups - Cybersecurity Club</title>
+    <title>CTF Monthly - Cyber Security Club | Uttara University</title>
+    <meta name="description" content="Monthly CTF competitions and challenges from Cyber Security Club at Uttara University. Join our major CTF events and competitions.">
+    <meta name="keywords" content="monthly CTF, CTF competitions, cybersecurity contest, cyber security club, uttara university">
+    <meta name="author" content="Cyber Security Club - Uttara University">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CTF Monthly - Cyber Security Club">
+    <meta property="og:description" content="Monthly CTF competitions and major cybersecurity events from CSC Uttara University">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cyber Security Club | Uttara University">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/ctf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">🚩 CTF Writeups</div>
-                <nav class="nav">
-                    <a href="./CTFWriteups.html">Write-ups</a>
-                    <a href="./CTFMonthly.html" class="active">Monthly CTFs</a>
-                    <a href="./CTFWeekly.html">Weekly CTFs</a>
-                    <a href="./CTF.html">CTF Dashboard</a>
-                    <a href="#">Announcements</a>
-                    <a href="./index.html">Home</a>
-                </nav>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-                <!-- <a href="#" class="add-post-btn" onclick="toggleAddForm()">✍️ Add Writeup</a> -->
-            </div>
-            <!-- Mobile Navigation Menu -->
-            <nav class="mobile-nav" id="mobileNav">
-                <a href="/CTFWriteups.html" class="active">Write-ups</a>
-                <a href="#">Monthly CTFs</a>
-                <a href="#">Weekly CTFs</a>
-                <a href="./CTF.html">CTF Dashboard</a>
-                <a href="#">Announcements</a>
-            </nav>
-            </div>
+  <nav class="header">
+    <div class="header-wrapper">
+      <div class="header-image-container">
+        <a rel="author" href="index.html" title="Cyber Security Club Homepage">
+          <div class="header-image"></div>
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li>
+          <a href="index.html"><span class="navbar-slash">|</span>Home</a>
+        </li>
+        <li>
+          <a href="about.html"><span class="navbar-slash">|</span>About</a>
+        </li>
+        <li>
+          <a href="advisor.html"><span class="navbar-slash">|</span>Advisor</a>
+        </li>
+        <li class="dropdown">
+          <a href="CTF.html" class="active-nav-link">
+            <span class="navbar-slash">|</span>
+            <span>CTF</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="CTFWeekly.html">Weekly CTFs</a>
+            <a href="CTFMonthly.html">Monthly CTFs</a>
+            <a href="CTFWriteups.html">Writeups</a>
+          </div>
+        </li>
+        <li>
+          <a href="events.html"><span class="navbar-slash">|</span>Events</a>
+        </li>
+        <li>
+          <a href="gallery.html"><span class="navbar-slash">|</span>Gallery</a>
+        </li>
+        <li>
+          <a href="groups.html"><span class="navbar-slash">|</span>Groups</a>
+        </li>
+        <li>
+          <a href="links.html"><span class="navbar-slash">|</span>Links</a>
+        </li>
+        <li>
+          <a href="sponsors.html"><span class="navbar-slash">|</span>Sponsors</a>
+        </li>
+        <li>
+          <a href="store.html"><span class="navbar-slash">|</span>Store</a>
+        </li>
+        <li class="dropdown">
+          <a href="MemberShip.html">
+            <span class="navbar-slash">|</span>
+            <span>Membership</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="MemberShip.html">Membership Process</a>
+            <a href="recruitment.html">Join Us</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="navbar-controls">
+        <div class="navbar-burger">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
         </div>
+      </div>
     </div>
+  </nav>
     
     <div class="hero">
         <div class="container">
-            <h1>CTF Writeups</h1>
-            <p>learn from others, and build the cybersecurity community together.</p>
+            <h1>Monthly CTF Competitions</h1>
+            <p>Join our major monthly CTF competitions and test your skills against challenging cybersecurity scenarios.</p>
         </div>
     </div>
     
@@ -132,12 +199,48 @@
         </div>
     </div>
     
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-info-container">
+        <div class="footer-title-container">
+          <div class="footer-title">
+            <p>Cyber Security Club,Uttara University</p>
+          </div>
+          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd?subject=General%20Inquiry%20-%20Cyber%20Security%20Club&body=Hello%20Cyber%20Security%20Club%20Team%2C%0A%0AI%20would%20like%20to%20inquire%20about%3A%0A%0A%5BPlease%20describe%20your%20inquiry%20here%5D%0A%0AThank%20you%20for%20your%20time.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Contact%20Information%5D"
+          title="cybersecurity@club.uttara.ac.bd">
+            <div class="mail">
+              <span>Contact@CyberSecurityClub</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-description-container">
+        </div>
+      </div>
+      <div class="footer-social-container">
+        <a class="social-link" rel="me noopener" target="_blank" href="https://facebook.com/csc.uu.bd" title="Facebook CSC">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a class="social-link" rel="me noopener" target="_blank" href="https://www.linkedin.com/in/cscuu" title="LinkedIn CSC">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="social-link" rel="me noopener" target="_blank" href="https://discord.gg/N83SjBHjzG" title="Discord CSC">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+      </div>
+      <div class="site-credit">
+©2025 | Developed by Cyber Security Club, Uttara University 
+      </div>
+    </div>
+  </footer>
+    
     <script>
-        let writeups = [
+        // Monthly CTF Competitions Data
+        const writeups = [
             {
                 id: 1,
                 title: "CTF Night 0x1",
-                description: "step-by-step writeups for challenges from CTF Night 0x1",
+                description: "Step-by-step writeups for challenges from CTF Night 0x1 covering multiple cybersecurity domains",
                 author: "S4M",
                 difficulty: "beginner",
                 category: "Monthly",
@@ -147,36 +250,28 @@
                 mediumUrl: "https://github.com/Cyber-Security-Club-Uttara-University/CTF_Night_0x1_Writeups",
                 avatarUrl: "https://avatars.githubusercontent.com/u/73462438?v=4",
             },
-            {
-                // id: 2,
-                // title: "RSA Cryptanalysis - Weak Prime Generation",
-                // description: "Mathematical analysis of RSA vulnerability due to poor prime generation. Includes Python implementation and attack vectors.",
-                // author: "CSC{Hidden_Inspector}",
-                // difficulty: "intermediate",
-                // category: "crypto",
-                // tags: ["rsa", "cryptography", "python", "mathematics"],
-                // date: "2025-08-08",
-                // readTime: 12,
-                // mediumUrl: "https://medium.com/@pran0x/rsa-cryptanalysis"
-            },
-            {
-            //Add Post
-            },
-            {
-            //Add Post
-            },
-            {
-            //Add Post
-            }
+            // Additional monthly competitions can be added here
         ];
         
         let currentFilter = 'all';
         
+        /**
+         * Renders writeups to the grid
+         * @param {Array} filteredWriteups - Array of writeup objects to display
+         */
         function renderWriteups(filteredWriteups = writeups) {
             const grid = document.getElementById('writeupsgrid');
             const noResults = document.getElementById('noResults');
             
-            if (filteredWriteups.length === 0) {
+            if (!grid || !noResults) {
+                console.error('Required DOM elements not found');
+                return;
+            }
+            
+            // Filter out invalid writeups
+            const validWriteups = filteredWriteups.filter(w => w && w.title && w.author);
+            
+            if (validWriteups.length === 0) {
                 grid.innerHTML = '';
                 noResults.style.display = 'block';
                 return;
@@ -184,8 +279,6 @@
             
             noResults.style.display = 'none';
             
-            // Filter out empty or comment-only objects
-            const validWriteups = filteredWriteups.filter(w => w && w.title && w.author);
             grid.innerHTML = validWriteups.map(writeup => {
                 const avatarUrl = writeup.avatarUrl || writeup.customUrl;
                 const avatarContent = avatarUrl 
@@ -219,109 +312,69 @@
             }).join('');
         }
         
+        /**
+         * Formats date string to readable format
+         * @param {string} dateStr - Date string in YYYY-MM-DD format
+         * @returns {string} Formatted date string
+         */
         function formatDate(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric' 
-            });
+            try {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                });
+            } catch (error) {
+                console.error('Error formatting date:', error);
+                return dateStr;
+            }
         }
         
+        /**
+         * Filters writeups based on difficulty level
+         * @param {string} category - Difficulty level to filter by
+         */
         function filterWriteups(category) {
             // Update active filter button
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             currentFilter = category;
             
             let filtered = writeups;
             if (category !== 'all') {
-                if (category === 'beginner') {
-                    filtered = writeups.filter(w => w.difficulty === 'beginner');
-                } else {
-                    filtered = writeups.filter(w => w.category === category);
-                }
+                filtered = writeups.filter(w => w.difficulty === category);
             }
             
             renderWriteups(filtered);
         }
-        // DATABASE CONECTION NEED
-        // function toggleAddForm() {
-        //     const form = document.getElementById('addPostForm');
-        //     form.classList.toggle('active');
-            
-        //     if (form.classList.contains('active')) {
-        //         document.getElementById('title').focus();
-        //     }
-        // }
         
-        // function addWriteup(event) {
-        //     event.preventDefault();
-            
-        //     const formData = new FormData(event.target);
-        //     const newWriteup = {
-        //         id: writeups.length + 1,
-        //         title: formData.get('title'),
-        //         description: formData.get('description'),
-        //         author: formData.get('author'),
-        //         difficulty: formData.get('difficulty'),
-        //         category: formData.get('category'),
-        //         tags: formData.get('tags').split(',').map(t => t.trim()).filter(t => t),
-        //         date: new Date().toISOString().split('T')[0],
-        //         readTime: parseInt(formData.get('readTime')) || 5,
-        //         mediumUrl: formData.get('mediumUrl') || '',
-        //         avatarUrl: formData.get('avatarUrl') || ''
-        //     };
-            
-        //     writeups.unshift(newWriteup);
-            
-        //     // Reset form and hide it
-        //     event.target.reset();
-        //     toggleAddForm();
-            
-        //     // Re-render with current filter
-        //     filterWriteups(currentFilter);
-            
-        //     // Success notification
-        //     alert('🎉 Writeup added successfully!');
-        // }
-        
+        /**
+         * Opens writeup URL in new tab
+         * @param {string} url - URL to open
+         */
         function openWriteup(url) {
             if (url && url !== '#') {
-                window.open(url, '_blank');
+                window.open(url, '_blank', 'noopener');
             } else {
-                alert('Medium post URL not available for this writeup.');
+                alert('Competition URL not available for this post.');
             }
         }
         
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.toggle('active');
-        }
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileNav = document.getElementById('mobileNav');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                mobileNav.classList.remove('active');
-            }
-        });
-        
-        // Close mobile menu when window is resized to desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                const mobileNav = document.getElementById('mobileNav');
-                mobileNav.classList.remove('active');
-            }
-        });
-        
-        // Initialize the page
+        // Initialize the page when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            renderWriteups();
+            try {
+                renderWriteups();
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
         });
     </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
