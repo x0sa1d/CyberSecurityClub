@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Portal - Cyber Security Club, Uttara University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="news-portal.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="header">
+    <div class="header-wrapper">
+      <div class="header-image-container">
+        <a rel="author" href="../index.html" title="Cyber Security Club Homepage">
+          <div class="header-image"></div>
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li>
+          <a href="../index.html"><span class="navbar-slash">|</span>Home</a>
+        </li>
+        <li>
+          <a href="../about.html"><span class="navbar-slash">|</span>About</a>
+        </li>
+        <li>
+          <a href="../advisor.html"><span class="navbar-slash">|</span>Advisor</a>
+        </li>
+        <li class="dropdown">
+          <a href="../CTF.html">
+            <span class="navbar-slash">|</span>
+            <span>CTF</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="../CTFWeekly.html">Weekly CTFs</a>
+            <a href="../CTFMonthly.html">Monthly CTFs</a>
+            <a href="../CTFWriteups.html">Writeups</a>
+          </div>
+        </li>
+        <li>
+          <a href="../events.html"><span class="navbar-slash">|</span>Events</a>
+        </li>
+        <li>
+          <a href="../gallery.html"><span class="navbar-slash">|</span>Gallery</a>
+        </li>
+        <li>
+          <a href="../groups.html"><span class="navbar-slash">|</span>Groups</a>
+        </li>
+        <li>
+          <a href="../links.html"><span class="navbar-slash">|</span>Links</a>
+        </li>
+        <li>
+          <a href="../sponsors.html"><span class="navbar-slash">|</span>Sponsors</a>
+        </li>
+        <li class="dropdown">
+          <a href="../MemberShip.html">
+            <span class="navbar-slash">|</span>
+            <span>Membership</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="../MemberShip.html">Membership Process</a>
+            <a href="../recruitment.html">Join Us</a>
+          </div>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="news-portal-main">
+    <!-- Featured News -->
+    <section class="featured-news-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title main-title">News & Highlights</h2>
+          <p class="section-subtitle">The most important updates and achievements from our cybersecurity community</p>
+        </div>
+        <div class="featured-news-grid">
+          
+          <!-- Featured News 1 -->
+          <article class="featured-news-card">
+            <div class="featured-news-image">
+              <img src="../assets/images/News/New_Chairman.png" alt="Dr. Kamal Uddin Sarker">
+              <div class="news-category">Announcement</div>
+            </div>
+            <div class="featured-news-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> September 4, 2025</span>
+                <span class="news-author"><i class="fas fa-user"></i> CSC Admin</span>
+              </div>
+              <h3 class="featured-news-title">Congratulations to Dr. Kamal Uddin Sarker!</h3>
+              <p class="featured-news-excerpt">
+                We congratulate Dr. Kamal Uddin Sarker on his appointment as Chairman of the CSE Department. With his PhD from University UMT and proven leadership, we're confident the department will reach new milestones under his guidance.
+              </p>
+              <a href="news-detail.html?id=1" class="read-more-btn">Read Full Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Featured News 2 -->
+          <article class="featured-news-card">
+            <div class="featured-news-image">
+              <img src="../assets/images/csc_blue.png" alt="Executive Board 2025-2026">
+              <div class="news-category">Team</div>
+            </div>
+            <div class="featured-news-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> August 19, 2025</span>
+                <span class="news-author"><i class="fas fa-user"></i> CSC Team</span>
+              </div>
+              <h3 class="featured-news-title">New Executive Board 2025-2026</h3>
+              <p class="featured-news-excerpt">
+                Meet our new executive board for 2025-2026! Our leadership team combines experienced professionals and passionate students committed to advancing cybersecurity education at Uttara University.
+              </p>
+              <a href="news-detail.html?id=2" class="read-more-btn">Read Full Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- All News Section -->
+    <section class="all-news-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <i class="fas fa-clock"></i>
+            <span>Recent</span>
+          </div>
+          <h2 class="section-title">Latest Updates</h2>
+          <p class="section-subtitle">Explore our recent events, workshops, and achievements</p>
+          
+          <div class="news-filter">
+            <button class="filter-btn active" data-filter="all">
+              <i class="fas fa-th-large"></i>
+              <span>All</span>
+            </button>
+            <button class="filter-btn" data-filter="announcement">
+              <i class="fas fa-bullhorn"></i>
+              <span>Announcements</span>
+            </button>
+            <button class="filter-btn" data-filter="event">
+              <i class="fas fa-calendar-alt"></i>
+              <span>Events</span>
+            </button>
+            <button class="filter-btn" data-filter="achievement">
+              <i class="fas fa-trophy"></i>
+              <span>Achievements</span>
+            </button>
+            <button class="filter-btn" data-filter="workshop">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <span>Workshops</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="news-grid">
+          
+          <!-- News Card 1 -->
+          <article class="news-card" data-category="event">
+            <div class="news-card-image">
+              <img src="../assets/images/News/CTF_Night0x1.png" alt="CTF Night 0x1">
+              <div class="news-category">Event</div>
+            </div>
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> August 15, 2025</span>
+              </div>
+              <h3 class="news-card-title">CTF Night 0x1: Competition Event</h3>
+              <p class="news-card-excerpt">
+                Join us for an exciting Capture The Flag competition night! Test your cybersecurity skills and compete in web security, cryptography, reverse engineering, and digital forensics challenges.
+              </p>
+              <a href="news-detail.html?id=3" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- News Card 2 -->
+          <article class="news-card" data-category="workshop">
+            <div class="news-card-image">
+              <img src="../assets/images/Previous Event/OWASP WORKSHOP25.png" alt="OWASP Top 10">
+              <div class="news-category">Workshop</div>
+            </div>
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> August 10, 2025</span>
+              </div>
+              <h3 class="news-card-title">OWASP Top 10 Workshop</h3>
+              <p class="news-card-excerpt">
+                Hands-on workshop covering OWASP Top 10 vulnerabilities. Learn about critical web security risks and prevention techniques through practical demonstrations and exercises.
+              </p>
+              <a href="news-detail.html?id=4" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- News Card 3 -->
+          <article class="news-card" data-category="event">
+            <div class="news-card-image">
+              <img src="../assets/images/Gallery/hackathon25.jpg" alt="Hackathon 2025">
+              <div class="news-category">Event</div>
+            </div>
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> August 5, 2025</span>
+              </div>
+              <h3 class="news-card-title">Hackathon 2025: Innovation Challenge</h3>
+              <p class="news-card-excerpt">
+                Join the biggest cybersecurity hackathon of the year! 48 hours of intense coding and innovation where teams compete to develop cutting-edge security solutions.
+              </p>
+              <a href="news-detail.html?id=5" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- News Card 4 -->
+          <article class="news-card" data-category="achievement">
+            <div class="news-card-image">
+              <img src="../assets/images/Gallery/PhoniexSummit25.jpg" alt="Phoenix Summit 2025">
+              <div class="news-category">Achievement</div>
+            </div>
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> August 1, 2025</span>
+              </div>
+              <h3 class="news-card-title">Phoenix Summit 2025 Participation</h3>
+              <p class="news-card-excerpt">
+                Our team participated in Phoenix Summit 2025, a premier cybersecurity conference. Great networking opportunities and exposure to the latest cybersecurity trends.
+              </p>
+              <a href="news-detail.html?id=6" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- News Card 5 -->
+          <article class="news-card" data-category="event">
+            <div class="news-card-image">
+              <img src="../assets/images/Gallery/MIST25.jpg" alt="MIST CTF 2025">
+              <div class="news-category">Event</div>
+            </div>
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> July 25, 2025</span>
+              </div>
+              <h3 class="news-card-title">MIST CTF 2025 Competition</h3>
+              <p class="news-card-excerpt">
+                Our team showcased skills in various cybersecurity challenges at MIST CTF 2025. An excellent platform to test knowledge and compete with other universities.
+              </p>
+              <a href="news-detail.html?id=7" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- News Card 6 -->
+          <article class="news-card" data-category="event">
+            <div class="news-card-image">
+              <img src="../assets/images/Gallery/Cyberseige25.jpeg" alt="Cyber Siege 2025">
+              <div class="news-category">Event</div>
+            </div>
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="news-date"><i class="fas fa-calendar"></i> July 20, 2025</span>
+              </div>
+              <h3 class="news-card-title">Cyber Siege 2025 Event</h3>
+              <p class="news-card-excerpt">
+                Comprehensive cybersecurity event with workshops, seminars, and training sessions. Professionals and enthusiasts shared knowledge on the latest information security trends.
+              </p>
+              <a href="news-detail.html?id=8" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-section">
+          <button class="load-more-btn">
+            <span class="btn-text">Load More News</span>
+            <i class="fas fa-chevron-down btn-icon"></i>
+          </button>
+          <div class="loading-indicator">
+            <div class="loading-spinner"></div>
+            <span>Loading more articles...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-to-top" id="scrollToTop" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-info-container">
+        <div class="footer-title-container">
+          <div class="footer-title">
+            <p>Cyber Security Club,Uttara University</p>
+          </div>
+          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd?subject=General%20Inquiry%20-%20Cyber%20Security%20Club&body=Hello%20Cyber%20Security%20Club%20Team%2C%0A%0AI%20would%20like%20to%20inquire%20about%3A%0A%0A%5BPlease%20describe%20your%20inquiry%20here%5D%0A%0AThank%20you%20for%20your%20time.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Contact%20Information%5D"
+          title="cybersecurity@club.uttara.ac.bd">
+            <div class="mail">
+              <span>Contact@CyberSecurityClub</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-description-container">
+        </div>
+      </div>
+      <!-- Footer End -->
+      <div class="footer-social-container">
+        <a class="social-link" rel="me" target="_blank" href="https://facebook.com/csc.uu.bd" title="Faceboook CSC">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a class="social-link" rel="me" target="_blank" href="https://www.linkedin.com/in/cscuu" title="LinkedIn CSC">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="social-link" rel="me" target="_blank" href="https://discord.gg/N83SjBHjzG"
+          title="Discord CSC">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+      </div>
+      <div class="site-credit">
+©2025 | Developed by Cyber Security Club, Uttara University 
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/index.js"></script>
+  <script src="news-portal.js"></script>
+</body>
+
+</html>
