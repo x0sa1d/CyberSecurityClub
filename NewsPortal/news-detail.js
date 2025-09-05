@@ -82,8 +82,7 @@ const newsData = {
 <p><strong>Application Portal:</strong> <a href="https://cybersecurity.club.uttara.ac.bd/recruitment.html" target="_blank">cybersecurity.club.uttara.ac.bd/recruitment.html</a></p>
 <p><strong>Learn About Membership:</strong> <a href="https://cybersecurity.club.uttara.ac.bd/MemberShip.html" target="_blank">cybersecurity.club.uttara.ac.bd/MemberShip.html</a></p>
 
-        `,
-        tags: ["Recruitment","Cybersecurityclub", "Leadership", "uttarauniversity"]
+        `
     },
     2: {
         id: 2,
@@ -121,12 +120,11 @@ const newsData = {
             <p><strong>Please join us in congratulating Dr. Kamal Uddin Sarker on this well-deserved appointment!</strong></p>
             
             <p>We are confident that under his leadership, the CSE department will reach new heights of excellence, and our Cyber Security Club will continue to thrive and make significant contributions to the cybersecurity community.</p>
-        `,
-        tags: ["Chairman", "Appointment", "CSE Department", "Leadership", "Academic Excellence"]
+        `
     },
     3: {
         id: 3,
-        title: "CTF Night 0x1: Beginner-Friendly Cybersecurity Challenge",
+        title: "CTF Night 0x1: Beginner-Friendly CTF Competition",
         category: "CTF",
         date: "August 15, 2025",
         author: "CTF Team",
@@ -190,8 +188,7 @@ const newsData = {
             <p><strong>Ready to test your skills? Join us for CTF Night 0x1 and embark on your cybersecurity journey!</strong></p>
             
             <p>For questions and updates, contact us at: <strong>cybersecurity@uttara.ac.bd</strong></p>
-        `,
-        tags: ["CTF", "Competition", "Cybersecurity", "Beginner", "Hands-on Learning"]
+        `
     }
 };
 
@@ -230,15 +227,11 @@ function loadNewsArticle() {
     document.getElementById('articleImage').alt = article.title;
     document.getElementById('articleContent').innerHTML = article.content;
     
-    // Update tags
+    // Tags removed - no longer used
     const tagsContainer = document.getElementById('articleTags');
-    tagsContainer.innerHTML = '';
-    article.tags.forEach(tag => {
-        const tagElement = document.createElement('span');
-        tagElement.className = 'tag';
-        tagElement.textContent = tag;
-        tagsContainer.appendChild(tagElement);
-    });
+    if (tagsContainer) {
+        tagsContainer.style.display = 'none';
+    }
     
     // Load related news (excluding current article)
     loadRelatedNews(newsId);
