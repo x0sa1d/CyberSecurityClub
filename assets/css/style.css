@@ -37,6 +37,11 @@ html {
   margin: 0;
 }
 
+/* Override font-weight for strong and bold elements */
+strong, b {
+  font-weight: 700 !important;
+}
+
 html,
 body {
   width: 100%;

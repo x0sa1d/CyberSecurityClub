@@ -1,23 +1,20 @@
-// News Detail Page JavaScript
-
-// Sample news data (in a real application, this would come from a database/API)
+// pran0x - News Detail Page JavaScript
 const newsData = {
     1: {
         id: 1,
-        title: "Join Our Executive Board 2025-2026: Leadership Opportunities Await!",
+        title: "Join Us: Leadership Opportunities Await!",
         category: "Recruitment",
-        date: "August 25, 2025",
+        date: "September 5, 2025",
         author: "CSC Team",
         image: "../assets/images/News/Exe_25.png",
         content: `
-<p>The Cyber Security Club at Uttara University is excited to announce recruitment for our <strong>Executive Board 2025-2026</strong>! We're seeking passionate, dedicated individuals who are ready to lead, innovate, and make a lasting impact in the cybersecurity community.</p>
+<p>The <strong>Cyber Security Club, Uttara University</strong> is excited to announce recruitment for our <strong>Executive Board 2025-2026</strong>! We're seeking passionate, dedicated individuals who are ready to lead, innovate, and make a lasting impact in the cybersecurity community.</p>
 
-<h3>🚀 Why This Opportunity Matters</h3>
-<p>Our Executive Board represents the driving force behind all CSC initiatives. As a board member, you'll be at the forefront of cybersecurity education, community building, and professional development at Uttara University.</p>
+<h3>Why This Opportunity Matters?</h3>
+<p>Our Executive Board represents the driving force behind all Cyber Security Club initiatives. As a board member, you'll be at the forefront of cybersecurity <strong>education, community building, and professional development at Uttara University.</strong></p>
 
-<h3>📋 Available Leadership Positions</h3>
-
-<h4>🎨 Media Secretary (2 Positions)</h4>
+<h3>Available Leadership Positions:</h3>
+<h4>Media Secretary (2 Positions)</h4>
 <ul>
   <li>Manage our digital presence across all social media platforms</li>
   <li>Create engaging visual content and promotional materials</li>
@@ -25,23 +22,22 @@ const newsData = {
   <li>Develop creative campaigns for events and initiatives</li>
 </ul>
 
-<h4>💻 Development Secretary</h4>
+<h4>Development Secretary</h4>
 <ul>
   <li>Lead technical development projects and infrastructure</li>
   <li>Maintain and enhance club websites and digital platforms</li>
-  <li>Develop cybersecurity tools and educational resources</li>
   <li>Coordinate technical workshops and training sessions</li>
 </ul>
 
-<h4>📚 Research Secretary</h4>
+<h4>Research Secretary</h4>
 <ul>
   <li>Focus on cybersecurity research and documentation</li>
   <li>Create educational content and learning materials</li>
   <li>Coordinate research projects and publications</li>
-  <li>Organize academic conferences and seminars</li>
+  <li>Documentation for academic conferences and seminars</li>
 </ul>
 
-<h4>📄 Office Secretary</h4>
+<h4>Office Secretary</h4>
 <ul>
   <li>Handle official documentation and correspondence</li>
   <li>Coordinate meetings and administrative activities</li>
@@ -49,7 +45,7 @@ const newsData = {
   <li>Ensure compliance with university policies</li>
 </ul>
 
-<h4>💰 Treasurer</h4>
+<h4>Treasurer</h4>
 <ul>
   <li>Manage financial planning and budget allocation</li>
   <li>Oversee resource management for club activities</li>
@@ -57,7 +53,7 @@ const newsData = {
   <li>Ensure transparent financial reporting</li>
 </ul>
 
-<h4>⭐ Executive Members (10 Positions)</h4>
+<h4>Executive Members (10 Positions)</h4>
 <ul>
   <li>Actively support CTF competitions and events</li>
   <li>Participate in all major club initiatives</li>
@@ -65,7 +61,7 @@ const newsData = {
   <li>Contribute to the growth and success of CSC</li>
 </ul>
 
-<h3>🎯 What You'll Gain</h3>
+<h3>What You'll Gain</h3>
 <ul>
   <li><strong>Leadership Experience:</strong> Develop essential leadership and management skills</li>
   <li><strong>Technical Growth:</strong> Hands-on experience in cybersecurity projects and CTF competitions</li>
@@ -75,23 +71,19 @@ const newsData = {
   <li><strong>Career Advancement:</strong> Direct pathway to cybersecurity career opportunities</li>
 </ul>
 
-<h3>📅 Important Dates</h3>
+<h3>Important Dates</h3>
 <p><strong>Application Deadline:</strong> September 12, 2025</p>
-<p><strong>Interview Period:</strong> September 15-20, 2025</p>
-<p><strong>Results Announcement:</strong> September 25, 2025</p>
-<p><strong>Orientation Session:</strong> October 1, 2025</p>
+<p><strong>Interview Period:</strong> September 12-20, 2025</p>
+<p><strong>Results Announcement:</strong> September 20-25, 2025</p>
+<p><strong>Orientation Session:</strong> September 25-30, 2025</p>
 
-<h3>🔗 Apply Now</h3>
+<h3>Apply Now</h3>
 <p>Ready to take the next step in your cybersecurity journey? Submit your application today:</p>
 <p><strong>Application Portal:</strong> <a href="https://cybersecurity.club.uttara.ac.bd/recruitment.html" target="_blank">cybersecurity.club.uttara.ac.bd/recruitment.html</a></p>
-<p><strong>Learn About Membership:</strong> <a href="https://cybersecurity.club.uttara.ac.bd/membership.html" target="_blank">cybersecurity.club.uttara.ac.bd/membership.html</a></p>
+<p><strong>Learn About Membership:</strong> <a href="https://cybersecurity.club.uttara.ac.bd/MemberShip.html" target="_blank">cybersecurity.club.uttara.ac.bd/MemberShip.html</a></p>
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
-<h4>🤝 Together, Let's Lead, Secure, and Innovate!</h4>
-<p>Join us in building a stronger cybersecurity community at Uttara University. Your journey to cybersecurity excellence starts here!</p>
-</div>
         `,
-        tags: ["Executive Board", "Leadership", "Recruitment", "2025-2026", "Opportunities", "Cybersecurity", "Team Building"]
+        tags: ["Recruitment","Cybersecurityclub", "Leadership", "uttarauniversity"]
     },
     2: {
         id: 2,
