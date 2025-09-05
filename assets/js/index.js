@@ -22,6 +22,36 @@ $(window).scroll(function () {
       }
     });
   });
+
+  // Mobile dropdown functionality
+  $(".dropdown > a").click(function(e) {
+    // Only prevent default and toggle on mobile
+    if ($(window).width() <= 768) {
+      e.preventDefault();
+      
+      // Close other dropdowns
+      $(".dropdown").not($(this).parent()).removeClass("active");
+      
+      // Toggle current dropdown
+      $(this).parent().toggleClass("active");
+    }
+  });
+
+  // Close dropdowns when clicking outside
+  $(document).click(function(e) {
+    if ($(window).width() <= 768) {
+      if (!$(e.target).closest('.dropdown').length) {
+        $(".dropdown").removeClass("active");
+      }
+    }
+  });
+
+  // Handle window resize
+  $(window).resize(function() {
+    if ($(window).width() > 768) {
+      $(".dropdown").removeClass("active");
+    }
+  });
 })();
 
 // Slideshow
