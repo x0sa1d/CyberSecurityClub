@@ -578,7 +578,10 @@
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required value="+880" maxlength="14" oninput="validatePhoneNumber(this)">
+                <input type="tel" id="phone" name="phone" required value="+880" maxlength="14" oninput="validatePhoneNumber(this)" placeholder="+880XXXXXXXXX">
+                <small class="form-help-text" style="color: #666; font-size: 0.85em; margin-top: 5px; display: block;">
+                  (WhatsApp Preferable)
+                </small>
               </div>
             </div>
 
@@ -870,6 +873,17 @@
     async function submitToGoogleSheets(event) {
       event.preventDefault();
       
+      // Validate phone number before submission
+      const phoneInput = document.getElementById('phone');
+      const phoneValue = phoneInput.value;
+      
+      if (phoneValue.length !== 14 || !phoneValue.startsWith('+880')) {
+        alert('Please enter a valid 14-digit phone number starting with +880');
+        phoneInput.focus();
+        phoneInput.style.borderColor = '#dc3545'; // Red border
+        return;
+      }
+      
       const submitBtn = document.querySelector('.submit-btn');
       const submitMessage = document.getElementById('submitMessage');
       const form = document.getElementById('recruitmentForm');
@@ -962,12 +976,19 @@
       // Remove any non-digit characters except the + sign
       value = '+880' + value.slice(4).replace(/\D/g, '');
       
-      // Limit to 15 characters total (+880 + 11 digits)
-      if (value.length > 15) {
-        value = value.slice(0, 15);
+      // Limit to exactly 14 characters total (+880 + 11 digits)
+      if (value.length > 14) {
+        value = value.slice(0, 14);
       }
       
       input.value = value;
+      
+      // Visual feedback for complete number
+      if (value.length === 14) {
+        // input.style.borderColor = '#28a745'; // Green border for valid
+      } else {
+        input.style.borderColor = '#dc3545'; // Red border for incomplete
+      }
     }
 
     function updateWordCount(textareaId, counterId, maxWords) {
