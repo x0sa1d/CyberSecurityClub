@@ -132,35 +132,31 @@ const newsData = {
         content: `
             <p>Get ready for an exciting evening of cybersecurity challenges! The Cyber Security Club is proud to present <strong>CTF Night 0x1</strong>, our first beginner-friendly Capture The Flag competition of the semester.</p>
             
-            <h3>🎯 Event Details</h3>
+            <h3>Event Details</h3>
             <ul>
-                <li><strong>Date:</strong> September 15, 2025</li>
-                <li><strong>Time:</strong> 6:00 PM - 10:00 PM</li>
-                <li><strong>Venue:</strong> Computer Lab 3, Uttara University</li>
+                <li><strong>Date:</strong> August 10, 2025</li>
+                <li><strong>Time:</strong> 8:00 PM - 1:00 AM</li>
+                <li><strong>Venue:</strong> Online</li>
                 <li><strong>Registration:</strong> Free for all UU students</li>
-                <li><strong>Team Size:</strong> 1-4 members</li>
+                <li><strong>Team Size:</strong> solo</li>
             </ul>
             
-            <h3>🏆 What to Expect</h3>
+            <h3>What to Expect</h3>
             <p>This CTF is specially designed for beginners and intermediate participants. We'll have challenges covering:</p>
             <ul>
                 <li><strong>Web Security:</strong> Find vulnerabilities in web applications</li>
                 <li><strong>Cryptography:</strong> Decode secret messages and break ciphers</li>
                 <li><strong>Digital Forensics:</strong> Analyze digital evidence and recover hidden data</li>
-                <li><strong>Binary Exploitation:</strong> Understanding basic buffer overflows</li>
                 <li><strong>OSINT:</strong> Open Source Intelligence gathering techniques</li>
                 <li><strong>Steganography:</strong> Find hidden messages in images and files</li>
             </ul>
             
-            <h3>🎁 Prizes & Recognition</h3>
+            <h3>Prizes & Recognition</h3>
             <ul>
-                <li><strong>1st Place:</strong> Gaming Mouse + Mechanical Keyboard + Certificate</li>
-                <li><strong>2nd Place:</strong> Wireless Mouse + Certificate</li>
-                <li><strong>3rd Place:</strong> CSC Merchandise Bundle + Certificate</li>
-                <li><strong>All Participants:</strong> Digital Certificate of Participation</li>
+                <li>Special Swags</li>
             </ul>
             
-            <h3>🚀 Why Participate?</h3>
+            <h3>Why Participate?</h3>
             <ul>
                 <li>Learn practical cybersecurity skills</li>
                 <li>Network with like-minded peers</li>
@@ -170,21 +166,11 @@ const newsData = {
                 <li>Have fun while learning!</li>
             </ul>
             
-            <h3>📝 Registration</h3>
+            <h3>Registration</h3>
             <p>Registration is now open! Fill out the form below:</p>
-            <p><strong>Registration Link:</strong> <a href="https://forms.gle/ctfnight0x1registration" target="_blank">https://forms.gle/ctfnight0x1registration</a></p>
-            
-            <p><strong>Registration Deadline:</strong> September 12, 2025</p>
-            
-            <h3>🤝 Preparation Tips</h3>
-            <ul>
-                <li>Brush up on basic networking concepts</li>
-                <li>Familiarize yourself with Linux command line</li>
-                <li>Learn about common web vulnerabilities (OWASP Top 10)</li>
-                <li>Practice using tools like Wireshark and Burp Suite</li>
-                <li>Join our Discord server for team formation and updates</li>
-            </ul>
-            
+            <p><strong>Registration Link:</strong> <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/" target="_blank">http://ctf-cybersecurity-club-uttara.ac.bd/</a></p>
+
+            <p><strong>Registration Deadline:</strong> August 10, 2025</p>
             <p><strong>Ready to test your skills? Join us for CTF Night 0x1 and embark on your cybersecurity journey!</strong></p>
             
             <p>For questions and updates, contact us at: <strong>cybersecurity@uttara.ac.bd</strong></p>
