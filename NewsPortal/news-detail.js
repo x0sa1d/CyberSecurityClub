@@ -201,8 +201,8 @@ function loadNewsArticle() {
         return;
     }
 
-    // Update page title
-    document.title = `${article.title} - CSC News`;
+    // Update Open Graph meta tags for social sharing
+    updateMetaTags(article);
     
     // Update article content
     document.getElementById('articleTitle').textContent = article.title;
@@ -224,6 +224,136 @@ function loadNewsArticle() {
     
     // Update social sharing
     updateSocialSharing(article);
+    
+    // Validate meta tags (for debugging - can be removed in production)
+    setTimeout(() => {
+        validateMetaTags();
+    }, 100);
+}
+
+// Function to update meta tags for social sharing
+function updateMetaTags(article) {
+    try {
+        const currentURL = window.location.href;
+        const cleanDescription = article.content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().substring(0, 160);
+        const description = cleanDescription + (cleanDescription.length >= 160 ? '...' : '');
+        
+        // Get the absolute image URL - handle relative paths properly
+        let imageURL = article.image;
+        if (imageURL.startsWith('../')) {
+            // Convert relative path to absolute URL
+            const baseURL = window.location.origin + window.location.pathname.replace('/NewsPortal/news-detail.html', '');
+            imageURL = baseURL + '/' + imageURL.replace('../', '');
+        } else if (!imageURL.startsWith('http')) {
+            imageURL = new URL(article.image, window.location.origin).href;
+        }
+        
+        // Clean and normalize the image URL
+        imageURL = imageURL.replace(/\/+/g, '/').replace('http:/', 'http://').replace('https:/', 'https://');
+        
+        // Article-specific title with site branding
+        const siteTitle = `${article.title} - Cyber Security Club, Uttara University`;
+        
+        // Update page title
+        document.title = siteTitle;
+        
+        // Parse date properly
+        let publishedTime;
+        try {
+            publishedTime = new Date(article.date).toISOString();
+        } catch (e) {
+            publishedTime = new Date().toISOString(); // Fallback to current date
+        }
+        
+        // Open Graph meta tags for Facebook, LinkedIn, etc.
+        updateMetaTag('property', 'og:title', article.title);
+        updateMetaTag('property', 'og:description', description);
+        updateMetaTag('property', 'og:image', imageURL);
+        updateMetaTag('property', 'og:image:width', '1200');
+        updateMetaTag('property', 'og:image:height', '630');
+        updateMetaTag('property', 'og:image:alt', article.title);
+        updateMetaTag('property', 'og:url', currentURL);
+        updateMetaTag('property', 'og:type', 'article');
+        updateMetaTag('property', 'og:site_name', 'Cyber Security Club - Uttara University');
+        updateMetaTag('property', 'og:locale', 'en_US');
+        
+        // Article-specific Open Graph tags
+        updateMetaTag('property', 'article:author', article.author);
+        updateMetaTag('property', 'article:published_time', publishedTime);
+        updateMetaTag('property', 'article:section', article.category);
+        updateMetaTag('property', 'article:tag', article.category);
+        
+        // Twitter Card meta tags
+        updateMetaTag('name', 'twitter:card', 'summary_large_image');
+        updateMetaTag('name', 'twitter:title', article.title);
+        updateMetaTag('name', 'twitter:description', description);
+        updateMetaTag('name', 'twitter:image', imageURL);
+        updateMetaTag('name', 'twitter:image:alt', article.title);
+        updateMetaTag('name', 'twitter:site', '@csc_uu');
+        updateMetaTag('name', 'twitter:creator', '@csc_uu');
+        
+        // LinkedIn specific tags
+        updateMetaTag('property', 'og:image:type', 'image/png');
+        
+        // WhatsApp and general sharing
+        updateMetaTag('name', 'description', description);
+        updateMetaTag('name', 'keywords', `${article.category}, cyber security, Uttara University, CSC, ${article.title.split(' ').slice(0, 5).join(', ')}`);
+        updateMetaTag('name', 'author', article.author);
+        
+        // Additional meta tags for better social sharing
+        updateMetaTag('name', 'robots', 'index, follow');
+        updateMetaTag('property', 'og:updated_time', new Date().toISOString());
+        
+        console.log('Meta tags updated successfully for:', article.title);
+        console.log('Image URL:', imageURL);
+        
+    } catch (error) {
+        console.error('Error updating meta tags:', error);
+    }
+}
+
+// Helper function to update or create meta tags
+function updateMetaTag(attribute, attributeValue, content) {
+    try {
+        // Remove existing meta tag if it exists
+        let existingTag = document.querySelector(`meta[${attribute}="${attributeValue}"]`);
+        if (existingTag) {
+            existingTag.remove();
+        }
+        
+        // Create new meta tag
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute(attribute, attributeValue);
+        metaTag.setAttribute('content', content);
+        document.head.appendChild(metaTag);
+        
+    } catch (error) {
+        console.error(`Error updating meta tag ${attributeValue}:`, error);
+    }
+}
+
+// Function to validate meta tags (for debugging)
+function validateMetaTags() {
+    const requiredTags = [
+        'og:title',
+        'og:description', 
+        'og:image',
+        'og:url',
+        'twitter:title',
+        'twitter:description',
+        'twitter:image'
+    ];
+    
+    console.log('=== Meta Tags Validation ===');
+    requiredTags.forEach(tag => {
+        const metaTag = document.querySelector(`meta[property="${tag}"], meta[name="${tag}"]`);
+        if (metaTag) {
+            console.log(`✅ ${tag}:`, metaTag.getAttribute('content'));
+        } else {
+            console.log(`❌ ${tag}: Missing`);
+        }
+    });
+    console.log('============================');
 }
 
 // Function to load related news
