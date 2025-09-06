@@ -73,9 +73,9 @@ const newsData = {
 
 <h3>Important Dates</h3>
 <p><strong>Application Deadline:</strong> September 12, 2025</p>
-<p><strong>Interview Period:</strong> September 12-20, 2025</p>
-<p><strong>Results Announcement:</strong> September 20-25, 2025</p>
-<p><strong>Orientation Session:</strong> September 25-30, 2025</p>
+<p><strong>Interview Period:</strong> September 7-12, 2025</p>
+<p><strong>Results Announcement:</strong> September 13-15, 2025</p>
+<p><strong>Orientation Session:</strong> September 15-20, 2025</p>
 
 <h3>Apply Now</h3>
 <p>Ready to take the next step in your cybersecurity journey? Submit your application today:</p>
@@ -124,7 +124,7 @@ const newsData = {
     },
     3: {
         id: 3,
-        title: "CTF Night 0x1: Beginner-Friendly CTF Competition",
+        title: "CTF Night 0x1: Beginner-Friendly CTF",
         category: "CTF",
         date: "August 15, 2025",
         author: "CTF Team",
@@ -241,7 +241,7 @@ function loadRelatedNews(currentId) {
             <img src="${article.image}" alt="${article.title}">
             <div class="related-news-content">
                 <h4>${article.title}</h4>
-                <p class="related-date">${article.date}</p>
+                <p class="related-news-date"><i class="fas fa-calendar"></i> ${article.date}</p>
             </div>
         `;
         relatedItem.addEventListener('click', () => {
