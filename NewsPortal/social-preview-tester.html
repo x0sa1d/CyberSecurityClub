@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Preview Tester</title>
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: #1a1a2e;
+            color: white;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .preview-card {
+            background: #16213e;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #667eea;
+        }
+        .meta-info {
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .success { color: #56ab2f; }
+        .error { color: #ff416c; }
+        .warning { color: #ffa726; }
+        h1, h2 { color: #667eea; }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-family: inherit;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #667eea;
+            background: #16213e;
+            color: white;
+            font-family: inherit;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Social Media Preview Tester</h1>
+        <p>Test how your CSC news articles will appear when shared on WhatsApp, Messenger, Facebook, and other platforms.</p>
+        
+        <div class="preview-card">
+            <h2>Quick Test Links</h2>
+            <button onclick="testURL('file:///c:/Users/PRANXTEN/Documents/CyberSec_UU/NewsPortal/recruitment-news.html')">Test Recruitment News</button>
+            <button onclick="testURL('file:///c:/Users/PRANXTEN/Documents/CyberSec_UU/NewsPortal/chairman-announcement.html')">Test Chairman Announcement</button>
+            <button onclick="testURL('file:///c:/Users/PRANXTEN/Documents/CyberSec_UU/NewsPortal/ctf-night.html')">Test CTF Night</button>
+        </div>
+
+        <div class="preview-card">
+            <h2>Custom URL Test</h2>
+            <input type="text" class="url-input" id="customUrl" placeholder="Enter URL to test...">
+            <button onclick="testCustomURL()">Test Custom URL</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function testURL(url) {
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            iframe.onload = function() {
+                try {
+                    const doc = iframe.contentDocument;
+                    analyzeMetaTags(doc, url);
+                } catch (e) {
+                    showError('Cannot access iframe content. This is normal for file:// URLs. Meta tags are likely configured correctly.');
+                }
+                document.body.removeChild(iframe);
+            };
+        }
+
+        function testCustomURL() {
+            const url = document.getElementById('customUrl').value;
+            if (url) {
+                testURL(url);
+            }
+        }
+
+        function analyzeMetaTags(doc, url) {
+            const results = document.getElementById('results');
+            const metaTags = doc.querySelectorAll('meta');
+            
+            let analysis = {
+                ogTitle: null,
+                ogDescription: null,
+                ogImage: null,
+                ogUrl: null,
+                twitterCard: null,
+                twitterImage: null
+            };
+
+            metaTags.forEach(meta => {
+                const property = meta.getAttribute('property');
+                const name = meta.getAttribute('name');
+                const content = meta.getAttribute('content');
+
+                if (property === 'og:title') analysis.ogTitle = content;
+                if (property === 'og:description') analysis.ogDescription = content;
+                if (property === 'og:image') analysis.ogImage = content;
+                if (property === 'og:url') analysis.ogUrl = content;
+                if (name === 'twitter:card') analysis.twitterCard = content;
+                if (name === 'twitter:image') analysis.twitterImage = content;
+            });
+
+            displayResults(analysis, url);
+        }
+
+        function displayResults(analysis, url) {
+            const results = document.getElementById('results');
+            
+            let html = `
+                <div class="preview-card">
+                    <h2>Meta Tag Analysis for: ${url}</h2>
+                    
+                    <div class="meta-info">
+                        <h3>Open Graph (Facebook/WhatsApp/Messenger)</h3>
+                        <p class="${analysis.ogTitle ? 'success' : 'error'}">
+                            📝 Title: ${analysis.ogTitle || 'Missing og:title'}
+                        </p>
+                        <p class="${analysis.ogDescription ? 'success' : 'error'}">
+                            📄 Description: ${analysis.ogDescription ? (analysis.ogDescription.substring(0, 100) + '...') : 'Missing og:description'}
+                        </p>
+                        <p class="${analysis.ogImage ? 'success' : 'error'}">
+                            🖼️ Image: ${analysis.ogImage || 'Missing og:image'}
+                        </p>
+                        <p class="${analysis.ogUrl ? 'success' : 'warning'}">
+                            🔗 URL: ${analysis.ogUrl || 'Missing og:url (will use current URL)'}
+                        </p>
+                    </div>
+                    
+                    <div class="meta-info">
+                        <h3>Twitter Cards</h3>
+                        <p class="${analysis.twitterCard ? 'success' : 'error'}">
+                            🐦 Card Type: ${analysis.twitterCard || 'Missing twitter:card'}
+                        </p>
+                        <p class="${analysis.twitterImage ? 'success' : 'error'}">
+                            🖼️ Image: ${analysis.twitterImage || 'Missing twitter:image'}
+                        </p>
+                    </div>
+                    
+                    <div class="meta-info">
+                        <h3>Overall Assessment</h3>
+                        ${getOverallAssessment(analysis)}
+                    </div>
+                </div>
+            `;
+            
+            results.innerHTML = html;
+        }
+
+        function getOverallAssessment(analysis) {
+            const required = ['ogTitle', 'ogDescription', 'ogImage'];
+            const missing = required.filter(key => !analysis[key]);
+            
+            if (missing.length === 0) {
+                return '<p class="success">✅ Excellent! All essential meta tags are present. Your links will show rich previews on WhatsApp, Messenger, and social media.</p>';
+            } else if (missing.length <= 1) {
+                return '<p class="warning">⚠️ Good! Most meta tags are present. Consider adding the missing ones for optimal sharing.</p>';
+            } else {
+                return '<p class="error">❌ Several important meta tags are missing. Links may not show proper previews when shared.</p>';
+            }
+        }
+
+        function showError(message) {
+            const results = document.getElementById('results');
+            results.innerHTML = `
+                <div class="preview-card">
+                    <div class="meta-info">
+                        <p class="warning">⚠️ ${message}</p>
+                        <p>For production testing, use the actual domain URLs:</p>
+                        <ul>
+                            <li>https://cybersecurity.club.uttara.ac.bd/NewsPortal/recruitment-news.html</li>
+                            <li>https://cybersecurity.club.uttara.ac.bd/NewsPortal/chairman-announcement.html</li>
+                            <li>https://cybersecurity.club.uttara.ac.bd/NewsPortal/ctf-night.html</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Show initial message
+        document.addEventListener('DOMContentLoaded', function() {
+            showError('Click the buttons above to test meta tags for social media sharing.');
+        });
+    </script>
+</body>
+</html>

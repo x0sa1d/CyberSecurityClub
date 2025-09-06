@@ -11,8 +11,8 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="Congratulations to Dr. Kamal Uddin Sarker!">
   <meta property="og:description" content="We are delighted to announce that Dr. Kamal Uddin Sarker, Professor and Head of the Department of Computer Science & Engineering, has been appointed as the new Chairman of the Cyber Security Club, Uttara University.">
-  <meta property="og:image" content="../assets/images/News/New_Chairman.png">
-  <meta property="og:url" content="">
+  <meta property="og:image" content="https://cybersecurity.club.uttara.ac.bd/assets/images/News/New_Chairman.png">
+  <meta property="og:url" content="https://cybersecurity.club.uttara.ac.bd/NewsPortal/chairman-announcement.html">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Congratulations to Dr. Kamal Uddin Sarker!">
@@ -22,14 +22,24 @@
   <meta property="article:section" content="Announcement">
   <meta property="article:tag" content="Announcement">
   
+  <!-- WhatsApp and Messenger specific meta tags -->
+  <meta property="og:image:secure_url" content="https://cybersecurity.club.uttara.ac.bd/assets/images/News/New_Chairman.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="fb:app_id" content="">
+  
   <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Congratulations to Dr. Kamal Uddin Sarker!">
   <meta name="twitter:description" content="We are delighted to announce that Dr. Kamal Uddin Sarker, Professor and Head of the Department of Computer Science & Engineering, has been appointed as the new Chairman of the Cyber Security Club, Uttara University.">
-  <meta name="twitter:image" content="../assets/images/News/New_Chairman.png">
+  <meta name="twitter:image" content="https://cybersecurity.club.uttara.ac.bd/assets/images/News/New_Chairman.png">
   <meta name="twitter:image:alt" content="Congratulations to Dr. Kamal Uddin Sarker!">
   <meta name="twitter:site" content="@csc_uu">
   <meta name="twitter:creator" content="@csc_uu">
+  <meta name="twitter:url" content="https://cybersecurity.club.uttara.ac.bd/NewsPortal/chairman-announcement.html">
+  
+  <!-- Additional social sharing meta tags -->
+  <meta property="article:publisher" content="https://facebook.com/csc.uu.bd">
+  <meta name="thumbnail" content="https://cybersecurity.club.uttara.ac.bd/assets/images/News/New_Chairman.png">
   
   <!-- Standard meta tags -->
   <meta name="description" content="We are delighted to announce that Dr. Kamal Uddin Sarker, Professor and Head of the Department of Computer Science & Engineering, has been appointed as the new Chairman of the Cyber Security Club, Uttara University.">
@@ -190,6 +200,9 @@
               <a href="https://www.linkedin.com/sharing/share-offsite/?url=" class="share-btn linkedin" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin-in"></i> LinkedIn
               </a>
+              <a href="https://wa.me/?text=" class="share-btn whatsapp" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
               <a href="#" class="share-btn copy" onclick="copyCurrentURL()">
                 <i class="fas fa-link"></i> Copy Link
               </a>
@@ -274,12 +287,84 @@
   <!-- Scripts -->
   <script src="../assets/js/index.js"></script>
   <script>
+    // Professional Notification System
+    class NotificationSystem {
+      constructor() {
+        this.container = null;
+        this.init();
+      }
+
+      init() {
+        // Create notification container if it doesn't exist
+        if (!document.querySelector('.notification-container')) {
+          this.container = document.createElement('div');
+          this.container.className = 'notification-container';
+          document.body.appendChild(this.container);
+        } else {
+          this.container = document.querySelector('.notification-container');
+        }
+      }
+
+      show(message, type = 'success', duration = 3000) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        
+        const icon = this.getIcon(type);
+        
+        notification.innerHTML = `
+          <div class="notification-icon">${icon}</div>
+          <div class="notification-text">${message}</div>
+          <button class="notification-close" onclick="this.parentElement.remove()">×</button>
+          <div class="notification-progress"></div>
+        `;
+
+        this.container.appendChild(notification);
+
+        // Trigger show animation
+        setTimeout(() => {
+          notification.classList.add('show');
+        }, 100);
+
+        // Auto-remove notification
+        setTimeout(() => {
+          this.hide(notification);
+        }, duration);
+
+        // Click to dismiss
+        notification.addEventListener('click', () => {
+          this.hide(notification);
+        });
+      }
+
+      hide(notification) {
+        notification.classList.add('hide');
+        setTimeout(() => {
+          if (notification.parentElement) {
+            notification.remove();
+          }
+        }, 400);
+      }
+
+      getIcon(type) {
+        const icons = {
+          success: '<i class="fas fa-check-circle"></i>',
+          error: '<i class="fas fa-exclamation-circle"></i>',
+          info: '<i class="fas fa-info-circle"></i>',
+          warning: '<i class="fas fa-exclamation-triangle"></i>'
+        };
+        return icons[type] || icons.info;
+      }
+    }
+
+    // Initialize notification system
+    const notifications = new NotificationSystem();
+
     function copyCurrentURL() {
       const url = window.location.href;
       
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(url).then(() => {
-          alert('Link copied to clipboard!');
+          notifications.show('Link copied to clipboard successfully', 'success', 2500);
         }).catch(() => {
           fallbackCopyTextToClipboard(url);
         });
@@ -300,9 +385,9 @@
       
       try {
         document.execCommand('copy');
-        alert('Link copied to clipboard!');
+        notifications.show('Link copied to clipboard successfully', 'success', 2500);
       } catch (err) {
-        alert('Unable to copy link. Please copy manually: ' + text);
+        notifications.show('Unable to copy link automatically. Please copy manually from the address bar.', 'error', 4000);
       }
       
       document.body.removeChild(textArea);
@@ -311,6 +396,7 @@
     // Update social sharing URLs with current page URL
     document.addEventListener('DOMContentLoaded', function() {
       const currentURL = encodeURIComponent(window.location.href);
+      const articleTitle = encodeURIComponent('Congratulations to Dr. Kamal Uddin Sarker! - CSC News');
       
       // Update Facebook share URL
       const facebookBtn = document.querySelector('.share-btn.facebook');
@@ -321,11 +407,20 @@
       // Update Twitter share URL
       const twitterBtn = document.querySelector('.share-btn.twitter');
       if (twitterBtn) {
-        twitterBtn.href = `https://twitter.com/intent/tweet?url=${currentURL}&text=${encodeURIComponent('Congratulations to Dr. Kamal Uddin Sarker! - CSC News')}`;
+        twitterBtn.href = `https://twitter.com/intent/tweet?url=${currentURL}&text=${articleTitle}`;
       }
       
       // Update LinkedIn share URL
       const linkedinBtn = document.querySelector('.share-btn.linkedin');
+      if (linkedinBtn) {
+        linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentURL}`;
+      }
+      
+      // Update WhatsApp share URL
+      const whatsappBtn = document.querySelector('.share-btn.whatsapp');
+      if (whatsappBtn) {
+        whatsappBtn.href = `https://wa.me/?text=${articleTitle}%20${currentURL}`;
+      }
       if (linkedinBtn) {
         linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentURL}`;
       }

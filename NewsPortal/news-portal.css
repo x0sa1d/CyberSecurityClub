@@ -920,6 +920,11 @@
   color: white;
 }
 
+.share-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
 .share-btn.copy {
   background: var(--border-color);
   color: var(--text-color);
@@ -1524,5 +1529,166 @@
   
   .related-news-link {
     font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   PROFESSIONAL NOTIFICATION SYSTEM
+   ======================================== */
+
+/* Notification Container */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Individual Notification */
+.notification {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Success notification variant */
+.notification.success {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+}
+
+/* Error notification variant */
+.notification.error {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+}
+
+/* Info notification variant */
+.notification.info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Animation states */
+.notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notification.hide {
+  transform: translateX(400px);
+  opacity: 0;
+}
+
+/* Notification icon */
+.notification-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Notification text */
+.notification-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Notification close button */
+.notification-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.notification-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Progress bar for auto-dismiss */
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0 0 12px 12px;
+  transform-origin: left;
+  animation: progressBar 3s linear forwards;
+}
+
+@keyframes progressBar {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .notification-container {
+    right: 16px;
+    left: 16px;
+    top: 16px;
+  }
+  
+  .notification {
+    padding: 14px 18px;
+    font-size: 13px;
+    transform: translateY(-100px);
+  }
+  
+  .notification.show {
+    transform: translateY(0);
+  }
+  
+  .notification.hide {
+    transform: translateY(-100px);
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .notification {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .notification.success {
+    background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+  }
+  
+  .notification.error {
+    background: linear-gradient(135deg, #e53e3e 0%, #fc8181 100%);
+  }
+  
+  .notification.info {
+    background: linear-gradient(135deg, #3182ce 0%, #63b3ed 100%);
   }
 }
