@@ -1,9 +1,23 @@
 // Store functionality
 let cartCount = 0;
 
-function addToCart(productName, price) {
+function addToCart(productName, price, imageUrl = null) {
   // Get existing cart items from localStorage
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  
+  // If no imageUrl provided, try to find it from the current page
+  if (!imageUrl) {
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+      const cardTitle = card.querySelector('.product-title')?.textContent;
+      if (cardTitle === productName) {
+        const img = card.querySelector('img');
+        if (img) {
+          imageUrl = img.src;
+        }
+      }
+    });
+  }
   
   // Check if item already exists in cart
   const existingItem = cartItems.find(item => item.name === productName);
@@ -14,7 +28,8 @@ function addToCart(productName, price) {
     cartItems.push({
       name: productName,
       price: price,
-      quantity: 1
+      quantity: 1,
+      image: imageUrl || null
     });
   }
   
@@ -167,9 +182,12 @@ function displayCartItems() {
     cartItemsContainer.innerHTML = cartItems.map((item, index) => `
       <div class="cart-item">
         <div class="item-image">
-          ${item.name.includes('Sticker') ? 'STICKER' : 
-            item.name.includes('T-Shirt') ? 'SHIRT' : 
-            item.name.includes('Hoodie') ? 'HOODIE' : 'ITEM'}
+          ${item.image ? 
+            `<img src="${item.image}" alt="${item.name}" class="cart-item-img">` :
+            `<div class="item-placeholder">${item.name.includes('Sticker') ? 'STICKER' : 
+              item.name.includes('T-Shirt') ? 'SHIRT' : 
+              item.name.includes('Hoodie') ? 'HOODIE' : 'ITEM'}</div>`
+          }
         </div>
         <div class="item-details">
           <div class="item-name">${item.name}</div>
