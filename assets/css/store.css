@@ -447,6 +447,40 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Price and Stock Container */
+.price-stock-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.price-stock-container .product-price {
+  margin-bottom: 0;
+}
+
+/* Stock Tags */
+.stock-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  transition: all 0.3s ease;
+}
+
+.stock-tag.in-stock {
+  color: #10b981;
+}
+
+.stock-tag.low-stock {
+  color: #f59e0b;
+}
+
+.stock-tag.sold-out {
+  color: #ef4444;
+}
+
 .add-to-cart {
   width: 100%;
   background: var(--htb-green);
