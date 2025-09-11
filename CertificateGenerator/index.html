@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator - CSC UU</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="certificate-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a rel="author" href="../index.html">
+                <img src="../assets/images/csc_white.png" alt="CSC Logo" class="navbar-logo">
+            </a>
+            
+            <ul class="navbar-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html"><span class="navbar-slash">|</span>About</a></li>
+                <li class="dropdown">
+                    <a href="../groups.html">
+                        <span class="navbar-slash">|</span>
+                        <span>Groups</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../groups.html">Research Groups</a>
+                        <a href="../advisor.html">Faculty Advisor</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="../CTF.html">
+                        <span class="navbar-slash">|</span>
+                        <span>CTF</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard">Dashboard</a>
+                        <a href="../CTFWeekly.html">Weekly CTFs</a>
+                        <a href="../CTFMonthly.html">Monthly CTFs</a>
+                        <a href="../CTFWriteups.html">Writeups</a>
+                    </div>
+                </li>
+                <li><a href="../events.html"><span class="navbar-slash">|</span>Events</a></li>
+                <li><a href="../gallery.html"><span class="navbar-slash">|</span>Gallery</a></li>
+                <li><a href="../links.html"><span class="navbar-slash">|</span>Links</a></li>
+                <li><a href="../sponsors.html"><span class="navbar-slash">|</span>Sponsors</a></li>
+                <li><a href="../store.html"><span class="navbar-slash">|</span>Store</a></li>
+                <li class="dropdown">
+                    <a href="../MemberShip.html">
+                        <span class="navbar-slash">|</span>
+                        <span>Membership</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../MemberShip.html">Membership Process</a>
+                        <a href="../recruitment.html">Join Us</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="navbar-controls">
+                <div class="navbar-burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="certificate-generator">
+        <div class="container">
+            <div class="header-section">
+                <h1 class="page-title">Certificate Generator</h1>
+                <p class="page-description">Generate your participation certificate by entering your Student ID</p>
+            </div>
+
+            <div class="generator-section">
+                <div class="input-container">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" placeholder="Enter your Student ID (e.g., 2243081091)" required>
+                    </div>
+                    <button id="checkIdBtn" class="generate-btn">
+                        <i class="fas fa-search"></i>
+                        Check Student ID
+                    </button>
+
+                    <div id="nameInputSection" class="form-group hidden-step">
+                        <label for="studentName">Full Name (Max 25 characters)</label>
+                        <input type="text" id="studentName" placeholder="Modify your name if needed (max 25 chars)" maxlength="25" required>
+                        <div class="name-info">
+                            <small class="name-help-text">You can modify up to 50% of your registered name</small>
+                            <small class="char-counter" id="charCounter">0/25</small>
+                        </div>
+                    </div>
+                    <button id="generateBtn" class="generate-btn hidden-step">
+                        <i class="fas fa-certificate"></i>
+                        Generate Certificate
+                    </button>
+                </div>
+
+                <div id="loadingSpinner" class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Generating your certificate...</p>
+                </div>
+
+                <div id="errorMessage" class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p id="errorText"></p>
+                </div>
+
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Certificate generated successfully!</p>
+                    <button id="downloadBtn" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download Certificate
+                    </button>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Instructions</h3>
+                <ul>
+                    <li><strong>Step 1:</strong> Enter your complete Student ID and click "Check Student ID"</li>
+                    <li><strong>Step 2:</strong> Enter your full name as you want it to appear on the certificate</li>
+                    <li><strong>Step 3:</strong> Click "Generate Certificate" to create your personalized certificate</li>
+                    <li>Make sure your Student ID is correct - only registered participants can generate certificates</li>
+                    <li>You can customize the name that appears on your certificate</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a class="social-link" rel="me noopener" target="_blank" href="https://facebook.com/csc.uu.bd" title="Facebook CSC">
+                <img src="../assets/images/icons/facebook_logo_icon.png" alt="Facebook" class="social-icon">
+            </a>
+            <a class="social-link" rel="me noopener" target="_blank" href="https://www.linkedin.com/company/cscuu/?viewAsMember=true" title="LinkedIn CSC">
+                <img src="../assets/images/icons/linkedin_logo_icon.png" alt="LinkedIn" class="social-icon">
+            </a>
+            <a class="social-link" rel="me noopener" target="_blank" href="https://discord.gg/N83SjBHjzG" title="Discord CSC">
+                <img src="../assets/images/icons/discord_squircle_icon.png" alt="Discord" class="social-icon">
+            </a>
+        </div>
+        <p>&copy; 2025 Cyber Security Club, Uttara University. All rights reserved.</p>
+    </footer>
+
+    <script src="certificate-generator.js"></script>
+</body>
+</html>
