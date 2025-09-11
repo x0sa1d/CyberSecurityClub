@@ -18,7 +18,7 @@ class CertificateGenerator {
         this.errorMessage = document.getElementById('errorMessage');
         this.successMessage = document.getElementById('successMessage');
         this.errorText = document.getElementById('errorText');
-        this.charCounter = document.getElementById('charCounter');
+        // Character counter removed since name is read-only
         this.validatedStudent = null;
     }
 
@@ -36,21 +36,7 @@ class CertificateGenerator {
             }
         });
 
-        this.studentNameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                this.handleGenerate();
-            }
-        });
-
-        // Name input event listeners for editing restrictions
-        this.studentNameInput.addEventListener('input', (e) => {
-            this.handleNameInput(e);
-            this.updateCharacterCounter();
-        });
-
-        this.studentNameInput.addEventListener('keydown', (e) => {
-            this.handleNameKeydown(e);
-        });
+        // Name input is read-only, no event listeners needed
 
         // Real-time input validation
         this.studentIdInput.addEventListener('input', (e) => {
@@ -108,7 +94,7 @@ class CertificateGenerator {
         }
 
         if (!this.isValidStudentId(studentId)) {
-            this.showError('Please enter a valid 10-digit Student ID (e.g., 2243081091)');
+            this.showError('Please enter your Uttara University Student ID (e.g., 2233081XXX)');
             return;
         }
 
@@ -138,15 +124,13 @@ class CertificateGenerator {
     }
 
     async handleGenerate() {
-        const studentName = this.studentNameInput.value.trim();
-        
-        if (!studentName) {
-            this.showError('Please enter your full name');
+        if (!this.validatedStudent) {
+            this.showError('Please check your Student ID first');
             return;
         }
 
-        if (!this.validatedStudent) {
-            this.showError('Please check your Student ID first');
+        if (!this.originalName) {
+            this.showError('No name found for this student');
             return;
         }
 
@@ -157,10 +141,10 @@ class CertificateGenerator {
             // Simulate processing delay
             await new Promise(resolve => setTimeout(resolve, 2000));
 
-            // Create student object with custom name
+            // Use the original registered name directly
             const studentForCertificate = {
                 ...this.validatedStudent,
-                name: studentName
+                name: this.originalName
             };
 
             // Generate certificate
@@ -183,21 +167,15 @@ class CertificateGenerator {
         this.checkIdBtn.classList.add('hidden-step');
         this.studentIdInput.disabled = true;
         
-        // Pre-fill with registered name if available and initialize editing rules
+        // Pre-fill with registered name (read-only)
         if (this.validatedStudent && this.validatedStudent.name) {
             const originalName = this.validatedStudent.name.trim();
-            // Ensure name fits within 25 character limit
-            const displayName = originalName.length > 25 ? originalName.substring(0, 25) : originalName;
-            this.studentNameInput.value = displayName;
-            
-            // Store original name and calculate editing limits
+            this.studentNameInput.value = originalName;
             this.originalName = originalName;
-            this.maxEditable = Math.ceil(originalName.length * 0.5); // 50% of original length can be changed
-            this.initializeNameEditingRules();
         }
         
-        this.updateCharacterCounter();
-        this.studentNameInput.focus();
+        // Focus on generate button instead since name input is read-only
+        this.generateBtn.focus();
     }
 
     initializeNameEditingRules() {
@@ -336,11 +314,7 @@ class CertificateGenerator {
         this.studentIdInput.disabled = false;
         this.validatedStudent = null;
         this.studentNameInput.value = '';
-        
-        // Clear name editing variables
         this.originalName = null;
-        this.maxEditable = 0;
-        this.editablePositions = null;
         
         this.clearMessages();
     }

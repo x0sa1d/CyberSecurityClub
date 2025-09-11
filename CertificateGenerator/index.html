@@ -123,11 +123,11 @@
         <div class="certificate-container">
             <!-- Certificate Generator Section -->
             <section class="certificate-section section-animated">
-                <div class="heading-title heading-animated">Certificate Generator</div>
+                <div class="heading-title heading-animated">Participation Certificate</div>
                 <div class="certificate-description_container">
                     <div class="heading-description">
-                        Generate your participation certificate for CyberCon 2024 and other Cyber Security Club events. 
-                        Enter your Student ID to verify your registration and create your personalized certificate.
+                        Proof of participation — show it off with your certificate
+                        <p>CyberCon24 certificate is now available!</p>
                     </div>
                 </div>
             </section>
@@ -136,7 +136,7 @@
                 <div class="input-container">
                     <div class="form-group">
                         <label for="studentId">Student ID</label>
-                        <input type="text" id="studentId" placeholder="Enter your Student ID (e.g., 2243081091)" required>
+                        <input type="text" id="studentId" placeholder="Enter your Varsity ID(e.g., 2233081XXX)" required>
                     </div>
                     <button id="checkIdBtn" class="generate-btn">
                         <i class="fas fa-search"></i>
@@ -144,13 +144,13 @@
                     </button>
 
                     <div id="nameInputSection" class="form-group hidden-step">
-                        <label for="studentName">Full Name (Max 25 characters)</label>
-                        <input type="text" id="studentName" placeholder="Modify your name if needed (max 25 chars)" maxlength="25" required>
+                        <label for="studentName">Participant Name</label>
+                        <input type="text" id="studentName" placeholder="Your registered name will appear here" readonly required>
                         <div class="name-info">
-                            <small class="name-help-text">You can modify up to 50% of your registered name</small>
-                            <small class="char-counter" id="charCounter">0/25</small>
+                            <small class="name-help-text">having issue?<a href="https://facebook.com/csc.uu.bd">Contact support</a></small>
                         </div>
                     </div>
+                    
                     <button id="generateBtn" class="generate-btn hidden-step">
                         <i class="fas fa-certificate"></i>
                         Generate Certificate
@@ -180,11 +180,11 @@
             <div class="info-section">
                 <h3>Instructions</h3>
                 <ul>
-                    <li><strong>Step 1:</strong> Enter your complete Student ID and click "Check Student ID"</li>
-                    <li><strong>Step 2:</strong> Enter your full name as you want it to appear on the certificate</li>
-                    <li><strong>Step 3:</strong> Click "Generate Certificate" to create your personalized certificate</li>
-                    <li>Make sure your Student ID is correct - only registered participants can generate certificates</li>
-                    <li>You can customize the name that appears on your certificate</li>
+                    <li><strong>Step 1:</strong> Enter your <strong>Uttara University</strong> student ID and click "Check Student ID"</li>
+                    <li><strong>Step 2:</strong> Verify your registered name and click "Generate Certificate"</li>
+                    <li>Make sure your Student ID is correct - only <strong>registered CyberCon24</strong>  participants can generate certificates</li>
+                    <li>The name on your certificate will match your registration details exactly</li>
+                    <li><strong><a href="https://facebook.com/csc.uu.bd">Contact support</a></strong> if you need to update your <strong>registered name</strong></li>
                 </ul>
             </div>
         </div>
@@ -227,8 +227,54 @@
         </div>
     </footer>
 
+    <!-- Welcome Notification Popup -->
+    <div id="welcomeNotification" class="notification-popup">
+        <div class="notification-content">
+            <div class="notification-image">
+                <img src="./cert/CyberCon24.png" alt="CyberCon 2024 - Get Ready for Hands-on Cybersecurity and Ethical Hacking Workshop" class="cybercon-banner">
+            </div>
+            <div class="notification-text">
+                <h3>Great News!</h3>
+                <p>CyberCon24 certificates are now available</p>
+                <p>Grab your certificate now!</p>
+                <small>until September 30, 2025</small>
+            </div>
+            <button class="notification-close" onclick="closeWelcomeNotification()" title="Close notification" aria-label="Close notification">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="../assets/js/index.js"></script>
     <script src="certificate-generator.js"></script>
+    
+    <script>
+        // Show welcome notification when page loads
+        function showWelcomeNotification() {
+            const notification = document.getElementById('welcomeNotification');
+            notification.style.display = 'flex';
+            
+            // Auto-hide after 8 seconds
+            setTimeout(() => {
+                closeWelcomeNotification();
+            }, 8000);
+        }
+
+        function closeWelcomeNotification() {
+            const notification = document.getElementById('welcomeNotification');
+            notification.classList.add('notification-fade-out');
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+                notification.classList.remove('notification-fade-out');
+            }, 300);
+        }
+
+        // Show notification when page loads
+        window.addEventListener('load', () => {
+            setTimeout(showWelcomeNotification, 1000); // Show after 1 second delay
+        });
+    </script>
 </body>
 </html>
