@@ -396,13 +396,14 @@ class CertificateGenerator {
     }
 
     addNameToCanvaTemplate(ctx, studentName, width, height) {
-        // Configure text style for perfect positioning and size
+        //! Font customization updated from positioning helper tool
+        //! Using Dancing Script font for elegant certificate styling #admin
         ctx.fillStyle = '#000000';
-        ctx.font = 'bold 180px GEOMETOS, Arial, sans-serif';
+        ctx.font = 'bold 180px Dancing Script, Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Optimized positioning for perfect certificate layout
+        // Positioning optimized using the positioning helper tool
         const nameX = width * 0.500;
         const nameY = height * 0.480;
         
