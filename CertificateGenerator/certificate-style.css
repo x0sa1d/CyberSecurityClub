@@ -330,6 +330,20 @@
     box-shadow: 0 4px 12px rgba(118, 75, 162, 0.3);
 }
 
+.success-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.success-actions .download-btn {
+    margin: 0;
+    min-width: 180px;
+}
+
 .info-section {
     background: var(--card-color);
     border: 1px solid var(--border-color);
@@ -798,6 +812,115 @@
 
 .generate-btn.visible-step {
     display: inline-block !important;
+}
+
+/* Certificate Preview Section */
+.certificate-preview-section {
+    display: none;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: certificatePreviewFadeIn 0.5s ease-out;
+}
+
+.certificate-preview-section.visible {
+    display: block;
+}
+
+.preview-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.preview-header h3 {
+    font-family: "JetBrains Mono", Monospace, Sans-Serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preview-header h3 i {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+}
+
+.certificate-display {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.certificate-img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    object-fit: contain;
+}
+
+
+
+/* Animation keyframes */
+@keyframes certificatePreviewFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .certificate-preview-section {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .preview-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .certificate-display {
+        padding: 1rem;
+    }
+    
+
+}
+
+@media (max-width: 480px) {
+    .success-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .success-actions .download-btn {
+        width: 100%;
+        max-width: 250px;
+    }
 }
 
 /* Print styles */

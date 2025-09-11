@@ -166,14 +166,21 @@
                     <i class="fas fa-exclamation-triangle"></i>
                     <p id="errorText"></p>
                 </div>
-
                 <div id="successMessage" class="success-message">
                     <i class="fas fa-check-circle"></i>
                     <p>Certificate generated successfully!</p>
-                    <button id="downloadBtn" class="download-btn">
-                        <i class="fas fa-download"></i>
-                        Download Certificate
-                    </button>
+                                    <!-- Certificate Preview Section -->
+                <div id="certificatePreview" class="certificate-preview-section">
+                    <div class="certificate-display">
+                        <img id="certificateImage" alt="Generated Certificate" class="certificate-img">
+                    </div>
+                </div>
+                    <div class="success-actions">
+                        <button id="downloadBtn" class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Download Certificate
+                        </button>
+                    </div>
                 </div>
             </div>
 

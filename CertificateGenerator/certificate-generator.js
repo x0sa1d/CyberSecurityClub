@@ -18,6 +18,11 @@ class CertificateGenerator {
         this.errorMessage = document.getElementById('errorMessage');
         this.successMessage = document.getElementById('successMessage');
         this.errorText = document.getElementById('errorText');
+        
+        // Certificate preview elements
+        this.certificatePreview = document.getElementById('certificatePreview');
+        this.certificateImage = document.getElementById('certificateImage');
+        
         // Character counter removed since name is read-only
         this.validatedStudent = null;
     }
@@ -26,6 +31,8 @@ class CertificateGenerator {
         this.checkIdBtn.addEventListener('click', () => this.handleCheckId());
         this.generateBtn.addEventListener('click', () => this.handleGenerate());
         this.downloadBtn.addEventListener('click', () => this.downloadCertificate());
+        
+
         
         // Allow Enter key to trigger ID check or generation
         this.studentIdInput.addEventListener('keypress', (e) => {
@@ -390,7 +397,7 @@ class CertificateGenerator {
                 reject(new Error('Could not load Canva template'));
             };
 
-            // Try to load your Canva template (save your certificate image as this filename)
+            // Try to load Canva template (save your certificate image as this filename)
             templateImg.src = 'Certificate.png';
         });
     }
@@ -580,6 +587,9 @@ class CertificateGenerator {
     showSuccess() {
         this.clearMessages();
         this.successMessage.classList.add('visible', 'animate-slide-in');
+        
+        // Show the certificate preview
+        this.showCertificatePreview();
     }
 
     clearMessages() {
@@ -587,6 +597,32 @@ class CertificateGenerator {
         this.errorMessage.classList.remove('visible', 'animate-slide-in');
         this.successMessage.classList.remove('visible', 'animate-slide-in');
     }
+
+    showCertificatePreview() {
+        if (!this.certificateBlob) {
+            console.error('No certificate available for preview');
+            return;
+        }
+
+        // Create a URL for the certificate blob
+        const certificateUrl = URL.createObjectURL(this.certificateBlob);
+        
+        // Set the image source
+        this.certificateImage.src = certificateUrl;
+        
+        // Show the preview section
+        this.certificatePreview.classList.add('visible');
+        
+        // Scroll to the preview section
+        this.certificatePreview.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
+
+
+
+
 
     validateInputFormat(value) {
         const input = this.studentIdInput;
