@@ -588,6 +588,9 @@ class CertificateGenerator {
         this.clearMessages();
         this.successMessage.classList.add('visible', 'animate-slide-in');
         
+        // Hide the generate button after successful generation
+        this.generateBtn.style.display = 'none';
+        
         // Show the certificate preview
         this.showCertificatePreview();
     }
