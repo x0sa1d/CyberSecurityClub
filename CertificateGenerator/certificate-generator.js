@@ -344,6 +344,9 @@ class CertificateGenerator {
 
     async generateCertificate(student) {
         try {
+            // Ensure Dancing Script font is loaded before generating certificate
+            await this.loadDancingScriptFont();
+            
             // Create canvas for certificate
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
@@ -371,6 +374,24 @@ class CertificateGenerator {
             });
         } catch (error) {
             throw new Error('Failed to generate certificate: ' + error.message);
+        }
+    }
+
+    async loadDancingScriptFont() {
+        // Load Dancing Script font using CSS Font Loading API
+        if ('fonts' in document) {
+            try {
+                await document.fonts.load('400 180px Dancing Script');
+                await document.fonts.load('600 150px Dancing Script');
+                await document.fonts.load('700 150px Dancing Script');
+                console.log('Dancing Script font loaded successfully');
+            } catch (error) {
+                console.warn('Failed to load Dancing Script font:', error);
+                // Continue anyway - fallback fonts will be used
+            }
+        } else {
+            // Fallback for browsers without CSS Font Loading API
+            console.warn('CSS Font Loading API not supported, relying on font fallbacks');
         }
     }
 
@@ -487,8 +508,8 @@ class CertificateGenerator {
         ctx.font = '60px Arial';
         ctx.fillText('This is to certify that', centerX, 950);
 
-        // Add student name with underline
-        ctx.font = 'bold 150px GEOMETOS, Arial, sans-serif';
+        // Add student name with underline - Using Dancing Script for consistency
+        ctx.font = 'bold 150px Dancing Script, Arial, sans-serif';
         ctx.fillStyle = 'white';
         const nameY = 1150;
         ctx.fillText(studentName, centerX, nameY);
