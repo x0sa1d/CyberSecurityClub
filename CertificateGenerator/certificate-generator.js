@@ -1,7 +1,9 @@
-// Certificate Generator JavaScript
+// Certificate Generator JavaScript - Clean Version
 class CertificateGenerator {
     constructor() {
         this.studentData = null;
+        this.certificateBlob = null;
+        this.validatedStudent = null;
         this.initializeElements();
         this.bindEvents();
         this.loadStudentData();
@@ -22,9 +24,6 @@ class CertificateGenerator {
         // Certificate preview elements
         this.certificatePreview = document.getElementById('certificatePreview');
         this.certificateImage = document.getElementById('certificateImage');
-        
-        // Character counter removed since name is read-only
-        this.validatedStudent = null;
     }
 
     bindEvents() {
@@ -32,24 +31,18 @@ class CertificateGenerator {
         this.generateBtn.addEventListener('click', () => this.handleGenerate());
         this.downloadBtn.addEventListener('click', () => this.downloadCertificate());
         
-
-        
-        // Allow Enter key to trigger ID check or generation
+        // Allow Enter key to trigger ID check
         this.studentIdInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                if (this.nameInputSection.classList.contains('hidden-step')) {
-                    this.handleCheckId();
-                }
+            if (e.key === 'Enter' && this.nameInputSection.classList.contains('hidden-step')) {
+                this.handleCheckId();
             }
         });
 
-        // Name input is read-only, no event listeners needed
-
-        // Real-time input validation
+        // Clear messages on input
         this.studentIdInput.addEventListener('input', (e) => {
             this.clearMessages();
             this.validateInputFormat(e.target.value);
-            // Hide name section if student ID is modified
+            // Reset to step 1 if ID is modified
             if (!this.nameInputSection.classList.contains('hidden-step')) {
                 this.resetToStep1();
             }
@@ -58,10 +51,9 @@ class CertificateGenerator {
 
     async loadStudentData() {
         try {
-            // Load student data from CSV or JSON file
             const response = await fetch('student-data.csv');
             if (!response.ok) {
-                throw new Error('Could not load student data');
+                throw new Error('Could not load student database');
             }
             
             const csvText = await response.text();
@@ -81,14 +73,13 @@ class CertificateGenerator {
         for (let i = 1; i < lines.length; i++) {
             const values = lines[i].split(',').map(v => v.trim());
             if (values.length === headers.length) {
-                const record = {};
+                const row = {};
                 headers.forEach((header, index) => {
-                    record[header] = values[index];
+                    row[header] = values[index];
                 });
-                data.push(record);
+                data.push(row);
             }
         }
-
         return data;
     }
 
@@ -109,15 +100,13 @@ class CertificateGenerator {
         this.checkIdBtn.disabled = true;
 
         try {
-            // Simulate processing delay
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             const student = this.findStudent(studentId);
             if (!student) {
-                throw new Error('Student ID not found in our records. Please check your ID or contact support.');
+                throw new Error('Student ID not found. Only registered CyberCon24 participants can generate certificates.');
             }
 
-            // Store validated student and show name input
             this.validatedStudent = student;
             this.showNameInputStep();
             this.clearMessages();
@@ -136,26 +125,12 @@ class CertificateGenerator {
             return;
         }
 
-        if (!this.originalName) {
-            this.showError('No name found for this student');
-            return;
-        }
-
         this.showLoading();
         this.generateBtn.disabled = true;
 
         try {
-            // Simulate processing delay
             await new Promise(resolve => setTimeout(resolve, 2000));
-
-            // Use the original registered name directly
-            const studentForCertificate = {
-                ...this.validatedStudent,
-                name: this.originalName
-            };
-
-            // Generate certificate
-            await this.generateCertificate(studentForCertificate);
+            await this.generateCertificate(this.validatedStudent);
             this.showSuccess();
 
         } catch (error) {
@@ -176,140 +151,10 @@ class CertificateGenerator {
         
         // Pre-fill with registered name (read-only)
         if (this.validatedStudent && this.validatedStudent.name) {
-            const originalName = this.validatedStudent.name.trim();
-            this.studentNameInput.value = originalName;
-            this.originalName = originalName;
+            this.studentNameInput.value = this.validatedStudent.name.trim();
         }
         
-        // Focus on generate button instead since name input is read-only
         this.generateBtn.focus();
-    }
-
-    initializeNameEditingRules() {
-        // Calculate which characters can be edited (50% rule)
-        if (!this.originalName) return;
-        
-        const nameLength = this.originalName.length;
-        this.editablePositions = new Set();
-        
-        // Allow editing of every other character to distribute editable positions
-        for (let i = 0; i < nameLength && this.editablePositions.size < this.maxEditable; i += 2) {
-            this.editablePositions.add(i);
-        }
-        
-        // If we still have slots, fill remaining positions
-        for (let i = 1; i < nameLength && this.editablePositions.size < this.maxEditable; i += 2) {
-            this.editablePositions.add(i);
-        }
-    }
-
-    handleNameInput(e) {
-        if (!this.originalName) return;
-        
-        const currentValue = e.target.value;
-        const cursorPosition = e.target.selectionStart;
-        
-        // Validate the changes according to 50% rule
-        if (!this.isValidNameEdit(currentValue)) {
-            // Revert to last valid state
-            e.target.value = this.getValidNameEdit(currentValue);
-            // Restore cursor position
-            setTimeout(() => {
-                e.target.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-            }, 0);
-        }
-    }
-
-    handleNameKeydown(e) {
-        if (!this.originalName) return;
-        
-        const cursorPosition = e.target.selectionStart;
-        const currentValue = e.target.value;
-        
-        // Allow navigation keys, backspace, delete, etc.
-        const allowedKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Tab', 'Enter', 'Escape'];
-        if (allowedKeys.includes(e.key)) return;
-        
-        // Allow backspace and delete
-        if (e.key === 'Backspace' || e.key === 'Delete') return;
-        
-        // For character input, check if position is editable
-        if (e.key.length === 1) {
-            // Calculate the difference from original name
-            const differences = this.calculateDifferences(currentValue, this.originalName);
-            
-            // If we've reached the edit limit and this would add another change
-            if (differences >= this.maxEditable && cursorPosition < this.originalName.length) {
-                // Check if this position is already different from original
-                if (cursorPosition < currentValue.length && 
-                    currentValue[cursorPosition] === this.originalName[cursorPosition]) {
-                    e.preventDefault();
-                    return;
-                }
-            }
-        }
-    }
-
-    calculateDifferences(current, original) {
-        let differences = 0;
-        const maxLength = Math.max(current.length, original.length);
-        
-        for (let i = 0; i < maxLength; i++) {
-            const currentChar = current[i] || '';
-            const originalChar = original[i] || '';
-            if (currentChar !== originalChar) {
-                differences++;
-            }
-        }
-        
-        return differences;
-    }
-
-    isValidNameEdit(newValue) {
-        if (!this.originalName) return true;
-        
-        // Check character limit
-        if (newValue.length > 25) return false;
-        
-        // Check 50% edit rule
-        const differences = this.calculateDifferences(newValue, this.originalName);
-        return differences <= this.maxEditable;
-    }
-
-    getValidNameEdit(newValue) {
-        if (!this.originalName) return newValue;
-        
-        // If too long, truncate
-        if (newValue.length > 25) {
-            newValue = newValue.substring(0, 25);
-        }
-        
-        // If too many changes, revert to original
-        const differences = this.calculateDifferences(newValue, this.originalName);
-        if (differences > this.maxEditable) {
-            return this.studentNameInput.value; // Return previous valid value
-        }
-        
-        return newValue;
-    }
-
-    updateCharacterCounter() {
-        if (this.charCounter && this.studentNameInput) {
-            const currentLength = this.studentNameInput.value.length;
-            this.charCounter.textContent = `${currentLength}/25`;
-            
-            // Change color based on usage
-            if (currentLength > 20) {
-                this.charCounter.style.color = '#e74c3c';
-                this.charCounter.style.backgroundColor = '#fdf2f2';
-            } else if (currentLength > 15) {
-                this.charCounter.style.color = '#f39c12';
-                this.charCounter.style.backgroundColor = '#fef9e7';
-            } else {
-                this.charCounter.style.color = '#888';
-                this.charCounter.style.backgroundColor = '#f5f5f5';
-            }
-        }
     }
 
     resetToStep1() {
@@ -321,13 +166,10 @@ class CertificateGenerator {
         this.studentIdInput.disabled = false;
         this.validatedStudent = null;
         this.studentNameInput.value = '';
-        this.originalName = null;
-        
         this.clearMessages();
     }
 
     isValidStudentId(id) {
-        // Basic validation for student ID format - accepts 10-digit IDs
         const pattern = /^\d{10}$/;
         return pattern.test(id);
     }
@@ -344,14 +186,13 @@ class CertificateGenerator {
 
     async generateCertificate(student) {
         try {
-            // Ensure Dancing Script font is loaded before generating certificate
+            // Ensure Dancing Script font is loaded
             await this.loadDancingScriptFont();
             
-            // Create canvas for certificate
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             
-            // Set canvas dimensions (A4 landscape: 297mm x 210mm at 300 DPI)
+            // Set canvas dimensions (A4 landscape at 300 DPI)
             canvas.width = 3508;
             canvas.height = 2480;
 
@@ -360,7 +201,6 @@ class CertificateGenerator {
                 await this.loadCanvaTemplate(ctx, student.name, canvas.width, canvas.height);
             } catch (templateError) {
                 console.log('Template not found, using programmatic generation');
-                // Fallback to programmatic certificate generation
                 this.createCertificateBackground(ctx, canvas.width, canvas.height);
                 this.addTextToCertificate(ctx, student.name, canvas.width, canvas.height);
             }
@@ -378,7 +218,6 @@ class CertificateGenerator {
     }
 
     async loadDancingScriptFont() {
-        // Load Dancing Script font using CSS Font Loading API
         if ('fonts' in document) {
             try {
                 await document.fonts.load('400 180px Dancing Script');
@@ -387,11 +226,7 @@ class CertificateGenerator {
                 console.log('Dancing Script font loaded successfully');
             } catch (error) {
                 console.warn('Failed to load Dancing Script font:', error);
-                // Continue anyway - fallback fonts will be used
             }
-        } else {
-            // Fallback for browsers without CSS Font Loading API
-            console.warn('CSS Font Loading API not supported, relying on font fallbacks');
         }
     }
 
@@ -402,12 +237,8 @@ class CertificateGenerator {
             
             templateImg.onload = () => {
                 try {
-                    // Draw the Canva template
                     ctx.drawImage(templateImg, 0, 0, width, height);
-                    
-                    // Add student name to the template
                     this.addNameToCanvaTemplate(ctx, studentName, width, height);
-                    
                     resolve();
                 } catch (error) {
                     reject(error);
@@ -418,20 +249,16 @@ class CertificateGenerator {
                 reject(new Error('Could not load Canva template'));
             };
 
-            // Try to load Canva template (save your certificate image as this filename)
             templateImg.src = 'Certificate.png';
         });
     }
 
     addNameToCanvaTemplate(ctx, studentName, width, height) {
-        //! Font customization updated from positioning helper tool
-        //! Using Dancing Script font for elegant certificate styling #admin
         ctx.fillStyle = '#000000';
         ctx.font = 'bold 180px Dancing Script, Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Positioning optimized using the positioning helper tool
         const nameX = width * 0.500;
         const nameY = height * 0.480;
         
@@ -441,7 +268,6 @@ class CertificateGenerator {
         ctx.shadowOffsetX = 1;
         ctx.shadowOffsetY = 1;
         
-        // Draw the student name
         ctx.fillText(studentName, nameX, nameY);
         
         // Reset shadow
@@ -467,26 +293,6 @@ class CertificateGenerator {
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.lineWidth = 5;
         ctx.strokeRect(150, 150, width - 300, height - 300);
-
-        // Add decorative elements
-        this.addDecorativeElements(ctx, width, height);
-    }
-
-    addDecorativeElements(ctx, width, height) {
-        // Add CSC logo circle
-        const centerX = width / 2;
-        const logoY = 350;
-        
-        ctx.beginPath();
-        ctx.arc(centerX, logoY, 150, 0, 2 * Math.PI);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-        ctx.fill();
-        
-        // Add CSC text in circle
-        ctx.fillStyle = 'white';
-        ctx.font = 'bold 120px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('CSC', centerX, logoY + 20);
     }
 
     addTextToCertificate(ctx, studentName, width, height) {
@@ -508,7 +314,7 @@ class CertificateGenerator {
         ctx.font = '60px Arial';
         ctx.fillText('This is to certify that', centerX, 950);
 
-        // Add student name with underline - Using Dancing Script for consistency
+        // Add student name with Dancing Script font
         ctx.font = 'bold 150px Dancing Script, Arial, sans-serif';
         ctx.fillStyle = 'white';
         const nameY = 1150;
@@ -528,7 +334,7 @@ class CertificateGenerator {
         ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
         ctx.fillText('has successfully participated in', centerX, 1400);
         
-        ctx.font = 'bold 80px GEOMETOS, Arial, sans-serif';
+        ctx.font = 'bold 80px Arial';
         ctx.fillStyle = 'white';
         ctx.fillText('CyberCon 2024', centerX, 1500);
         
@@ -546,11 +352,10 @@ class CertificateGenerator {
         ctx.textAlign = 'left';
         ctx.fillText(currentDate, 200, height - 300);
 
-        // Add signature line and text
+        // Add signature
         const sigX = width - 600;
         const sigY = height - 250;
         
-        // Signature line
         ctx.beginPath();
         ctx.moveTo(sigX - 200, sigY - 50);
         ctx.lineTo(sigX + 200, sigY - 50);
@@ -558,7 +363,6 @@ class CertificateGenerator {
         ctx.lineWidth = 4;
         ctx.stroke();
         
-        // Signature text
         ctx.font = '45px Arial';
         ctx.textAlign = 'center';
         ctx.fillText('Faculty Advisor', sigX, sigY);
@@ -628,13 +432,8 @@ class CertificateGenerator {
             return;
         }
 
-        // Create a URL for the certificate blob
         const certificateUrl = URL.createObjectURL(this.certificateBlob);
-        
-        // Set the image source
         this.certificateImage.src = certificateUrl;
-        
-        // Show the preview section
         this.certificatePreview.classList.add('visible');
         
         // Scroll to the preview section
@@ -644,24 +443,18 @@ class CertificateGenerator {
         });
     }
 
-
-
-
-
     validateInputFormat(value) {
         const input = this.studentIdInput;
         
         if (value.length === 0) {
-            input.style.borderColor = '#e1e5e9';
+            input.style.borderColor = '#e9ecef';
             return;
         }
         
         if (this.isValidStudentId(value)) {
             input.style.borderColor = '#28a745';
-            input.style.boxShadow = '0 0 0 3px rgba(40, 167, 69, 0.1)';
         } else {
             input.style.borderColor = '#dc3545';
-            input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
         }
     }
 }
@@ -671,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new CertificateGenerator();
 });
 
-// Add mobile navigation functionality (from main site)
+// Add mobile navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.navbar-burger');
     const menu = document.querySelector('.navbar-menu');
