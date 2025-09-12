@@ -213,3 +213,217 @@ student_id,name,event,date_registered
 2243081095,Md.Mozahid Hassan,CyberCon 2024,2024-12-03
 2223081077,Sanjay Barmon,CyberCon 2024,2024-12-03
 2223081078,Dipok Sarkar,CyberCon 2024,2024-12-03
+=======
+student_id,name,email,event,date_registered
+2241081074,Tawhidul Islam Efrat,tawhidul.e@uttarauniversity.edu.bd,CyberCon 2024,2024-10-16
+2241081379,Md Sagar Hossen,sagar.h@uttarauniversity.edu.bd,CyberCon 2024,2024-10-17
+2241081037,SAIDUL ISLAM EMON,saidul.e@uttarauniversity.edu.bd,CyberCon 2024,2024-10-17
+2241081072,Md Fahad Al Fahim,fahad.f@uttarauniversity.edu.bd,CyberCon 2024,2024-10-17
+2241081386,MD RAISUL ALAM RATUL,raisul.r03@uttarauniversity.edu.bd,CyberCon 2024,2024-10-17
+2241081038,Md Asaduzzaman Linkon,asaduzzaman.l@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2241081299,Sumaiya Akter Bristy,sumaiya.b@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081038,ABDULLAH AL NOMAN,abdullah.a29@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081110,Jakia sultana,jakia.s03@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081123,Md.Sazzad Hossain,sazzad.h08@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2241081085,Monjurul Haque Rajun,monjurul.r@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081128,MD IYAJ UDDIN PAROSH,iyaj.p@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081146,Shahadat Husain,shahadat.h14@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081090,Umme Kulsum Shimla,umme.s04@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2241081400,Ahosenara Rinty,ahosenara.r@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081091,Jannatul ferdous,jannatul.f20@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081099,Lijan,lijan.a@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081020,MD. TAHMIR AMIN KHAN,tahmir.k@uttarauniversity.edu.bd,CyberCon 2024,2024-10-19
+2243081157,MD Nur Nobi Noyon,nur.noyon@uttarauniversity.edu.bd,CyberCon 2024,2024-10-20
+2243081135,Asiful Hasan,asiful.h02@uttarauniversity.edu.bd,CyberCon 2024,2024-10-20
+2243081122,Atik Hasan,atik.hasan@uttarauniversity.edu.bd,CyberCon 2024,2024-10-20
+2243081143,Sabbir Hossain,sabbir.h34@uttarauniversity.edu.bd,CyberCon 2024,2024-10-20
+2243081147,MD NAHID HASAN,nahid.h12@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081142,Jakaria Parvez,jakaria.p@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081129,MD. TANVEER KHANDOKER,tanveer.k@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081017,Tanshin,tanshin.a@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2223081110,Ayesha Akter,2223081110@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081037,MD. ASADUZZAMAN RATUL,asaduzzaman.r@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2223081120,Bornali Sarker,2192081042@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2233081418,Md.Maidul Islam Fahim,maidul.if@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2212081039,Asma Sadiya Bristy,2212081039@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081036,ALI -AL-KAYES,ali.kayes@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081019,MD. ARAFAT HOSSEN RAZU,arafat.r03@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2233081566,MD. Syedur Rahman Bhuyan,syedur.b@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081010,Md.Sajidul Islam,sajidul.i@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081012,Abul Basher Arabi,abul.arabi@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081138,Forid Uddin Khan Raiyan,forid.khan@uttarauniversity.edu.bd,CyberCon 2024,2024-10-21
+2243081114,Purnima Akter,purnima.a@uttarauniversity.edu.bd,CyberCon 2024,2024-10-22
+2243081113,Jerin Aslam,jerin.mou@uttarauniversity.edu.bd,CyberCon 2024,2024-10-22
+2243081016,Tasmim akter,tasmim.a@uttarauniversity.edu.bd,CyberCon 2024,2024-10-23
+2243081196,MD KAIFUR RAHMAN,kaifur.r@uttarauniversity.edu.bd,CyberCon 2024,2024-10-23
+2233081272,Md.Zonaed Hossain,zonaed.h@uttarauniversity.edu.bd,CyberCon 2024,2024-10-23
+2233081265,Md.Rokib hasan noyon,rokib.noyon@uttarauniversity.edu.bd,CyberCon 2024,2024-10-23
+2213081071,Md. Imam hasan mehedi,2213081071@uttarauniversity.edu.bd,CyberCon 2024,2024-10-23
+2243081032,Md Siam Arefin,siam.a02@uttarauniversity.edu.bd,CyberCon 2024,2024-10-24
+2243081002,REDUANA ZAMAN SHUCHI,reduana.s@uttarauniversity.edu.bd,CyberCon 2024,2024-10-24
+2233081395,Emon Roy,emon.roy@uttarauniversity.edu.bd,CyberCon 2024,2024-10-24
+2243081108,Mahidul Islam,mahidul.i02@uttarauniversity.edu.bd,CyberCon 2024,2024-10-24
+2221081009,Md. Mosaddik Hossain Asif,2221081009@uttarauniversity.edu.bd,CyberCon 2024,2024-10-24
+2243081086,Tamim Sheikh,tamim.s04@uttarauniversity.edu.bd,CyberCon 2024,2024-10-24
+2200157442,Abdul Muhit Sifat,abdul.s03@uttarauniversity.edu.bd,CyberCon 2024,2024-10-25
+2243081085,Khaled Saifullah Gesun,khaled.g@uttarauniversity.edu.bd,CyberCon 2024,2024-10-25
+2243081177,Md Tanvir,tanvir.a07@uttarauniversity.edu.bd,CyberCon 2024,2024-10-26
+2241081338,Sharifur Rahman,sharifur.r@uttarauniversity.edu.bd,CyberCon 2024,2024-10-26
+2243081006,T.M. Ashfaqur Rahman Riyad,ashfaqur.r@uttarauniversity.edu.bd,CyberCon 2024,2024-10-26
+2243081018,Abdullah Al Mamun,abdullah.a28@uttarauniversity.edu.bd,CyberCon 2024,2024-10-26
+2241081084,Yeasin Arafat,yeasin.a04@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081187,JUBAYER,jubayer1@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081087,Shuvo chackro borty,shuvo.c@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2241081046,Md. Jihad Hasan,jihad.h@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081193,Hawa akter,hawa.a@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081197,Most. Taslima Akter Tonne,taslima.at@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081050,NISHAT TAMANNA,nishat.t@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081334,LUTFUN NAHAR BARSHA,lutfun.nahar@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081173,Md Iftekharul Islam Shanto,iftekharul.s@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2243081034,Abdul Muhimin Akanda,abdul.a15@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081501,Md. Khadimul Islam,khadimul.i1@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081001,Mst Sadia Afrin Eva,mst.sae@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081030,Amena Akter Keya,amena.ak@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081371,Liyar Ahmed Farazi,liyar.af@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2223081048,MD. Hasan Ali,2223081048@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081019,Afsana Yesmin Shova,afsana.ys@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2233081415,Md. Seam Sikder Nahid,seam.sn@uttarauniversity.edu.bd,CyberCon 2024,2024-10-28
+2243081021,Md. Ashraful Alam Arif,ashraful.a07@uttarauniversity.edu.bd,CyberCon 2024,2024-10-29
+2243081098,Mahamodul Hasan,mahamodul.h03@uttarauniversity.edu.bd,CyberCon 2024,2024-10-29
+2243081031,Yanoor Akter Nipa,yanoor.n@uttarauniversity.edu.bd,CyberCon 2024,2024-10-29
+2233081181,Md Zahid Hasan Tanim,zahid.ht@uttarauniversity.edu.bd,CyberCon 2024,2024-10-29
+2233081146,Shiam Mahmud,shiam.m@uttarauniversity.edu.bd,CyberCon 2024,2024-10-29
+2233081281,MD. RAKIB HOSSAIN,rakib.hn1@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2212081040,Md. Bakhtiar Galib Siyam,2212081040@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2243081051,Jannatul Naim Jerin,jannatul.j04@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2243081043,Naznin Sultana,naznen.s@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2243081046,Taspriya Sultana,taspriya.s@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2243081059,Sajjadul Islam Noman,sajjadul.n@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2243081047,Jihadul Islam Siam,jihadul.s@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2241081076,Tasnim Ahammed Sakib,tasnim.s02@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2233081153,Md Sakibul Hasan ZIM,sakibul.hz@uttarauniversity.edu.bd,CyberCon 2024,2024-10-30
+2233081127,MD Mahmudul Hasan Somik,mahmudul.hs@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2243081117,Khadiza akter,khadiza.a05@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2213081020,Mohammad Abul Hashem,2213081020@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2243081077,Md Jobayar Hossain,jobayar.h@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2243081080,Md Abdul Karim,abdul154@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2223081054,Mariya Sanzi,2223081054@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2223081058,Hafiza Akhter happy,2223081058@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2223081050,Humaira akter Mim,2223081050@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2243081075,Labib Hossain Tondrith,labib.t@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2233081550,Kanej Fatema Keya,kanej.k@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2243081074,AZMUL FUWAD HASIB,azmul.h@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2243081083,Marjana Akter Tenny,marjana.t@uttarauniversity.edu.bd,CyberCon 2024,2024-10-31
+2223081039,Md. Robiul Islam,2223081039@uttarauniversity.edu.bd,CyberCon 2024,2024-11-01
+2233081160,Anup Halder,anup.h@uttarauniversity.edu.bd,CyberCon 2024,2024-11-01
+2213081060,Jewel barai,2213081060@uttarauniversity.edu.bd,CyberCon 2024,2024-11-01
+2243081104,Gazi Jahir Ahmed,gazi.ahmed@uttarauniversity.edu.bd,CyberCon 2024,2024-11-02
+2243081119,Farjana Akter Urmi,farzana.u@uttarauniversity.edu.bd,CyberCon 2024,2024-11-03
+2243081118,Orjita,orjita01@uttarauniversity.edu.bd,CyberCon 2024,2024-11-03
+2241081083,MD JUBAED HASAN,jubaed.h@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2243081030,Neamul Islam Sium,neamul.s@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2233081375,Dina Sanjida,dina.s@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2233081177,MD.Rakibul Islam,rakibul.i5@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2233081236,Md. Nasim Uddin Khan,nasim.uk@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2233081539,ANIS MONDOL,anis.m@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2243081007,Jannatul,jannatul.f17@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2233081158,Sumaya Akter,sumaya.a@uttarauniversity.edu.bd,CyberCon 2024,2024-11-04
+2233081379,Ruksana Khatun,ruksana.k@uttarauniversity.edu.bd,CyberCon 2024,2024-11-05
+2233081229,Tamim Rahman Tauhid,tamim.rt@uttarauniversity.edu.bd,CyberCon 2024,2024-11-05
+2243081167,Md. Abu Hasan,abu.hasan02@uttarauniversity.edu.bd,CyberCon 2024,2024-11-06
+2241081276,Al hasanul morsalin,hasanul.m@uttarauniversity.edu.bd,CyberCon 2024,2024-11-06
+2243081121,Muntasir Ahmed Reyon,muntasir.r@uttarauniversity.edu.bd,CyberCon 2024,2024-11-06
+2241081250,Umma habiba shupti,umma.s@uttarauniversity.edu.bd,CyberCon 2024,2024-11-06
+2241081066,Nadia Islam,nadia.i@uttarauniversity.edu.bd,CyberCon 2024,2024-11-07
+2241081362,Md. Shagar Hossain,shagar.h@uttarauniversity.edu.bd,CyberCon 2024,2024-11-07
+2241081385,Md. Siam Rafi,siam.rafi@uttarauniversity.edu.bd,CyberCon 2024,2024-11-07
+2243081015,Md Mostakin Mir,mostakin.m@uttarauniversity.edu.bd,CyberCon 2024,2024-11-07
+2243081026,Md. Rakibul Hasan,rakibul.h20@uttarauniversity.edu.bd,CyberCon 2024,2024-11-09
+2241081048,Amir Hamja,amir.hamja02@uttarauniversity.edu.bd,CyberCon 2024,2024-11-09
+2241081091,Md.Mohaiminul Islam Apon,mohaiminul.a@uttarauniversity.edu.bd,CyberCon 2024,2024-11-09
+2243081160,Md Rabby Ahmmed,rabby.a@uttarauniversity.edu.bd,CyberCon 2024,2024-11-09
+2233081482,Mahbub Alom Jony,mahbub.aj@uttarauniversity.edu.bd,CyberCon 2024,2024-11-09
+2243081089,Md.Sakibul Hasan,sakibul.h05@uttarauniversity.edu.bd,CyberCon 2024,2024-11-09
+2243081139,Ayman Fatin Rafsan,ayman.r@uttarauniversity.edu.bd,CyberCon 2024,2024-11-10
+2233081305,Tanvir Patuary,tanvir.p@uttarauniversity.edu.bd,CyberCon 2024,2024-11-10
+2241081056,Md. Parvaj Mosharof,parvaj.m@uttarauniversity.edu.bd,CyberCon 2024,2024-11-10
+2233081505,Shuvro Dev Nath,shuvro.dn@uttarauniversity.edu.bd,CyberCon 2024,2024-11-10
+2233081168,Udoy Martin Corraya,udoy.mc@uttarauniversity.edu.bd,CyberCon 2024,2024-11-10
+2233081523,MD Toriqul Islam Mahedi,toriqul.m@uttarauniversity.edu.bd,CyberCon 2024,2024-11-12
+2233081494,Parvez Al Mumin,parvez.am@uttarauniversity.edu.bd,CyberCon 2024,2024-11-13
+2233081266,RAIAN MAHADI,raian.mahadi@uttarauniversity.edu.bd,CyberCon 2024,2024-11-17
+2233081040,Mst Tasnim Amina Tanha,tasnim.at@uttarauniversity.edu.bd,CyberCon 2024,2024-11-17
+2233081267,Jamil Sarker Hamim,jamil.hamim@uttarauniversity.edu.bd,CyberCon 2024,2024-11-18
+2241081302,Hafca Akter Happy,hafca.h@uttarauniversity.edu.bd,CyberCon 2024,2024-11-30
+2241081078,Sadia Akter,sadia.a06@uttarauniversity.edu.bd,CyberCon 2024,2024-12-01
+2241081388,Israt Jahan Tamanna,israt.t02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-01
+2233081384,MD.FAYSAL MIA,faysal.mia@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081045,MD WALID HASAN,walid.h@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2233081347,Zaki Asif,zaki.asif@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081314,Adnan Rahman Refat,adnan.r@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081311,Muzahid,muzahid.m@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2233081296,Nadia Tabassum Borne,nadia.borne@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2243081064,Md. Rakib,rakib112@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081307,Arman Hossain,arman.h04@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081044,Md Siyam,siyam.mia@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081304,Marzia Rahman Monira,marzia.m@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081300,Mst. Maria Akter Pritha,maria.p@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081267,Md.Istiak Zaman,istiak.m@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2231081066,Tasmiha Taher Hamim,2231081066@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2231081057,Ashiquzzaman Ziat,2231081057@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2231081045,Taskia Jahan Mim,2231081045@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081297,MD. MARUF MIAH,maruf.miah02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-02
+2241081079,Md Rezve Rohman Rahul,rezve.r@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2231081102,Md. Shipon Hossain,2231081102@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081227,Tasnim Sadik,tasnim09@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081176,Mostafizur Rahman Mahin,rahman.mahin@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081265,Shanta Akter,shanta.a02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081269,Abir,abir.molla@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081254,Tamanna Binta Rahman,tamanna.r02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081210,Golam Saroar Nice,golam.nice@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2243081070,Nafia khan,nafis010@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081247,Lamia yasmin,lamia.y@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081278,Nusrat Jahan Mim,nusrat.mim@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2243081062,Adnan Arefin Ratul,adnan.r02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081123,Rifat Jahan,rifat.j@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081380,Monjurul Islam,monjurul.i1@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081214,Maruf kh Turjo,maruf.t@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081367,Md. Masud Rana,masud.rana09@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081201,Arafat Chowdhury,arafatul.c@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081306,Sourav Chakraborty,sourav.c@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081209,Emon roy,emon.roy02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081226,RUBAYED ISLAM RUDRO,rubayed.i@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081441,Nazma Khatun,nazma.k@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081319,MD. MEHEDI HASSAN,mehedi.h47@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2243081156,Ahmed Talha,ahmed.t02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081094,Sharmin Akter Mitu,sharmin.am@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081453,Mustafijur Rahman,mustafijur.rp@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081169,Afsana Tahsin Toru,afsana.tt@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081381,Radul Islam,radul.islam@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081273,Nahid Mahmud Saron,nahid.s@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081394,MD Mojahid,mojahid02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081225,Promita Roy Chowdhury,promita.c@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081370,Minhajul Islam,minhajul.i04@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081058,Md. Fahim Mahmud,fahim.m@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081460,Nawshad Ali Joy,nawshad.aj@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081229,Maria sultana shorna,maria.s@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081100,Md.Mahe Alam Emon,mahe.ae@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081137,Raika Rowshan Oishy,raika.o@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2243081066,Rinki Akhter,rinki.a@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081064,Forhad Rahman,forhad.b@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081162,Kawser Ahmed Asif,kawser.a@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081507,Shuvo Chandra Das,shuvo.d@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081551,Md Mahfuzul Alam,mahfuzul.a@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081533,MD SAHBIR RAHMAN BESAL,sahbir.b@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2213081070,Md. Salim Reza,2213081070@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2243091063,MD. Rana Prodhania,rana.p@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2222081017,Md Mustakim,2222081017@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081250,Most Labila Akter Nura,labila.n@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2241081178,Md. Ismail Khunddkar,ismail.k02@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081164,Md Hasibul Hasan,hasibul.h@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2243091100,Md Sydul Hasan,224309110@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2233081405,Pranto Kumar Shil,pranto.ks@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2223081003,Abu Said,2223081003@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2223081069,Sayma Sultana Rifa,2223081069@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2223081016,Sanjida Islam,2223081016@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
+2223081079,Al Amin Hossen,2223081079@uttarauniversity.edu.bd,CyberCon 2024,2024-12-03
