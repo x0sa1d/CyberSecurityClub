@@ -16,13 +16,11 @@ A professional web-based certificate generation system for CyberCon 2024 partici
 
 ```text
 CertificateGenerator/
-├── index.html                 # Main web interface with two-step validation
+├── certificate-generator.html # Main web interface with two-step validation
 ├── certificate-style.css      # Professional styling matching website design
-├── certificate-generator.js   # Frontend logic with security features
+├── certificate-generator.js   # Clean frontend logic with Dancing Script font
 ├── student-data.csv           # CyberCon24 participant database (200+ entries)
 ├── Certificate.png            # Custom certificate template (user-provided)
-├── positioning-helper.html    # Development tool for template positioning
-├── config.json               # System configuration
 ├── CANVA_SETUP.md            # Template integration guide
 ├── cert/CyberCon24.png       # Welcome notification banner image
 └── README.md                 # This documentation
