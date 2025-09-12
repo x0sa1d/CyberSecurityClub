@@ -1,5 +1,11 @@
 User-agent: *
 
+# Block sensitive files and data
+Disallow: /CertificateGenerator/student-data.csv
+Disallow: /CertificateGenerator/admin.html
+Disallow: /*.csv$
+
+# Block git files and directories
 Disallow: /.git/HEAD   
 Disallow: /.git/config  
 Disallow: /.git/index    
@@ -7,7 +13,6 @@ Disallow: /.git/logs/
 Disallow: /.gitattributes/       
 Disallow: /.gitignore/
 Disallow: /.git/
-Disallow: /admin.html/
 
 # Priority pages for crawling
 Allow: /index.html
@@ -16,11 +21,12 @@ Allow: /events.html
 Allow: /CTF.html
 Allow: /gallery.html
 Allow: /recruitment.html
-Allow: /links.html
+Allow: /resources.html
 Allow: /sponsors.html
 Allow: /advisor.html
 Allow: /groups.html
 Allow: /MemberShip.html
+Allow: /CertificateGenerator/certificate-generator.html
 
 # Allow all assets
 Allow: /assets/
@@ -31,8 +37,24 @@ Sitemap: https://cybersecurity.club.uttara.ac.bd/sitemap.xml
 # Crawl delay (optional)
 Crawl-delay: 1
 
-#/etc/nginx/sites-available/
+# NGINX CONFIGURATION EXAMPLES FOR BLOCKING ACCESS:
+# Add these location blocks to your nginx server configuration:
+#
+# Block access to CSV files
+# location ~* \.csv$ {
+#     deny all;
+#     return 403;
+# }
+#
+# Block access to sensitive certificate generator files
+# location ~ ^/CertificateGenerator/(student-data\.csv|admin\.html)$ {
+#     deny all;
+#     return 403;
+# }
+#
+# Block access to git files
 # location ~ /\.git {
-#    deny all;
-#    return 403;
-#}
+#     deny all;
+#     return 403;
+# }
+# }
