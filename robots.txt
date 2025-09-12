@@ -4,8 +4,6 @@ User-agent: *
 Disallow: /CertificateGenerator/student-data.csv
 Disallow: /CertificateGenerator/admin.html
 Disallow: /*.csv$
-Disallow: /flag.txt
-Disallow: /flag.html
 
 # Block git files and directories
 Disallow: /.git/HEAD   
