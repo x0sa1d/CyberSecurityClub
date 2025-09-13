@@ -541,33 +541,6 @@ img {
   color: var(--background-color);
   transition: all 0.3s ease;
 }
-/* 
-.site-credit a {
-  color: var(--light-text-color);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  vertical-align: baseline;
-}
-.site-credit a:hover {
-  color: var(--link-color);
-  transform: translateY(-1px);
-  font-weight: 800;
-}
-.site-credit i {
-  font-size: 16px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-}
-
-.site-credit a:hover i {
-  transform: scale(1.1);
-} */
-
 /* Cool Social Media Tooltips for Index Page */
 .home-social-link {
   position: relative;
@@ -3744,4 +3717,54 @@ img {
   .news-card-title {
     font-size: 1.1rem;
   }
+}
+/*! GitHub Contributors Section */
+.github-contributors-section {
+  text-align: center;
+}
+.github-contributors-title {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.github-contributors-list {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.github-contributor {
+  position: relative;
+  display: inline-block;
+}
+.github-contributor img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #23272f;
+  background: #23272f;
+  transition: transform 0.2s;
+  object-fit: cover;
+}
+.github-contributor:hover img {
+  transform: scale(1.15);
+  border-color: #0000FF;
+}
+.github-contributor-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #ffffff;
+  padding: 7px 14px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  z-index: 10;
+}
+.github-contributor:hover .github-contributor-tooltip {
+  display: block;
 }
