@@ -1,5 +1,6 @@
 async function loadContributors() {
-  const url = "/api/contributors";
+  // const url = "http://localhost:5000/api/contributors"; for local use with py-api
+  const url = "https://cybersecurity.club.uttara.ac.bd/api/contributors"; //public api-endpoint
   const container = document.getElementById('github-contributors-list');
   container.innerHTML = "Loading...";
   try {
