@@ -1,5 +1,5 @@
 async function loadContributors() {
-  const url = "http://localhost:5000/api/contributors";
+  const url = "/api/contributors";
   const container = document.getElementById('github-contributors-list');
   container.innerHTML = "Loading...";
   try {
